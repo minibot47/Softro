@@ -7,81 +7,58 @@ const works = [
   {
     title: 'E-commerce Branding',
     description:
-      'A full brand and storefront experience built to showcase products with clarity, trust, and a memorable visual language.',
-    tags: ['E-commerce', 'Branding'],
+      'Complete branding package for a sustainable e-commerce startup.',
+    tags: ['Graphic Design', 'Branding'],
     bg: '#fce4ec',
-    accent: '#1a1a1a',
-    image:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop&q=80',
-    imageAlt: 'E-commerce checkout and packaging',
+    image: '/images/home4-portfolio-img.png',
   },
   {
     title: 'Restaurant Identity',
     description:
-      'Warm typography, tactile print, and a flexible identity kit that feels at home on menus, signage, and social.',
+      'Complete branding package for a sustainable e-commerce startup.',
     tags: ['Branding', 'Print Design'],
     bg: '#f9fbe7',
-    accent: '#1a1a1a',
-    image:
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=800&fit=crop&q=80',
-    imageAlt: 'Restaurant interior and dining',
+    image: '/images/home4-portfolio-img2.png',
   },
   {
     title: 'Creative Campaign',
     description:
-      'Campaign art direction and rollout across digital and OOH, with a bold palette and a single clear story.',
-    tags: ['Campaign', 'Strategy'],
+      'Complete branding package for a sustainable e-commerce startup.',
+    tags: ['Graphic Design', 'Branding'],
     bg: '#e1f5fe',
-    accent: '#1a1a1a',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop&q=80',
-    imageAlt: 'Creative team reviewing campaign boards',
+    image: '/images/home4-portfolio-img3.png',
   },
   {
     title: 'SaaS Landing Page',
     description:
-      'Product-led UI, crisp hierarchy, and motion that explains the workflow without overwhelming new visitors.',
-    tags: ['Web', 'UI/UX'],
+      'Complete branding package for a sustainable e-commerce startup.',
+    tags: ['Web Design', 'Product UI'],
     bg: '#fff3e0',
-    accent: '#1a1a1a',
-    image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80',
-    imageAlt: 'Analytics dashboard on laptop',
+    image: '/images/home4-portfolio-img4.png',
   },
 ]
 
-/** Pixels of scroll after a section “takes over” to finish shrink / fade for cards below */
-const SCROLL_RANGE = 340
-const MIN_SCALE = 0.86
-const MIN_OPACITY = 0.48
+const SCROLL_RANGE = 300
 
-function ArrowUpRight() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M7 17L17 7M17 7H7M17 7v10" />
-    </svg>
-  )
-}
-
-function StickyProjectCard({ work, stackIndex }) {
+function StickyProjectCard({ work }) {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <div className="overflow-hidden rounded-2xl shadow-[0_16px_48px_-12px_rgba(0,0,0,0.18)] ring-1 ring-black/[0.04]">
-        <div className="flex min-h-[min(520px,calc(100vh-7rem))] flex-col md:flex-row">
+      <div className="overflow-hidden rounded-2xl shadow-xl bg-white">
+        <div className="flex flex-col md:flex-row min-h-[500px]">
+          
           <div
-            className="flex w-full flex-col justify-between gap-8 p-8 sm:p-10 md:w-1/2 md:p-12 lg:p-14"
+            className="w-full md:w-1/2 p-10 flex flex-col justify-between"
             style={{ backgroundColor: work.bg }}
           >
             <div>
-              <h3 className="font-bold tracking-tight text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.1] text-[#111]">
-                {work.title}
-              </h3>
-              <p className="mt-5 max-w-md text-base leading-relaxed text-black/70">{work.description}</p>
-              <div className="mt-8 flex flex-wrap gap-2">
+              <h3 className="text-3xl font-medium">{work.title}</h3>
+              <p className="mt-4 text-black/70">{work.description}</p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
                 {work.tags.map(tag => (
                   <span
                     key={tag}
-                    className="rounded-full border border-black/20 bg-white/40 px-3 py-1.5 text-xs font-medium text-[#111]"
+                    className="text-xs border px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
@@ -89,167 +66,149 @@ function StickyProjectCard({ work, stackIndex }) {
               </div>
             </div>
 
-            <a
-              href="#"
-              className="group inline-flex items-center gap-2 text-sm font-semibold text-[#111] transition-opacity hover:opacity-80"
-            >
-              View Details
-              <span className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                <ArrowUpRight />
-              </span>
-            </a>
+            <span className="mt-6 text-sm font-semibold">View Details →</span>
           </div>
 
-          <div className="relative h-64 w-full min-h-[240px] md:h-auto md:w-1/2 md:min-h-0">
+          <div className="w-full md:w-1/2 h-[260px] md:h-auto">
             <img
               src={work.image}
-              alt={work.imageAlt}
-              className="h-full w-full object-cover"
-              loading={stackIndex < 2 ? 'eager' : 'lazy'}
+              className="w-full h-full object-cover"
+              alt=""
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent md:bg-gradient-to-l" />
           </div>
+
         </div>
       </div>
     </div>
   )
 }
 
-function getStickyTopPx() {
-  if (typeof window === 'undefined') return 96
-  return window.matchMedia('(min-width: 768px)').matches ? 112 : 96
-}
-
-function computeStackStyles(wrapperEls, scrollY, stickyTopPx, n) {
-  const absTops = Array.from({ length: n }, (_, j) => {
-    const el = wrapperEls[j]
-    if (!el) return Number.POSITIVE_INFINITY
-    return el.getBoundingClientRect().top + scrollY
-  })
+/* 🔥 STACK ANIMATION */
+function computeStackStyles(scrollY, n, cardHeight = 500) {
+  const viewportCenter = scrollY + window.innerHeight * 0.35
 
   return Array.from({ length: n }, (_, i) => {
-    let scale = 1
-    let opacity = 1
+    const cardCenter = i * cardHeight + cardHeight / 2
 
-    for (let j = i + 1; j < n; j++) {
-      const threshold = absTops[j] - stickyTopPx
-      if (scrollY >= threshold) {
-        const u = Math.min(1, Math.max(0, (scrollY - threshold) / SCROLL_RANGE))
-        scale *= 1 - 0.065 * u
-        opacity *= 1 - 0.14 * u
-      }
-    }
+    const distance = Math.abs(viewportCenter - cardCenter)
+
+    const progress = Math.min(distance / cardHeight, 1)
+
+    const eased = 1 - progress * progress
 
     return {
-      scale: Math.max(MIN_SCALE, scale),
-      opacity: Math.max(MIN_OPACITY, opacity),
+      scale: 1 + eased * 0.18,
+      brightness: 0.9 + eased * 0.1,
     }
   })
+}
+
+function getStickyTopPx() {
+  if (typeof window === 'undefined') return 96
+  return window.innerWidth >= 768 ? 112 : 96
 }
 
 export default function Portfolio() {
-  const n = works.length
   const wrapperRefs = useRef([])
-  const [stackStyles, setStackStyles] = useState(() =>
-    Array.from({ length: n }, () => ({ scale: 1, opacity: 1 }))
+  const [styles, setStyles] = useState(
+    works.map(() => ({ scale: 1, opacity: 1 }))
   )
-  const reducedMotionRef = useRef(false)
 
-  const setWrapperRef = useCallback(index => el => {
+  const setRef = useCallback(index => el => {
     wrapperRefs.current[index] = el
   }, [])
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    reducedMotionRef.current = mq.matches
-    const onMq = () => {
-      reducedMotionRef.current = mq.matches
-    }
-    mq.addEventListener('change', onMq)
-    return () => mq.removeEventListener('change', onMq)
-  }, [])
+    let raf = null
 
-  useEffect(() => {
-    let raf = 0
-
-    const tick = () => {
-      raf = 0
-      if (reducedMotionRef.current) {
-        setStackStyles(Array.from({ length: n }, () => ({ scale: 1, opacity: 1 })))
-        return
-      }
-
-      const scrollY = window.scrollY || document.documentElement.scrollTop
-      const stickyTopPx = getStickyTopPx()
-      const next = computeStackStyles(wrapperRefs.current, scrollY, stickyTopPx, n)
-      setStackStyles(next)
-    }
-
-    const onScroll = () => {
+    const handleScroll = () => {
       if (raf) return
-      raf = requestAnimationFrame(tick)
+    
+      raf = requestAnimationFrame(() => {
+        const scrollY = window.scrollY // ✅ FIXED
+    
+        const newStyles = computeStackStyles(
+          scrollY,
+          works.length,
+          500
+        )
+    
+        setStyles(newStyles)
+        raf = null
+      })
     }
 
-    tick()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-      if (raf) cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
     }
-  }, [n])
+  }, [])
 
   return (
     <section className="bg-[#f5f5f4] py-20 pb-32 rounded-[24px]">
-      <div className="mx-auto max-w-7xl px-6 pb-14">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
-            <span className="text-sm font-medium uppercase tracking-widest text-gray-500">Portfolio</span>
-            <h2 className="mt-2 text-4xl font-bold tracking-tight text-[#111] md:text-5xl">Glimpse Into Our Work</h2>
+        {/* Header */}
+        <div className="flex items-start justify-between mb-14 px-20">
+          <div className="flex items-start justify-between gap-5 w-[55%] ">
+            <span className="text-base font-normal text-black border border-green-500 px-2 py-0.5 rounded-full">Portfolio</span>
+            <div className="flex flex-col gap-5">
+              <h2
+                className="text-4xl md:text-5xl font-medium"
+              >
+                Glimpse into Our Work
+              </h2>
+              <h2 className="text-gray-500 text-lg">Transforming ideas into memorable digital  <br/>experiences.</h2>
+            </div>
           </div>
-
-          <a
-            href="#"
-            className="hidden items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-black md:inline-flex"
-          >
+          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors">
             View All
-            <ArrowUpRight />
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
           </a>
-        </div>
-      </div>
+        </div>   
 
-      <div className="relative isolate overflow-x-clip">
+      {/* STACK CONTAINER */}
+      <div className="relative">
         {works.map((work, i) => {
-          const { scale, opacity } = stackStyles[i] || { scale: 1, opacity: 1 }
+          const { scale, opacity, brightness } = styles[i]
+
+
           return (
-            <div key={work.title} ref={setWrapperRef(i)} className="relative min-h-[115vh]">
-              {/* Sticky on outer only — transform on inner avoids breaking sticky in browsers */}
-              <div className="sticky top-24 pb-6 md:top-28" style={{ zIndex: 10 + i }}>
+              <div
+                className="sticky top-24 md:top-28 z-10"
+                style={{ zIndex: 10 + i }}
+              >
                 <div
-                  className="will-change-[transform,opacity]"
+                  className="will-change-[transform,filter]"
                   style={{
-                    transform: `scale(${scale})`,
+                    transform: `scale(${scale}) translateZ(0)`,
                     opacity,
-                    transformOrigin: 'top center',
+                    transformOrigin: 'center',
+                    willChange: 'transform',
+                    transition: 'transform 0.08s linear,',
                   }}
                 >
-                  <StickyProjectCard work={work} stackIndex={i} />
+                  <StickyProjectCard work={work} />
                 </div>
               </div>
-            </div>
           )
         })}
       </div>
 
-      <div className=" mt-6 w-[50%] m-auto flex justify-between items-center px-6 py-3 rounded-[16px] border-[0.1px] border-gray-400/30 shadow-sm text-center">
-        <div>
-          <h2 className='text-left'>Don't hesitate to <br/>Collaborate with Us</h2>
-        </div>
-        <Link href="" className='flex items-center gap-2 px-5 py-3 rounded-[10px] border-[0.1px] border-gray-200/30 bg-[#C8F8A9]'>
-          <h2>Contact us</h2>
-          <img src='' alt='icon'/>
+      {/* CTA */}
+      <div className="mt-14 w-[50%] m-auto flex justify-between items-center px-6 py-3 rounded-[16px] border border-gray-300 shadow-sm">
+        <h2>Don't hesitate to Collaborate with Us</h2>
+
+        <Link
+          href="#"
+          className="flex items-center gap-2 px-5 py-3 rounded-[10px] bg-[#C8F8A9]"
+        >
+          Contact us
+          <img src='/images/arrow.svg' alt='icon' className='w-7 h-7'/>
         </Link>
       </div>
     </section>

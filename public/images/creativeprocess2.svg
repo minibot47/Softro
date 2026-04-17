@@ -1,0 +1,14 @@
+<svg class="animated-vector" width="181" height="124" viewBox="0 0 181 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.2" id="theMotionPath12" d="M181 123H113.5C96.9315 123 83.5 109.569 83.5 93V31C83.5 14.4315 70.0685 1 53.5 1H0" stroke="black"/>
+                                    <path d="M0 0 L13 0" stroke="url(#paint0_linear_354_7442)" stroke-linecap="round" stroke-width="2">
+                                        <animateMotion dur="4s" begin="0s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1">
+                                            <mpath href="#theMotionPath12"/>
+                                        </animateMotion>
+                                    </path>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_354_7442" x1="10" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#CB0000" offset="0"/>
+                                            <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>

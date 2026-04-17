@@ -1,57 +1,120 @@
+'use client'
+
+import Image from "next/image"
+import { useEffect, useState } from "react"
+
 const team = [
-  { name: 'David Chen', role: 'Creative Director', color: '#4a7c59' },
-  { name: 'Aidan Curtis', role: 'Lead Developer', color: '#2d5a8a' },
-  { name: 'Linda Johnson', role: 'UX Designer', color: '#8a2d5a' },
-  { name: 'Daniel Lee', role: 'Brand Strategist', color: '#5a4a2d' },
+  { name: 'David Chen', role: 'Creative Director', color: '#4a7c59', img:'/images/team-img.png' },
+  { name: 'Aidan Curtis', role: 'Lead Developer', color: '#2d5a8a', img:'/images/team-img2.png' },
+  { name: 'Linda Johnson', role: 'UX Designer', color: '#8a2d5a', img:'/images/team-img3.png' },
+  { name: 'Daniel Lee', role: 'Brand Strategist', color: '#5a4a2d', img:'/images/team-img4.png' },
+  { name: 'John Stone', role: 'Brand Strategist', color: '#5a4a2d', img:'/images/team-img5.png' },
+  { name: 'Emily Johnson', role: 'Brand Strategist', color: '#5a4a2d', img:'/images/team-img6.png' },
+  { name: 'Sarah Kahn', role: 'Brand Strategist', color: '#5a4a2d', img:'/images/team-img7.png' },
+  { name: 'Aiden Smith', role: 'Brand Strategist', color: '#5a4a2d', img:'/images/team-img8.png' },
 ]
 
+const VISIBLE = 4
+const MAX_INDEX = team.length - VISIBLE
+
 export default function Team() {
+  const [index, setIndex] = useState(0)
+
+  // auto slide forward
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(prev => (prev >= MAX_INDEX ? 0 : prev + 1))
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="py-24 px-6" style={{ background: '#f5faf5' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-14">
-          <div>
-            <span className="text-sm font-medium text-gray-400 uppercase tracking-widest">People</span>
-            <h2
-              className="text-4xl md:text-5xl font-bold mt-2"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              Our Talented Team
-            </h2>
-          </div>
-          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black">
-            Find Us →
-          </a>
+
+        {/* HEADER */}
+        <div className="mb-14">
+          <h2 className="text-4xl md:text-5xl font-medium">
+            Our Talented Team
+          </h2>
+          <p className="text-gray-500 text-lg mt-3">
+            Transforming ideas into memorable digital experiences.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {team.map((member, i) => (
-            <div key={i} className="group cursor-pointer">
-              {/* Avatar */}
-              <div
-                className="rounded-2xl w-full aspect-square mb-4 flex items-end justify-center overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]"
-                style={{
-                  background: `linear-gradient(160deg, ${member.color}33 0%, ${member.color}88 100%)`,
-                }}
-              >
-                <div className="flex flex-col items-center pb-4">
+        {/* SLIDER */}
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{
+              transform: `translateX(-${index * 25}%)`, // 25% per step (4 items visible)
+            }}
+          >
+            {team.map((member, i) => (
+              <div key={i} className="w-1/4 flex-shrink-0 px-3">
+                <div className="group cursor-pointer">
+
+                  {/* IMAGE CARD */}
                   <div
-                    className="w-16 h-16 rounded-full mb-2 flex items-center justify-center text-white text-xl font-bold"
-                    style={{ background: member.color }}
+                    className="relative rounded-2xl w-full aspect-square mb-4 overflow-hidden transition-transform duration-300 group-hover:scale-[1.03]"
+                    style={{
+                      background: `linear-gradient(160deg, ${member.color}33 0%, ${member.color}88 100%)`,
+                    }}
                   >
-                    {member.name[0]}
+                    <Image
+                      src={member.img}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+
+                    {/* SOCIAL POPUP */}
+                    <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="mb-2 flex gap-3 translate-y-2 group-hover:translate-y-0 transition">
+                        
+                      
+
+                      {["twitter", "linkedin", "insta"].map((icon, i) => (
+                        <div
+                          key={i}
+                          className="w-9 h-9 bg-black rounded-full shadow flex items-center justify-center"
+                        >
+                          <Image
+                            src={`/icons/${icon}.svg`}
+                            alt={icon}
+                            width={16}
+                            height={16}
+                          />
+                        </div>
+                      ))}
+
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    className="w-20 h-20 rounded-t-full"
-                    style={{ background: `${member.color}55` }}
-                  />
+
+                  {/* TEXT */}
+                  <h3 className="font-bold text-xl">{member.name}</h3>
+                  <p className="text-gray-500 text-sm">{member.role}</p>
                 </div>
               </div>
-              <h3 className="font-bold text-base">{member.name}</h3>
-              <p className="text-gray-500 text-sm">{member.role}</p>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        {/* DOTS */}
+        <div className="flex justify-center gap-2 mt-10">
+          {Array.from({ length: MAX_INDEX + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === index ? "w-6 bg-black" : "w-2 bg-gray-300"
+              }`}
+            />
           ))}
         </div>
+
       </div>
     </section>
   )

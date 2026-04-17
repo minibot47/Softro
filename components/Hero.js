@@ -1,27 +1,55 @@
+'use client'
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [imageScale, setImageScale] = useState(0)
   const [progress, setProgress] = useState(0)
   const [isScrolling, setIsScrolling] = useState(false)
+  const [windowH, setWindowH] = useState(800)
+
   const scrollTimerRef = useRef(null)
   const sectionRef = useRef(null)
 
+  // ✅ Handle resize properly
   useEffect(() => {
+    const handleResize = () => setWindowH(window.innerHeight)
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // ✅ Optimized scroll handler
+  useEffect(() => {
+    let ticking = false
+
     const onScroll = () => {
-      const scrollY = window.scrollY
-      const windowH = window.innerHeight
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY
+          const windowHeight = window.innerHeight
 
-      const scale = Math.min(Math.max((scrollY - windowH * 0.7) / (windowH * 0.8), 0), 1)
-      setImageScale(scale)
+          const scale = Math.min(
+            Math.max((scrollY - windowHeight * 0.7) / (windowHeight * 0.8), 0),
+            1
+          )
+          setImageScale(scale)
 
-      const docH = document.body.scrollHeight - windowH
-      setProgress(Math.round((scrollY / docH) * 100))
+          const docH = document.body.scrollHeight - windowHeight
+          setProgress(Math.round((scrollY / docH) * 100))
 
-      setIsScrolling(true)
-      clearTimeout(scrollTimerRef.current)
-      scrollTimerRef.current = setTimeout(() => setIsScrolling(false), 1500)
+          setIsScrolling(true)
+          clearTimeout(scrollTimerRef.current)
+          scrollTimerRef.current = setTimeout(() => setIsScrolling(false), 1500)
+
+          ticking = false
+        })
+
+        ticking = true
+      }
     }
+
     window.addEventListener('scroll', onScroll)
     return () => {
       window.removeEventListener('scroll', onScroll)
@@ -29,154 +57,161 @@ export default function Hero() {
     }
   }, [])
 
-  const windowH = typeof window !== 'undefined' ? window.innerHeight : 800
-
   return (
     <section
       ref={sectionRef}
-      className="relative pt-32 pb-16 overflow-x-hidden bg-[#F0FFE9]"
+      className="relative pt-32 pb-16 overflow-x-hidden flex flex-col bg-[url(/images/banner-bg.png)]"
     >
-      {/* Dark mode toggle */}
-      <div className={`dark-toggle${isScrolling ? ' visible' : ''}`}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </div>
-
       {/* Creative */}
-      <div className='text-center mb-3 mt-12 w-full flex items-center justify-center'>
-        <h2 className='bg-[#E07938] px-4 py-1.5 rounded-full w-fit font-medium text-lg text-white'>Creative design agency</h2>
+      <div className="text-center mb-5 mt-12 w-full flex items-center justify-center">
+        <h2 className="bg-[#E07938] px-3 py-1 rounded-full w-fit font-normal text-lg text-white font-funnel">
+          Creative Design Agency
+        </h2>
       </div>
 
-      {/* Header text centered */}
-      <div className="text-center px-6 mb-10">
-        <h1 className="text-5xl md:text-7xl font-medium leading-10 mb-4 tracking-tight">
-          Inspiring Creativity, Driving<br /> Real Business Growth
+      {/* Header */}
+      <div className="text-center px-6 mb-12">
+        <h1 className="text-5xl md:text-7xl font-bold leading-relaxed mb-2">
+          Inspiring Creativity, Driving
+          <br /> Real Business Growth
         </h1>
-        <p className="text-gray-600 max-w-xl mx-auto text-base leading-relaxed mt-4">
-          We craft unique digital experiences that help brands stand out, connect with audiences, and achieve measurable results.
+
+        <p className="text-gray-600 max-w-full mx-auto text-lg leading-relaxed mt-2">
+          We craft unique digital experiences that help brands stand out,
+          connect with audiences,
+          <br /> and achieve measurable results.
         </p>
-        <div className="flex items-center justify-center gap-4 mb-6 mt-8">
+
+        <div className="flex items-center justify-center gap-4 mb-10 mt-8">
           <a
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:opacity-90"
-            style={{ background: 'var(--green-lime)', color: '#1b3a2b' }}
+            className="inline-flex bg-[#C8F8A9] text-black items-center gap-2 px-6 py-3 rounded-xl text-lg font-light hover:opacity-90"
           >
             Start Your Project
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
+            <Image src="/images/arrow.svg" alt="arrow" width={20} height={20} />
           </a>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-600">Review on</span>
-            <span className="font-bold text-lg" style={{ fontFamily: 'var(--font-display)' }}>Clutch</span>
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#ff3d2e">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              ))}
+            <div className="flex flex-col">
+              <span className="text-lg text-gray-600">Review on</span>
+              <img
+                src="/images/clutchco-logo.svg"
+                alt="clutch"
+                className="w-20 h-5"
+              />
             </div>
-            <span className="text-sm text-gray-500">(20 Reviews)</span>
+
+            <div className="flex flex-col gap-2 mt-3">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="14" height="14" fill="#ff3d2e">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-sm text-gray-500">(20 Reviews)</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Stats row */}
-      <div className="flex items-center justify-between max-w-7xl mx-auto mb-8 px-20">
+      {/* Stats */}
+      <div className="flex items-center justify-between max-w-[1440px] mx-auto mb-8 px-16 w-full">
         <div className="flex items-center gap-3">
-          <div className="flex -space-x-2">
-            {['#4a7c59', '#2d5a3d', '#6aaa7a'].map((color, i) => (
+          <div className="flex -space-x-4">
+            {[
+              { img: "/images/counter-people-img1.png", name: "JD" },
+              { img: "/images/counter-people-img2.png", name: "AM" },
+              { img: "/images/counter-people-img3.png", name: "SK" },
+            ].map((user, i) => (
               <div
                 key={i}
-                className="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold"
-                style={{ background: color }}
+                className="relative w-11 h-11 rounded-full border-2 border-white overflow-hidden"
               >
-                {['JD', 'AM', 'SK'][i]}
+                <Image src={user.img} alt={user.name} fill className="object-cover" />
               </div>
             ))}
           </div>
+
           <div>
-            <p className="text-sm text-gray-600">we've already</p>
-            <p className="font-bold text-base">20k+ <span className="font-normal text-gray-500">active users</span></p>
+            <p className="text-lg">
+              we've already <span className="font-bold">20k+</span>
+            </p>
+            <p>active users</p>
           </div>
         </div>
 
         <div className="flex items-start gap-1">
-          <span className="text-7xl font-black leading-none" style={{ fontFamily: 'var(--font-display)' }}>12</span>
+          <span className="text-7xl  font-black">12</span>
           <div>
-            <span className="text-2xl font-bold text-gray-500">+</span>
-            <p className="text-sm text-gray-600 leading-tight">year of<br/>experiences</p>
+            <span className="text-2xl font-bold -ml-2">+</span>
+            <p className="text-lg ml-4 -mt-5">
+              year of
+              <br />
+              experiences
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Hero image — grows smoothly from center as you scroll */}
-      <div className="relative flex justify-center">
+      {/* ✅ FIXED HERO VIDEO (no duplication) */}
+      <div className="relative flex justify-center mt-5">
         <div
-          className="relative overflow-hidden"
+          className="relative overflow-hidden shadow-2xl"
           style={{
-            width: `calc(60% + ${imageScale * 40}vw)`,
+            width: `calc(40% + ${imageScale * 60}vw)`,
             borderRadius: `${20 - imageScale * 20}px`,
             height: `${400 + imageScale * (windowH - 400)}px`,
-            transition: 'none',
           }}
         >
           <div
-            className="w-full h-full flex items-center justify-center"
+            className="w-full h-full"
             style={{
-              background: 'radial-gradient(ellipse at 40% 50%, #2d6e4a 0%, #1b4a2e 40%, #0d2a1a 100%)',
+              transform: `scale(${1 + imageScale * 0.15})`,
             }}
           >
-            <div className="relative w-64 h-64">
-              <div
-                className="absolute inset-0 rounded-full opacity-60"
-                style={{
-                  background: 'conic-gradient(from 0deg, #4aaa6a, #a8e060, #2d8a4a, #6acd7a, #c8f08a, #1b6a3a, #4aaa6a)',
-                  filter: 'blur(2px)',
-                  transform: 'rotate(45deg) scale(1.2)',
-                  borderRadius: '40% 60% 55% 45% / 50% 45% 55% 50%',
-                }}
-              />
-              <div
-                className="absolute inset-8 rounded-full"
-                style={{
-                  background: 'radial-gradient(circle at 35% 35%, #a8e060, #2d8a4a)',
-                  filter: 'blur(1px)',
-                }}
-              />
-            </div>
+            <video
+              src="/images/home4-banner-video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          {imageScale === 0 && (
-            <div className="absolute right-6 top-1/2 w-4 h-4 rounded-full bg-gray-400 opacity-60" />
-          )}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "rgba(0,0,0,0.25)",
+              opacity: 0.2 + imageScale * 0.3,
+            }}
+          />
         </div>
       </div>
 
       {/* Scroll hint */}
       {imageScale === 0 && (
         <div className="text-center mt-6 animate-bounce">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a7c59" strokeWidth="2" className="mx-auto">
-            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          <svg width="20" height="20" stroke="#4a7c59" strokeWidth="2">
+            <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>
         </div>
       )}
 
-      {/* Progress pie chart */}
+      {/* ✅ FIXED PROGRESS */}
       {progress > 2 && (
         <div className="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center">
-          <svg width="56" height="56" viewBox="0 0 56 56" className="absolute inset-0">
-            {/* White background */}
+          <svg width="56" height="56">
             <circle cx="28" cy="28" r="28" fill="white" />
-            {/* Pie wedge */}
+
             {progress < 100 && (() => {
               const angle = (progress / 100) * 360
               const rad = (angle - 90) * (Math.PI / 180)
               const x = 28 + 28 * Math.cos(rad)
               const y = 28 + 28 * Math.sin(rad)
               const largeArc = angle > 180 ? 1 : 0
+
               return (
                 <path
                   d={`M28,28 L28,0 A28,28 0 ${largeArc},1 ${x},${y} Z`}
@@ -184,11 +219,15 @@ export default function Hero() {
                 />
               )
             })()}
-            {progress >= 100 && <circle cx="28" cy="28" r="28" fill="" />}
-            {/* Inner white circle — donut effect */}
+
+            {progress >= 100 && (
+              <circle cx="28" cy="28" r="28" fill="#a8d87c" />
+            )}
+
             <circle cx="28" cy="28" r="18" fill="white" />
           </svg>
-          <span className="relative z-10 text-xs font-bold text-black leading-none">
+
+          <span className="absolute text-xs font-bold">
             {progress}%
           </span>
         </div>

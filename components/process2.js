@@ -79,9 +79,9 @@ export default function Process2() {
             </div>
           </div>
 
-          <div className='relative w-full h-[300px]'>
-            <img src='/icons/process-progress-gif.gif' alt='globe' className='absolute bottom-5 z-10 w-[150px] h-[150px] right-10'/>
-            <img src='/icons/process-img.png' alt='arrow' className='absolute bottom-0 w-full h-full mt-1 -ml-1' />
+          <div className='relative w-[574px] h-[300px]'>
+            <img src='/icons/process-progress-gif.gif' alt='globe' className='absolute bottom-12 z-10 w-[150px] h-[150px] right-10'/>
+            <img src='/icons/process-img.png' alt='arrow' className='absolute bottom-0 w-full h-[233px] mt-1 -ml-1' />
           </div>
         </div>
 

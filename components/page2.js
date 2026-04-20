@@ -27,9 +27,9 @@ export default function Page2Content() {
   return (
     <>
       <Navbar/>
-      <section className="min-h-screen pt-20 2xl:px-10 px-3 bg-white dark:bg-[#0f1210]">
+      <section className="min-h-screen pt-24 2xl:px-10 px-3 bg-white dark:bg-[#0f1210]">
         {/* HERO */}
-        <div className="w-full grid grid-cols-2 bg-[#EEEEEE] min-h-[80vh] rounded-[24px]">
+        <div className=" relative w-full grid grid-cols-2 bg-[#EEEEEE] min-h-[80vh] rounded-[24px]">
 
           {/* LEFT */}
           <div className="flex flex-col justify-center px-16 xl:px-24 py-24 relative items-center">
@@ -63,13 +63,13 @@ export default function Page2Content() {
                     </div>
                     </div>
                     <div className='relative w-[180px] h-[90px] '>
-                        <img src='/icons/banner-global-icon.gif ' alt='globe' className='absolute bottom-0 right-0 w-[83px] h-[83px]'/>
+                        <img src='/icons/banner-global-icon.gif ' alt='globe' className='absolute bottom-4 right-1 w-[83px] h-[83px]'/>
                         <img src='/icons/updownarrow.svg' alt='arrow' className='absolute top-0 w-[170px] h-[90px] mt-1 -ml-1' />
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between">
-                <div>
+                <div className="flex items-center justify-between  border-t-[0.1px] border-black/30 ">
+                <div className='border-r-[0.1px] border-black/30 w-[40%] py-3'>
                     <div className="flex items-center gap-1.5 mb-1">
                     <span className="text-lg text-gray-500">Review on</span>
                     <div className="flex gap-0.5">
@@ -111,7 +111,7 @@ export default function Page2Content() {
           </div>
 
           {/* RIGHT — Carousel */}
-          <div className="relative">
+          <div className="relative rounded-r-[24px] overflow-hidden">
             {images.map((src, i) => (
               <img
                 key={i}
@@ -132,7 +132,7 @@ export default function Page2Content() {
                 <button
                   key={i}
                   onClick={() => setCurrentImage(i)}
-                  className="transition-all duration-300 rounded-r-[24px]"
+                  className="transition-all duration-300 rounded-full "
                   style={{
                     width: i === currentImage ? '20px' : '8px',
                     height: '8px',
@@ -141,8 +141,10 @@ export default function Page2Content() {
                 />
               ))}
             </div>
+          </div>
 
-            <div className="absolute bottom-0 -left-14 flex items-end z-10">
+          {/* STATS */}
+          <div className="absolute bottom-0 left-[65%] flex items-end z-50" style={{ transform: 'translateX(-80%)' }}>
             <div
                 className="rounded-t-2xl px-8 py-6 min-w-[150px]"
                 style={{
@@ -167,7 +169,6 @@ export default function Page2Content() {
             >
                 <p className="text-xs text-green-300 font-medium mb-4 leading-tight">Online<br/>Revenue</p>
                 <p className="text-4xl font-bold text-white">1.6X</p>
-            </div>
             </div>
           </div>
 

@@ -4,9 +4,9 @@ import { ThemeProvider } from '../components/themecontext'
 
 export const funnel = localFont({
   src: [
-    { path: '../public/fonts/FunnelDisplay-Light.woff', weight: '300' },
-    { path: '../public/fonts/FunnelDisplay-Light.woff2', weight: '400' },
-    { path: '../public/fonts/FunnelDisplay-Light.woff2', weight: '700' },
+    { path: '../public/fonts/FunnelDisplay-Light.woff2', weight: '300' },
+    { path: '../public/fonts/FunnelDisplay-Regular.woff2', weight: '400' },
+    { path: '../public/fonts/FunnelDisplay-SemiBold.woff2', weight: '700' },
   ],
   variable: '--font-funnel',
   display: 'swap',

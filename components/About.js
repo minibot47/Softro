@@ -33,7 +33,7 @@ export default function About() {
   }, [])
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white dark:bg-[#0f1210]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
@@ -49,9 +49,9 @@ export default function About() {
           {/* CARD */}
           <div
             ref={cardRef}
-            className="bg-white rounded-2xl p-2 border-[0.1px] shadow-sm w-[380px] h-[404px] flex flex-col justify-between overflow-hidden"
+            className="bg-white dark:bg-[#151a16] rounded-2xl p-2 border-[0.1px] border-gray-200 dark:border-gray-800 shadow-sm w-[380px] h-[404px] flex flex-col justify-between overflow-hidden"
           >
-            <h3 className="font-normal text-2xl mt-8 mb-5 text-center text-gray-800">
+            <h3 className="font-normal text-2xl mt-8 mb-5 text-center text-gray-800 dark:text-white">
               What Makes Us Different:
             </h3>
 
@@ -87,15 +87,15 @@ export default function About() {
 
         {/* RIGHT SIDE */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-thin mb-6">
+          <h2 className="text-4xl md:text-5xl font-thin mb-6 text-black dark:text-white">
             We Design Experiences That Transform Ideas Into Lasting Impact
           </h2>
 
-          <p className="text-gray-600 text-lg mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-lg mb-4">
             At Softro, we're storytellers, creators, and problem-solvers.
           </p>
 
-          <p className="text-gray-600 text-lg mb-8">
+          <p className="text-gray-600 dark:text-gray-300 text-lg mb-8">
             We help businesses stand out in the digital world.
           </p>
         </div>

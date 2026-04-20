@@ -120,14 +120,14 @@ function Sidebar({ open, onClose }) {
 
       {/* Sidebar panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-[520px] max-w-full bg-white z-[70] shadow-2xl transition-transform duration-500 ease-in-out overflow-y-auto ${open ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-[520px] max-w-full bg-white dark:bg-[#151a16] z-[70] shadow-2xl transition-transform duration-500 ease-in-out overflow-y-auto ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="p-10">
 
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-8 right-8 w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-500 transition-colors"
+            className="absolute top-8 right-8 w-11 h-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:border-gray-500 dark:hover:border-gray-500 transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2">
               <path d="M18 6L6 18M6 6l12 12"/>
@@ -140,7 +140,7 @@ function Sidebar({ open, onClose }) {
           </div>
 
           {/* Tagline */}
-          <p className="text-gray-500 text-lg leading-relaxed mb-12 max-w-sm">
+          <p className="text-gray-500 dark:text-gray-300 text-lg leading-relaxed mb-12 max-w-sm">
             We develop innovative digital solutions that enhance Software Development, Cloud & DevOps etc.
           </p>
 
@@ -157,7 +157,7 @@ function Sidebar({ open, onClose }) {
 
               {/* Chat With Us */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-5">Chat With Us</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Chat With Us</h3>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center flex-shrink-0">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.5">
@@ -167,14 +167,14 @@ function Sidebar({ open, onClose }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Send Us Mail</p>
-                    <p className="text-base font-semibold text-gray-900">info@example.com</p>
+                    <p className="text-base font-semibold text-gray-900 dark:text-white">info@example.com</p>
                   </div>
                 </div>
               </div>
 
               {/* Call Us */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-5">Call Us</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Call Us</h3>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center flex-shrink-0">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.5">
@@ -183,14 +183,14 @@ function Sidebar({ open, onClose }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Call 24/7 Hours</p>
-                    <p className="text-base font-semibold text-gray-900">2-965-871-8617</p>
+                    <p className="text-base font-semibold text-gray-900 dark:text-white">2-965-871-8617</p>
                   </div>
                 </div>
               </div>
 
               {/* Visit Office */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-5">Visit Office</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Visit Office</h3>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.5">
@@ -199,7 +199,7 @@ function Sidebar({ open, onClose }) {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-base font-semibold text-gray-900 leading-snug">
+                    <p className="text-base font-semibold text-gray-900 dark:text-white leading-snug">
                       1234 Innovation Drive, Suite 500 San Francisco, CA 94107 United States
                     </p>
                   </div>
@@ -211,7 +211,7 @@ function Sidebar({ open, onClose }) {
 
           {/* Follow Us */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-5">Follow Us</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Follow Us</h3>
             <div className="flex items-center gap-3">
               {[
                 { label: 'f', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
@@ -264,7 +264,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="w-full px-20 2xl:px-32 flex items-center justify-between h-20 bg-white border-b border-gray-200">
+        <div className="w-full px-20 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 font-light text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
@@ -285,8 +285,8 @@ export default function Navbar() {
                   onClick={() => setActive(link)}
                   className={`text-base font-medium transition-colors px-4 py-0.5 rounded-full border ${
                     active === link
-                      ? 'border-gray-400 text-black'
-                      : 'border-transparent text-gray-600 hover:border-gray-300 hover:text-black'
+                      ? 'border-gray-400 dark:border-gray-600 text-black dark:text-white'
+                      : 'border-transparent text-gray-600 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 hover:text-black dark:hover:text-white'
                   }`}
                 >
                   {link}
@@ -295,35 +295,35 @@ export default function Navbar() {
                 {/* Services mega dropdown */}
                 {link === 'Services' && openDropdown === 'Services' && (
                   <div
-                    className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white rounded-2xl shadow-xl py-0 border border-gray-100 z-50 overflow-hidden w-[80vw]"
+                    className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white dark:bg-[#151a16] rounded-2xl shadow-xl py-0 border border-gray-100 dark:border-gray-800 z-50 overflow-hidden w-[80vw]"
                     style={{ left: '50%', transform: 'translateX(-50%)', width: '80vw' }}
                     onMouseEnter={() => clearTimeout(closeTimer.current)}
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="flex h-full">
                       <div className="flex-1 px-4 py-20 w-[45%] ml-16">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-5">Company Services</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Company Services</h3>
                         <div className="grid grid-cols-2 gap-4 mb-8">
                           {services.map((svc) => (
                             <a
                               key={svc.title}
                               href="#"
-                              className="flex items-center gap-3 px-2 py-4 rounded-xl border border-gray-100 hover:border-gray-300 hover:bg-gray-50 transition-all group"
+                              className="flex items-center gap-3 px-2 py-4 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-[#1d241f] transition-all group"
                             >
                               <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
                                 {serviceIcons[svc.title]}
                               </div>
-                              <span className="text-lg font-medium text-gray-800 group-hover:text-black leading-tight">
+                              <span className="text-lg font-medium text-gray-800 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white leading-tight">
                                 {svc.title}
                               </span>
                             </a>
                           ))}
                         </div>
                         <div className="pt-5 flex flex-col gap-2">
-                          <p className="text-xl font-semibold text-gray-900 mb-1">
+                          <p className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
                             Don't Hesitate to Collaborate with Us
                           </p>
-                          <a href="#" className="inline-flex items-center gap-1.5 text-lg font-medium text-gray-700 hover:text-black">
+                          <a href="#" className="inline-flex items-center gap-1.5 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white">
                             Contact us
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                               <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -334,17 +334,17 @@ export default function Navbar() {
 
                       <div className="w-[25%] border-gray-100 px-4 py-20 flex items-center justify-center">
                         <div className='w-[70%] h-full'>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-5">Industries</h3>
+                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Industries</h3>
                           <ul className="space-y-3">
                             {industries.map((ind) => (
                               <li key={ind}>
-                                <a href="#" className="text-sm text-gray-600 hover:text-black transition-colors">
+                                <a href="#" className="text-sm text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
                                   {ind}
                                 </a>
                               </li>
                             ))}
                           </ul>
-                          <a href="#" className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-black mt-5 underline underline-offset-2">
+                          <a href="#" className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white mt-5 underline underline-offset-2">
                             View All Industries
                             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                               <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -387,7 +387,7 @@ export default function Navbar() {
                 {/* Regular dropdowns */}
                 {link !== 'Services' && dropdowns[link] && openDropdown === link && (
                   <div
-                    className="absolute top-full left-0 mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 py-2 min-w-[220px] z-50"
+                    className="absolute top-full left-0 mt-8 bg-white dark:bg-[#151a16] rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 py-2 min-w-[220px] z-50"
                     onMouseEnter={() => clearTimeout(closeTimer.current)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -395,7 +395,7 @@ export default function Navbar() {
                       <a
                         key={item}
                         href="#"
-                        className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                        className="block px-5 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1d241f] hover:text-black dark:hover:text-white transition-colors"
                       >
                         {item}
                       </a>
@@ -410,14 +410,14 @@ export default function Navbar() {
           <div className="flex items-center gap-7">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="hidden md:flex w-9 h-9 items-center justify-center rounded-lg border border-gray-200 hover:border-gray-400 transition-colors"
+              className="hidden md:flex w-9 h-9 items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
             >
               <img src='/images/navicon.svg' alt='logo'/>
             </button>
 
             <a
-              href="/"
-              className="bg-black hover:bg-[#F4BC0F] text-white hover:text-black flex gap-2 items-center justify-center rounded-[14px] px-5 py-3 transition-colors duration-300"
+              href="/page2"
+              className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[14px] px-5 py-3 transition-colors duration-300"
             >
               <h2>Say Hi</h2>
               <img

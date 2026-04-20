@@ -30,6 +30,30 @@ body {
   overflow-x: hidden;
 }
 
+html.dark body {
+  background: #0f1210;
+  color: #e5e7eb;
+}
+
+html.dark main {
+  background: #0f1210;
+}
+
+html.dark section,
+html.dark nav,
+html.dark header {
+  color: #e5e7eb;
+}
+
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+html.dark .bg-white {
+  background-color: #151a16 !important;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
@@ -162,12 +186,8 @@ body {
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 .animate-marquee {

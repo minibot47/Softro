@@ -28,22 +28,22 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-24 px-6 mt-20 mb-20 bg-[url(/images/banner-bg.png)] bg-contain bg-top rounded-[24px] border border-green-500/30">
+    <section className="py-24 px-6 mt-20 mb-20 bg-[url(/images/banner-bg.png)] dark:bg-none dark:bg-[#151a16] bg-contain bg-top rounded-[24px] border border-green-500/30 dark:border-gray-700">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-start justify-between mb-14 ">
           <div className="flex items-start justify-between gap-5 w-[55%] ">
-            <span className="text-base font-normal text-black border border-green-500 px-2 py-0.5 rounded-full">Process</span>
+            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Process</span>
             <div className="flex flex-col gap-5">
               <h2
-                className="text-4xl md:text-5xl font-medium"
+                className="text-4xl md:text-5xl font-medium text-black dark:text-white"
               >
                 Our Creative process
               </h2>
-              <h2 className="text-gray-500 text-lg">A structured approach that keeps creativity flowing <br/>and projects on track</h2>
+              <h2 className="text-gray-500 dark:text-gray-300 text-lg">A structured approach that keeps creativity flowing <br/>and projects on track</h2>
             </div>
           </div>
-          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors">
+          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
             View All
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -70,7 +70,7 @@ export default function Process() {
               >
                 step: {step.number}
               </div>
-              <h3 className="font-bold w-[30%] text-xl mb-3">{step.title}</h3>
+              <h3 className="font-bold w-[30%] text-xl mb-3 text-black">{step.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}

@@ -51,7 +51,7 @@ const testimonials = [
 // 🔥 CARD
 function TestimonialCard({ t }) {
   return (
-    <div className="relative bg-white rounded-2xl border-[0.1px] border-gray-500/30 p-8 flex flex-col gap-5 py-10 shadow-sm h-full">
+    <div className="relative bg-white dark:bg-[#151a16] rounded-2xl border-[0.1px] border-gray-500/30 dark:border-gray-700 p-8 flex flex-col gap-5 py-10 shadow-sm h-full">
       
       <div className="flex items-center justify-between gap-5 mb-5">
         <div>
@@ -63,7 +63,7 @@ function TestimonialCard({ t }) {
             ))}
           </div>
 
-          <p className="font-semibold text-lg mt-3">Outstanding Service</p>
+          <p className="font-semibold text-lg mt-3 text-black dark:text-white">Outstanding Service</p>
         </div>
 
         <Image
@@ -75,13 +75,13 @@ function TestimonialCard({ t }) {
         />
       </div>
 
-      <p className="text-gray-700 text-xl leading-relaxed">
+      <p className="text-gray-700 dark:text-gray-200 text-xl leading-relaxed">
         "{t.text}"
       </p>
 
       <div>
-        <p className="font-semibold text-lg">{t.name}</p>
-        <p className="text-gray-500">{t.role}</p>
+        <p className="font-semibold text-lg text-black dark:text-white">{t.name}</p>
+        <p className="text-gray-500 dark:text-gray-400">{t.role}</p>
       </div>
     </div>
   )
@@ -103,12 +103,12 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white dark:bg-[#0f1210]">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER (unchanged) */}
         <div className="mb-14">
-          <h2 className="text-4xl md:text-5xl font-medium">
+          <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white">
             What Our Clients Say
           </h2>
         </div>
@@ -136,7 +136,7 @@ export default function Testimonials() {
               key={i}
               onClick={() => setIndex(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === index ? "w-6 bg-black" : "w-2 bg-gray-300"
+                i === index ? "w-6 bg-black dark:bg-[#c5e87a]" : "w-2 bg-gray-300 dark:bg-gray-700"
               }`}
             />
           ))}

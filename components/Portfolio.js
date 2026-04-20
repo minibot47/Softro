@@ -43,7 +43,7 @@ const SCROLL_RANGE = 300
 function StickyProjectCard({ work }) {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <div className="overflow-hidden rounded-2xl shadow-xl bg-white">
+      <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-[#1b1f1b]">
         <div className="flex flex-col md:flex-row min-h-[500px]">
           
           <div
@@ -51,14 +51,14 @@ function StickyProjectCard({ work }) {
             style={{ backgroundColor: work.bg }}
           >
             <div>
-              <h3 className="text-3xl font-medium">{work.title}</h3>
-              <p className="mt-4 text-black/70">{work.description}</p>
+              <h3 className="text-3xl font-medium text-black dark:text-black">{work.title}</h3>
+              <p className="mt-4 text-black/70 dark:text-black">{work.description}</p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {work.tags.map(tag => (
                   <span
                     key={tag}
-                    className="text-xs border px-3 py-1 rounded-full"
+                    className="text-xs border border-black/20 dark:border-gray-600 text-black dark:text-black px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
@@ -66,7 +66,7 @@ function StickyProjectCard({ work }) {
               </div>
             </div>
 
-            <span className="mt-6 text-sm font-semibold">View Details →</span>
+            <span className="mt-6 text-sm font-semibold text-black dark:text-black">View Details →</span>
           </div>
 
           <div className="w-full md:w-1/2 h-[260px] md:h-auto">
@@ -149,21 +149,21 @@ export default function Portfolio() {
   }, [])
 
   return (
-    <section className="bg-[#f5f5f4] py-20 pb-32 rounded-[24px]">
+    <section className="bg-[#f5f5f4] dark:bg-[#111411] py-20 pb-32 rounded-[24px]">
         {/* Header */}
         <div className="flex items-start justify-between mb-14 px-20">
           <div className="flex items-start justify-between gap-5 w-[55%] ">
-            <span className="text-base font-normal text-black border border-green-500 px-2 py-0.5 rounded-full">Portfolio</span>
+            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Portfolio</span>
             <div className="flex flex-col gap-5">
               <h2
-                className="text-4xl md:text-5xl font-medium"
+                className="text-4xl md:text-5xl font-medium text-black dark:text-white"
               >
                 Glimpse into Our Work
               </h2>
-              <h2 className="text-gray-500 text-lg">Transforming ideas into memorable digital  <br/>experiences.</h2>
+              <h2 className="text-gray-500 dark:text-gray-300 text-lg">Transforming ideas into memorable digital  <br/>experiences.</h2>
             </div>
           </div>
-          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors">
+          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
             View All
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -200,8 +200,8 @@ export default function Portfolio() {
       </div>
 
       {/* CTA */}
-      <div className="mt-14 w-[50%] m-auto flex justify-between items-center px-6 py-3 rounded-[16px] border border-gray-300 shadow-sm">
-        <h2>Don't hesitate to Collaborate with Us</h2>
+      <div className="mt-14 w-[50%] m-auto flex justify-between items-center px-6 py-3 rounded-[16px] border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-[#1b1f1b] shadow-sm">
+        <h2 className="text-black dark:text-white">Don't hesitate to Collaborate with Us</h2>
 
         <Link
           href="#"

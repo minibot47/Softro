@@ -60,23 +60,23 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-32 pb-16 overflow-x-hidden flex flex-col bg-[url(/images/banner-bg.png)]"
+      className="relative pt-32 pb-16 overflow-x-hidden flex flex-col bg-[url(/images/banner-bg.png)] dark:bg-none dark:bg-[#111411]"
     >
       {/* Creative */}
-      <div className="text-center mb-5 mt-12 w-full flex items-center justify-center">
+      <div className="text-center mb-4 mt-12 w-full flex items-center justify-center">
         <h2 className="bg-[#E07938] px-3 py-1 rounded-full w-fit font-normal text-lg text-white font-funnel">
           Creative Design Agency
         </h2>
       </div>
 
       {/* Header */}
-      <div className="text-center px-6 mb-12">
-        <h1 className="text-5xl md:text-7xl font-bold leading-relaxed mb-2">
+      <div className="text-center px-6 mb-5">
+        <h1 className="text-5xl md:text-[65px] font-normal leading-[78px] text-black dark:text-white">
           Inspiring Creativity, Driving
           <br /> Real Business Growth
         </h1>
 
-        <p className="text-gray-600 max-w-full mx-auto text-lg leading-relaxed mt-2">
+        <p className="text-gray-600 dark:text-gray-300 max-w-full mx-auto text-lg leading-relaxed mt-5">
           We craft unique digital experiences that help brands stand out,
           connect with audiences,
           <br /> and achieve measurable results.
@@ -93,7 +93,7 @@ export default function Hero() {
 
           <div className="flex items-center gap-2">
             <div className="flex flex-col">
-              <span className="text-lg text-gray-600">Review on</span>
+              <span className="text-lg text-gray-600 dark:text-gray-300">Review on</span>
               <img
                 src="/images/clutchco-logo.svg"
                 alt="clutch"
@@ -103,20 +103,26 @@ export default function Hero() {
 
             <div className="flex flex-col gap-2 mt-3">
               <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="14" height="14" fill="#ff3d2e">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                ))}
+              {[...Array(5)].map((_, i) => (
+                <svg
+                  key={i}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="#ff3d2e"
+                >
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
               </div>
-              <span className="text-sm text-gray-500">(20 Reviews)</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400">(20 Reviews)</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Stats */}
-      <div className="flex items-center justify-between max-w-[1440px] mx-auto mb-8 px-16 w-full">
+      <div className="flex items-center justify-between max-w-[1440px] mx-auto mb-5 px-20 w-full">
         <div className="flex items-center gap-3">
           <div className="flex -space-x-4">
             {[
@@ -134,18 +140,18 @@ export default function Hero() {
           </div>
 
           <div>
-            <p className="text-lg">
+            <p className="text-lg text-black dark:text-white">
               we've already <span className="font-bold">20k+</span>
             </p>
-            <p>active users</p>
+            <p className="text-black dark:text-gray-200">active users</p>
           </div>
         </div>
 
         <div className="flex items-start gap-1">
-          <span className="text-7xl  font-black">12</span>
+          <span className="text-7xl  font-normal text-black dark:text-white">12</span>
           <div>
             <span className="text-2xl font-bold -ml-2">+</span>
-            <p className="text-lg ml-4 -mt-5">
+            <p className="text-lg ml-4 -mt-5 text-black dark:text-gray-200">
               year of
               <br />
               experiences
@@ -203,7 +209,7 @@ export default function Hero() {
       {progress > 2 && (
         <div className="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center">
           <svg width="56" height="56">
-            <circle cx="28" cy="28" r="28" fill="white" />
+            <circle cx="28" cy="28" r="28" fill="white" className="dark:fill-[#1b1f1b]" />
 
             {progress < 100 && (() => {
               const angle = (progress / 100) * 360
@@ -224,10 +230,10 @@ export default function Hero() {
               <circle cx="28" cy="28" r="28" fill="#a8d87c" />
             )}
 
-            <circle cx="28" cy="28" r="18" fill="white" />
+            <circle cx="28" cy="28" r="18" fill="white" className="dark:fill-[#0f1210]" />
           </svg>
 
-          <span className="absolute text-xs font-bold">
+          <span className="absolute text-xs font-bold text-black dark:text-white">
             {progress}%
           </span>
         </div>

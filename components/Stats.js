@@ -9,22 +9,22 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white dark:bg-[#0f1210]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-start justify-between mb-14 ">
           <div className="flex items-start justify-between gap-5 w-[55%] ">
-            <span className="text-base font-normal text-black border border-green-500 px-2 py-0.5 rounded-full">Success Stories</span>
+            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Success Stories</span>
             <div className="flex flex-col gap-5">
               <h2
-                className="text-4xl md:text-5xl font-medium"
+                className="text-4xl md:text-5xl font-medium text-black dark:text-white"
               >
                 Our Work in Action
               </h2>
-              <h2 className="text-gray-500 text-lg">A structured approach that keeps creativity flowing <br/>and projects on track</h2>
+              <h2 className="text-gray-500 dark:text-gray-300 text-lg">A structured approach that keeps creativity flowing <br/>and projects on track</h2>
             </div>
           </div>
-          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors">
+          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
             View All
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -36,7 +36,7 @@ export default function Stats() {
           {stats.map((s, i) => (
             <div
               key={i}
-              className="rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              className="rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 hover:-translate-y-1 dark:border dark:border-gray-800"
               style={{ background: s.bg }}
             >
               {/* Image area */}
@@ -56,7 +56,7 @@ export default function Stats() {
               </div>
 
               {/* Stats */}
-              <div className="p-6 flex flex-col gap-3  w-full">
+              <div className="p-6 flex flex-col gap-3  w-full text-black">
                 <h3 className="font-medium text-2xl mb-4">{s.label}</h3>
                 <h3 className="font-normal text-xl mb-4">{s.client}</h3>
                 <div className="flex gap-6 ">
@@ -83,29 +83,45 @@ export default function Stats() {
           ))}
         </div>
 
-        {/* trusted by  */}
+        {/* Trusted by banner */}
+        <div className="relative flex items-center justify-center mt-20">
+          <div className="absolute inset-x-0 top-1/2 h-px bg-gray-200" />
+          <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border border-gray-300 text-BASE font-semibold text-gray-800 z-10">
+            Trusted By 2,000+ Clients Worldwide
+          </span>
+        </div>
 
-        <div className="w-full mt-24 flex flex-col items-center justify-center gap-10">
-          <div className="bg-[#b9eee9] rounded-full tet-black px-4 py-1">Trusted By 2,000+ Clients Worldwide</div>
-          <div className="overflow-hidden w-full mt-24">
-          <div className="flex w-max animate-marquee gap-16 items-center">
-            
-            {/* First set */}
-            <img src="/images/partner-01.png" alt="partner" className="h-10" />
-            <img src="/images/partner-02.png" alt="partner" className="h-10" />
-            <img src="/images/partner-03.png" alt="partner" className="h-10" />
-            <img src="/images/partner-04.png" alt="partner" className="h-10" />
-            <img src="/images/partner-05.png" alt="partner" className="h-10" />
+        <div className="w-full mt-10 flex flex-col items-center justify-center gap-10">
+        <div className="relative overflow-hidden w-full">
 
-            {/* Duplicate set for seamless loop */}
-            <img src="/images/partner-01.png" alt="partner" className="h-10" />
-            <img src="/images/partner-02.png" alt="partner" className="h-10" />
-            <img src="/images/partner-03.png" alt="partner" className="h-10" />
-            <img src="/images/partner-04.png" alt="partner" className="h-10" />
-            <img src="/images/partner-05.png" alt="partner" className="h-10" />
+            {/* Left fade mask */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, white, transparent)' }}
+            />
+            {/* Right fade mask */}
+            <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, white, transparent)' }}
+            />
 
-          </div>
-          </div>
+            <div className="flex gap-16 items-center w-max"
+            style={{
+                animation: 'marquee 18s linear infinite',
+            }}
+            >
+            {/* Render 4 full sets for a seamless loop */}
+            {[...Array(4)].flatMap((_, setIndex) =>
+                [1, 2, 3, 4, 5].map((n) => (
+                <img
+                    key={`${setIndex}-${n}`}
+                    src={`/images/partner-0${n}.png`}
+                    alt="partner"
+                    className="h-10 flex-shrink-0"
+                />
+                ))
+            )}
+            </div>
+
+        </div>
         </div>
 
       </div>

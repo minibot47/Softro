@@ -6,28 +6,17 @@ export function ThemeProvider({ children }) {
   const [dark, setDark] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme')
-    if (saved === 'dark') {
-      setDark(true)
-      document.documentElement.classList.add('dark')
-    }
+    const savedTheme = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    setDark(savedTheme ? savedTheme === 'dark' : prefersDark)
   }, [])
 
-  const toggleTheme = () => {
-    setDark(prev => {
-      const next = !prev
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+    localStorage.setItem('theme', dark ? 'dark' : 'light')
+  }, [dark])
 
-      if (next) {
-        document.documentElement.classList.add('dark')
-        localStorage.setItem('theme', 'dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-        localStorage.setItem('theme', 'light')
-      }
-
-      return next
-    })
-  }
+  const toggleTheme = () => setDark(prev => !prev)
 
   return (
     <ThemeContext.Provider value={{ dark, toggleTheme }}>

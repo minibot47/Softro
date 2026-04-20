@@ -30,15 +30,15 @@ export default function Team() {
   }, [])
 
   return (
-    <section className="py-24 px-6" style={{ background: '#f5faf5' }}>
+    <section className="py-24 px-6 bg-[#f5faf5] dark:bg-[#111411]">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
         <div className="mb-14">
-          <h2 className="text-4xl md:text-5xl font-medium">
+          <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white">
             Our Talented Team
           </h2>
-          <p className="text-gray-500 text-lg mt-3">
+          <p className="text-gray-500 dark:text-gray-300 text-lg mt-3">
             Transforming ideas into memorable digital experiences.
           </p>
         </div>
@@ -94,8 +94,8 @@ export default function Team() {
                   </div>
 
                   {/* TEXT */}
-                  <h3 className="font-bold text-xl">{member.name}</h3>
-                  <p className="text-gray-500 text-sm">{member.role}</p>
+                  <h3 className="font-bold text-xl text-black dark:text-white">{member.name}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">{member.role}</p>
                 </div>
               </div>
             ))}
@@ -109,7 +109,7 @@ export default function Team() {
               key={i}
               onClick={() => setIndex(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === index ? "w-6 bg-black" : "w-2 bg-gray-300"
+                i === index ? "w-6 bg-black dark:bg-[#c5e87a]" : "w-2 bg-gray-300 dark:bg-gray-700"
               }`}
             />
           ))}

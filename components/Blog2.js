@@ -33,7 +33,7 @@ const posts = [
 
 export default function Blog2() {
   return (
-    <section className="py-24 px-6 bg-white dark:bg-[#0f1210] max-w-[1440px]">
+    <section className="py-24 px-6 bg-white dark:bg-[#0f1210] max-w-[1440px] m-auto">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-start justify-between mb-14 ">

@@ -27,14 +27,14 @@ export default function Page2Content() {
   return (
     <>
       <Navbar/>
-      <section className="min-h-screen pt-24 2xl:px-10 px-3 bg-white dark:bg-[#0f1210]">
+      <section className="min-h-screen pt-20 2xl:px-10 px-3 bg-white dark:bg-[#0f1210]">
         {/* HERO */}
-        <div className=" relative w-full grid grid-cols-2 bg-[#EEEEEE] min-h-[80vh] rounded-[24px]">
+        <div className="relative w-full grid bg-[#EEEEEE] min-h-[80vh] rounded-[24px]" style={{ gridTemplateColumns: '1fr 1.2fr' }}>
 
           {/* LEFT */}
-          <div className="flex flex-col justify-center px-16 xl:px-24 py-24 relative items-center">
-            <div className='w-full h-fit '>
-                <h1 className="text-5xl 2xl:text-8xl font-light leading-tight mb-5 text-gray-900 tracking-tight">
+          <div className="flex  flex-col justify-center px-4 py-24 relative items-center">
+            <div className='w-full h-fit pl-10'>
+                <h1 className="text-6xl 2xl:text-8xl font-light  mb-5 text-gray-900 tracking-tight">
                 Strategic<br />
                 Marketing{' '}
                 <span className="font-bold">for<br />the Digital Age</span>
@@ -43,23 +43,23 @@ export default function Page2Content() {
                 <div className="flex items-start gap-3 mb-10 w-full  ">
                 <div className="w-px bg-gray-400 mt-1 flex-shrink-0" style={{ height: '48px' }} />
                 <p className="text-gray-600 text-lg leading-relaxed">
-                    We help <strong className="text-gray-900 font-semibold">businesses</strong> reach the right audience,
+                    We help <strong className="text-gray-900 font-semibold">businesses</strong> reach the right audience,<br/>
                     boost engagement, and skyrocket conversions.
                 </p>
                 </div>
 
-                <div className="flex items-center justify-between mb-14   ">
+                <div className="flex items-center justify-between pl-4 mb-14   ">
                     <div className='flex'>
                         <a
                         href="#"
-                        className="inline-flex items-center px-[18px] py-[13px] rounded-full font-semibold text-sm text-gray-900 transition-all hover:opacity-90"
-                        style={{ background: '#b8e04a' }}
+                        className="inline-flex items-center px-[20px] py-[12px] rounded-full font-thin text-lg text-gray-900 transition-all hover:opacity-90"
+                        style={{ background: '#C8F8A9' }}
                     >
                         Get a Free Consultation
                     </a>
 
-                    <div className="flex flex-shrink-0 h-[42px] w-[42px] bg-[#b8e04a] rounded-full items-center justify-center">
-                        <img src='/images/arrow.svg' alt='arrow'/>
+                    <div className="flex flex-shrink-0  bg-[#C8F8A9] rounded-full items-center justify-center">
+                        <img src='/images/arrow.svg' alt='arrow' className='px-5 py-5'/>
                     </div>
                     </div>
                     <div className='relative w-[180px] h-[90px] '>
@@ -68,7 +68,7 @@ export default function Page2Content() {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between  border-t-[0.1px] border-black/30 ">
+                <div className="flex items-center justify-between w-[90%] border-t-[0.1px] border-black/30 ">
                 <div className='border-r-[0.1px] border-black/30 w-[40%] py-3'>
                     <div className="flex items-center gap-1.5 mb-1">
                     <span className="text-lg text-gray-500">Review on</span>
@@ -111,7 +111,7 @@ export default function Page2Content() {
           </div>
 
           {/* RIGHT — Carousel */}
-          <div className="relative rounded-r-[24px] overflow-hidden">
+          <div className="relative  rounded-r-[24px] overflow-hidden">
             {images.map((src, i) => (
               <img
                 key={i}
@@ -144,31 +144,31 @@ export default function Page2Content() {
           </div>
 
           {/* STATS */}
-          <div className="absolute bottom-0 left-[65%] flex items-end z-50" style={{ transform: 'translateX(-80%)' }}>
+          <div className="absolute bottom-0 left-[64%] flex items-end z-50" style={{ transform: 'translateX(-80%)' }}>
             <div
-                className="rounded-t-2xl px-8 py-6 min-w-[150px]"
+                className="rounded-t-2xl flex flex-col justify-between px-8 py-6 min-w-[180px]"
                 style={{
-                height: '150px',
+                height: '190px',
                 backgroundImage: 'url(/images/project-completed.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 }}
             >
-                <p className="text-xs text-green-300 font-medium mb-4 leading-tight">Business<br/>Growth</p>
-                <p className="text-4xl font-bold text-white">2X</p>
+                <p className="text-lg text-white font-medium mb-4 leading-tight">Business<br/>Growth</p>
+                <p className="text-6xl font-bold text-white">2X</p>
             </div>
 
             <div
-                className="rounded-t-2xl -ml-3 px-8 py-6 min-w-[150px]"
+                className="rounded-t-2xl flex flex-col justify-between -ml-3 px-8 py-6 min-w-[180px]"
                 style={{
-                height: '180px',
+                height: '220px',
                 backgroundImage: 'url(/images/customer-satisfaction.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 }}
             >
-                <p className="text-xs text-green-300 font-medium mb-4 leading-tight">Online<br/>Revenue</p>
-                <p className="text-4xl font-bold text-white">1.6X</p>
+                <p className="text-lg text-white font-medium mb-4 leading-tight">Online<br/>Revenue</p>
+                <p className="text-6xl font-bold text-white">1.6X</p>
             </div>
           </div>
 

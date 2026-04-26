@@ -1,26 +1,14 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import ExpandingVideo from './Expandingvideo'
 
 export default function Hero() {
-  const [imageScale, setImageScale] = useState(0)
   const [progress, setProgress] = useState(0)
   const [isScrolling, setIsScrolling] = useState(false)
-  const [windowH, setWindowH] = useState(800)
-
   const scrollTimerRef = useRef(null)
   const sectionRef = useRef(null)
 
-  // ✅ Handle resize properly
-  useEffect(() => {
-    const handleResize = () => setWindowH(window.innerHeight)
-    handleResize()
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  // ✅ Optimized scroll handler
   useEffect(() => {
     let ticking = false
 
@@ -29,13 +17,6 @@ export default function Hero() {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY
           const windowHeight = window.innerHeight
-
-          const scale = Math.min(
-            Math.max((scrollY - windowHeight * 0.7) / (windowHeight * 0.8), 0),
-            1
-          )
-          setImageScale(scale)
-
           const docH = document.body.scrollHeight - windowHeight
           setProgress(Math.round((scrollY / docH) * 100))
 
@@ -45,7 +26,6 @@ export default function Hero() {
 
           ticking = false
         })
-
         ticking = true
       }
     }
@@ -60,16 +40,16 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-32 pb-16 overflow-x-hidden flex flex-col bg-[url(/images/banner-bg.png)] dark:bg-none dark:bg-[#111411]"
+      className="relative pt-32 pb-16 flex flex-col bg-[url(/images/banner-bg.png)] dark:bg-none dark:bg-[#111411]"
     >
-      {/* Creative */}
+      {/* Creative pill */}
       <div className="text-center mb-4 mt-12 w-full flex items-center justify-center">
         <h2 className="bg-[#E07938] px-3 py-1 rounded-full w-fit font-normal text-lg text-white font-funnel">
           Creative Design Agency
         </h2>
       </div>
 
-      {/* Header */}
+      {/* Headline */}
       <div className="text-center px-6 mb-5">
         <h1 className="text-5xl md:text-[65px] font-normal leading-[78px] text-black dark:text-white">
           Inspiring Creativity, Driving
@@ -88,32 +68,21 @@ export default function Hero() {
             className="inline-flex bg-[#C8F8A9] text-black items-center gap-2 px-6 py-3 rounded-xl text-lg font-light hover:opacity-90"
           >
             Start Your Project
-            <Image src="/images/arrow.svg" alt="arrow" width={20} height={20} />
+            <Image src="/images/arrow.svg" alt="arrow" width={20} height={20}/>
           </a>
 
           <div className="flex items-center gap-2">
             <div className="flex flex-col">
               <span className="text-lg text-gray-600 dark:text-gray-300">Review on</span>
-              <img
-                src="/images/clutchco-logo.svg"
-                alt="clutch"
-                className="w-20 h-5"
-              />
+              <img src="/images/clutchco-logo.svg" alt="clutch" className="w-20 h-5"/>
             </div>
-
             <div className="flex flex-col gap-2 mt-3">
               <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="#ff3d2e"
-                >
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
-              ))}
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#ff3d2e">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  </svg>
+                ))}
               </div>
               <span className="text-sm text-gray-500 dark:text-gray-400">(20 Reviews)</span>
             </div>
@@ -126,98 +95,44 @@ export default function Hero() {
         <div className="flex items-center gap-3">
           <div className="flex -space-x-4">
             {[
-              { img: "/images/counter-people-img1.png", name: "JD" },
-              { img: "/images/counter-people-img2.png", name: "AM" },
-              { img: "/images/counter-people-img3.png", name: "SK" },
+              { img: '/images/counter-people-img1.png', name: 'JD' },
+              { img: '/images/counter-people-img2.png', name: 'AM' },
+              { img: '/images/counter-people-img3.png', name: 'SK' },
             ].map((user, i) => (
-              <div
-                key={i}
-                className="relative w-11 h-11 rounded-full border-2 border-white overflow-hidden"
-              >
-                <Image src={user.img} alt={user.name} fill className="object-cover" />
+              <div key={i} className="relative w-11 h-11 rounded-full border-2 border-white overflow-hidden">
+                <Image src={user.img} alt={user.name} fill className="object-cover"/>
               </div>
             ))}
           </div>
-
           <div>
-            <p className="text-lg text-black dark:text-white">
-              we've already <span className="font-bold">20k+</span>
-            </p>
+            <p className="text-lg text-black dark:text-white">we've already <span className="font-bold">20k+</span></p>
             <p className="text-black dark:text-gray-200">active users</p>
           </div>
         </div>
 
         <div className="flex items-start gap-1">
-          <span className="text-7xl  font-normal text-black dark:text-white">12</span>
+          <span className="text-7xl font-normal text-black dark:text-white">12</span>
           <div>
             <span className="text-2xl font-bold -ml-2">+</span>
-            <p className="text-lg ml-4 -mt-5 text-black dark:text-gray-200">
-              year of
-              <br />
-              experiences
-            </p>
+            <p className="text-lg ml-4 -mt-5 text-black dark:text-gray-200">year of<br/>experiences</p>
           </div>
         </div>
       </div>
 
-      {/* ✅ FIXED HERO VIDEO (no duplication) */}
-      <div className="relative flex justify-center mt-5">
-        <div
-          className="relative overflow-hidden shadow-2xl"
-          style={{
-            width: `calc(40% + ${imageScale * 60}vw)`,
-            borderRadius: `${20 - imageScale * 20}px`,
-            height: `${400 + imageScale * (windowH - 400)}px`,
-          }}
-        >
-          <div
-            className="w-full h-full"
-            style={{
-              transform: `scale(${1 + imageScale * 0.15})`,
-            }}
-          >
-            <video
-              src="/images/home4-banner-video.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          </div>
+      {/* Expanding video */}
+      <ExpandingVideo />
 
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "rgba(0,0,0,0.25)",
-              opacity: 0.2 + imageScale * 0.3,
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Scroll hint */}
-      {imageScale === 0 && (
-        <div className="text-center mt-6 animate-bounce">
-          <svg width="20" height="20" stroke="#4a7c59" strokeWidth="2">
-            <path d="M12 5v14M19 12l-7 7-7-7" />
-          </svg>
-        </div>
-      )}
-
-      {/* ✅ FIXED PROGRESS */}
+      {/* Progress pie */}
       {progress > 2 && (
         <div className="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center">
           <svg width="56" height="56">
-            <circle cx="28" cy="28" r="28" fill="white" className="dark:fill-[#1b1f1b]" />
-
+            <circle cx="28" cy="28" r="28" fill="white" className="dark:fill-[#1b1f1b]"/>
             {progress < 100 && (() => {
               const angle = (progress / 100) * 360
               const rad = (angle - 90) * (Math.PI / 180)
               const x = 28 + 28 * Math.cos(rad)
               const y = 28 + 28 * Math.sin(rad)
               const largeArc = angle > 180 ? 1 : 0
-
               return (
                 <path
                   d={`M28,28 L28,0 A28,28 0 ${largeArc},1 ${x},${y} Z`}
@@ -225,17 +140,10 @@ export default function Hero() {
                 />
               )
             })()}
-
-            {progress >= 100 && (
-              <circle cx="28" cy="28" r="28" fill="#a8d87c" />
-            )}
-
-            <circle cx="28" cy="28" r="18" fill="white" className="dark:fill-[#0f1210]" />
+            {progress >= 100 && <circle cx="28" cy="28" r="28" fill="#a8d87c"/>}
+            <circle cx="28" cy="28" r="18" fill="white" className="dark:fill-[#0f1210]"/>
           </svg>
-
-          <span className="absolute text-xs font-bold text-black dark:text-white">
-            {progress}%
-          </span>
+          <span className="absolute text-xs font-bold text-black dark:text-white">{progress}%</span>
         </div>
       )}
     </section>

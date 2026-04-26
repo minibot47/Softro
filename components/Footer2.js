@@ -21,6 +21,22 @@ export default function Footer2() {
 
   return (
     <>
+          {/* Dark-mode style control on left edge (visual match) */}
+          <button
+        onClick={toggleTheme}
+        className="fixed left-0 top-[30%] z-10 flex items-center justify-center w-10 h-10 rounded-r-full bg-[#1a1a1a] border border-white/10 text-white"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+      </button>
       <div className='bg-black rounded-[24px] '>
         <footer className="relative text-white max-w-[1440px] m-auto  w-full rounded-[16px] overflow-hidden ">
           {/* TOP SECTION — Big headline + arrow */}
@@ -40,11 +56,22 @@ export default function Footer2() {
             {/* Arrow button — top right */}
             <a
               href="#"
-              className="flex-shrink-0 w-36 h-36 rounded-full border-2 border-white flex items-center justify-center hover:border-white transition-colors mt-4"
+              className="group relative flex-shrink-0 w-36 h-36 rounded-full border-2 border-white flex items-center justify-center mt-4 overflow-hidden"
             >
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-                <path d="M7 17L17 7M17 7H7M17 7v10"/>
-              </svg>
+              {/* OUTSIDE-IN FILL */}
+              <span className="absolute inset-0 rounded-full">
+                <span className="absolute inset-0 bg-green-600 rounded-full scale-100 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+
+                {/* ring animation */}
+                <span className="absolute inset-0 rounded-full border-[10px] border-green-600 scale-150 opacity-0 group-hover:scale-0 group-hover:opacity-100 transition-all duration-400 ease-out" />
+              </span>
+
+              {/* icon */}
+              <img
+                src="/icons/arrowup.svg"
+                alt="icon"
+                className="relative z-10 w-14 h-14 transition-all duration-500 group-hover:invert"
+              />
             </a>
           </div>
 
@@ -57,7 +84,7 @@ export default function Footer2() {
 
               <div className="space-y-4 mb-6">
                 <div className="flex gap-3 items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-white/80 rounded-lg flex items-center justify-center flex-shrink-0">
                     <img src="/icons/phone.svg" alt="phone" className="w-5 h-5"/>
                   </div>
                   <div>
@@ -69,7 +96,7 @@ export default function Footer2() {
                 </div>
 
                 <div className="flex gap-3 items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-white/80 rounded-lg flex items-center justify-center flex-shrink-0">
                     <img src="/icons/mail.svg" alt="mail" className="w-5 h-5"/>
                   </div>
                   <div>

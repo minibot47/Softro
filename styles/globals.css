@@ -70,14 +70,6 @@ html.dark .bg-white {
   margin-left: calc(-50vw + 50%) !important;
 }
 
-/* Marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.marquee-track {
-  animation: marquee 18s linear infinite;
-}
 
 /* Spin animation for asterisk */
 @keyframes spin-slow {
@@ -187,9 +179,40 @@ html.dark .bg-white {
 
 @keyframes marquee {
   0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  50% { transform: translateX(-25%); }
+  100% { transform: translateX(0%); }
 }
 
 .animate-marquee {
   animation: marquee 15s linear infinite;
+}
+
+.pill-hidden {
+  opacity: 0;
+  transform: translateY(-200px);
+}
+
+.pill-fall {
+  animation: gravityFall 1.2s forwards;
+}
+
+@keyframes gravityFall {
+  0% {
+    transform: translateY(-200px) rotate(var(--rotate));
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(10px) rotate(calc(var(--rotate) + 4deg)); /* overshoot */
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(-4px) rotate(calc(var(--rotate) - 2deg)); /* bounce up */
+  }
+
+  100% {
+    transform: translateY(0px) rotate(var(--rotate));
+    opacity: 1;
+  }
 }

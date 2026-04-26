@@ -42,23 +42,23 @@ const cards = [
       <section className="py-24 px-16 bg-white max-w-[1440px] m-auto">
   
         {/* Header */}
-        <div className="flex gap-16 mb-16">
+        <div className="flex gap-[134px] mb-16  ">
           <div className="flex-shrink-0 mt-1">
             <span className="px-4 py-1.5 rounded-full border border-gray-400 text-sm text-gray-700">
               Roadmap
             </span>
           </div>
-          <h2 className="text-5xl font-bold leading-tight tracking-tight text-gray-900 max-w-lg">
+          <h2 className="text-5xl font-medium leading-tight tracking-tight text-gray-900 max-w-lg">
             Comprehensive Digital Marketing Solutions
           </h2>
         </div>
   
         {/* Cards */}
-        <div className="grid grid-cols-4 gap-4 mb-20">
+        <div className="grid grid-cols-4 gap-4 mb-28">
           {cards.map((card) => (
             <div
               key={card.title}
-              className="relative rounded-2xl p-5 overflow-hidden flex flex-col items-center justify-center "
+              className="relative rounded-[10px] py-[50px] px-8 overflow-hidden flex flex-col items-center justify-start"
               style={{ background: card.bg, minHeight: '302px' }}
             >
                 <img
@@ -66,11 +66,11 @@ const cards = [
                 alt=""
                 className="absolute -top-1 -right-1  w-[87px] h-[87px] "
                 />
-              <div >
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-snug w-full">
+              <div className=" h-ful flex flex-col  justify-between">
+                <h3 className="text-[28px] font-base text-gray-900 mb-6 leading-snug w-full">
                   {card.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-[16px] text-gray-600 leading-relaxed">
                   {card.desc}
                 </p>
               </div>
@@ -81,12 +81,12 @@ const cards = [
         {/* Trusted by banner */}
         <div className="relative flex items-center justify-center">
           <div className="absolute inset-x-0 top-1/2 h-px bg-gray-200" />
-          <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border border-gray-300 text-BASE font-semibold text-gray-800 z-10">
+          <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
             Trusted By 2,000+ Clients Worldwide
           </span>
         </div>
 
-        <div className="w-full mt-10 flex flex-col items-center justify-center gap-10">
+        <div className="w-full mt-20 flex flex-col items-center justify-center gap-10">
         <div className="relative overflow-hidden w-full">
 
             {/* Left fade mask */}
@@ -98,9 +98,9 @@ const cards = [
             style={{ background: 'linear-gradient(to left, white, transparent)' }}
             />
 
-            <div className="flex gap-16 items-center w-max"
+            <div className="flex gap-20 items-center w-max"
             style={{
-                animation: 'marquee 18s linear infinite',
+                animation: 'marquee 40s linear infinite',
             }}
             >
             {/* Render 4 full sets for a seamless loop */}

@@ -144,7 +144,7 @@ export default function Page2Content() {
           </div>
 
           {/* STATS */}
-          <div className="absolute bottom-0 left-[64%] flex items-end z-50" style={{ transform: 'translateX(-80%)' }}>
+          <div className="absolute bottom-0 left-[64%] flex items-end z-3" style={{ transform: 'translateX(-80%)' }}>
             <div
                 className="rounded-t-2xl flex flex-col justify-between px-8 py-6 min-w-[180px]"
                 style={{

@@ -6,7 +6,7 @@ const navLinks = ['Home', 'Services', 'Work', 'Company', 'Insights']
 const dropdowns = {
   Home: ['Startup', 'Software', 'Digital marketing', 'Design Agency', 'Saas'],
   Work: ['All Projects', 'Branding', 'Web Design', 'Mobile Apps'],
-  Company: ['About Us', 'Our Team', 'Case Study', 'Price planning', 'Careers', 'Contact'],
+  Company: ['About Us', 'Our Team', 'Services', 'FAQ', 'Careers', 'Contact'],
   Insights: [
     'News & Article 01',
     'News & Article 02',
@@ -15,6 +15,35 @@ const dropdowns = {
     'News & Article 05',
     'News & Article Details',
   ],
+}
+
+// Maps each dropdown label to its URL path
+const dropdownRoutes = {
+  // Home
+  'Startup': '/startup',
+  'Software': '/software',
+  'Digital marketing': '/digital-marketing',
+  'Design Agency': '/design-agency',
+  'Saas': '/saas',
+  // Work
+  'All Projects': '/all-projects',
+  'Branding': '/branding',
+  'Web Design': '/web-design',
+  'Mobile Apps': '/mobile-apps',
+  // Company
+  'About Us': '/about',
+  'Our Team': '/team',
+  'Services': '/services',
+  'FAQ': '/faq',
+  'Careers': '/careers',
+  'Contact': '/contact',
+  // Insights
+  'News & Article 01': '/news-article-01',
+  'News & Article 02': '/news-article-02',
+  'News & Article 03': '/news-article-03',
+  'News & Article 04': '/news-article-04',
+  'News & Article 05': '/news-article-05',
+  'News & Article Details': '/news-article-details',
 }
 
 const services = [
@@ -241,13 +270,23 @@ function Sidebar({ open, onClose }) {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [active, setActive] = useState('Home')
   const [openDropdown, setOpenDropdown] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const closeTimer = useRef(null)
-
+  
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => {
+      const scrollY = window.scrollY
+      const windowH = window.innerHeight
+      setScrolled(scrollY > 40)
+  
+      // Hide during video expansion zone
+      const expansionStart = windowH * 0.7
+      const expansionEnd = windowH * 2
+      setHidden(scrollY > expansionStart && scrollY < expansionEnd)
+    }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -263,7 +302,13 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50">
+      <header
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          transform: hidden ? 'translateY(-100%)' : 'translateY(0)',
+          opacity: hidden ? 0 : 1,
+        }}
+      >
         <div className="w-full px-20 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
 
           {/* Logo */}
@@ -296,12 +341,12 @@ export default function Navbar() {
                 {link === 'Services' && openDropdown === 'Services' && (
                   <div
                     className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white dark:bg-[#151a16] rounded-2xl shadow-xl py-0 border border-gray-100 dark:border-gray-800 z-50 overflow-hidden w-[80vw]"
-                    style={{ left: '50%', transform: 'translateX(-50%)', width: '80vw' }}
+                    style={{ left: '50%', transform: 'translateX(-50%)', width: '90vw' }}
                     onMouseEnter={() => clearTimeout(closeTimer.current)}
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="flex h-full">
-                      <div className="flex-1 px-4 py-20 w-[45%] ml-16">
+                      <div className="flex-1 px-4 py-20 w-[40%] ml-16">
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Company Services</h3>
                         <div className="grid grid-cols-2 gap-4 mb-8">
                           {services.map((svc) => (
@@ -354,22 +399,35 @@ export default function Navbar() {
                       </div>
 
                       <div
-                        className="w-[30%] relative flex flex-col items-center justify-center text-white py-20"
-                        style={{ background: '#1a2e25' }}
+                        className="w-[35%] relative flex flex-col items-center justify-center text-white py-20 bg-[url(/images/topareabg.png)]"
                       >
-                        {teamAvatars.map((pos, i) => (
-                          <div
-                            key={i}
-                            className="absolute w-14 h-14 rounded-full border-2 border-white/20"
-                            style={{ top: pos.top, left: pos.left, background: avatarColors[i] }}
-                          />
-                        ))}
+                        {teamAvatars.map((_, i) => {
+                          const count = teamAvatars.length
+                          const radius = 38
+                          const angle = (i / count) * 2 * Math.PI
+
+                          const x = 50 + radius * Math.cos(angle)
+                          const y = 50 + radius * Math.sin(angle)
+
+                          return (
+                            <div
+                              key={i}
+                              className="absolute w-14 h-14 rounded-full border-2 border-white/20"
+                              style={{
+                                top: `${y}%`,
+                                left: `${x}%`,
+                                transform: "translate(-50%, -50%)",
+                                background: avatarColors[i],
+                              }}
+                            />
+                          )
+                        })}
                         <div className="relative z-10 text-center">
                           <h3 className="text-2xl font-medium leading-snug mb-4">
                             Always Here to<br />Support You
                           </h3>
                           <a
-                            href="#"
+                            href="/about"
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-lg font-medium"
                             style={{ background: '#c5e87a', color: '#1a2e25' }}
                           >
@@ -394,7 +452,7 @@ export default function Navbar() {
                     {dropdowns[link].map((item) => (
                       <a
                         key={item}
-                        href="#"
+                        href={dropdownRoutes[item] ?? '#'}
                         className="block px-5 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1d241f] hover:text-black dark:hover:text-white transition-colors"
                       >
                         {item}

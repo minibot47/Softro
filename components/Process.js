@@ -51,29 +51,51 @@ export default function Process() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-8 py-20  relative overflow-hidden group transition-all duration-300 hover:-translate-y-1"
-              style={{ background: step.color }}
-            >
-                <Image
-                  src={step.border}
-                  alt={step.number}
-                  width={35}
-                  height={20}
-                  className=" w-[100px] font-black  absolute -top-2 -right-2 leading-none"
-                />
-              <div
-                className="w-fit h-fit px-4 py-1 rounded-full flex items-center justify-center text-sm font-normal mb-5 bg-white text-black"
-              >
-                step: {step.number}
-              </div>
-              <h3 className="font-bold w-[30%] text-xl mb-3 text-black">{step.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
+        <div className="relative flex items-center justify-center gap-2 mt-32">
+
+        {/* Card 1 */}
+        <div
+          className="rounded-2xl p-8 relative overflow-hidden group transition-all duration-300 hover:-translate-y-1"
+          style={{ background: steps[0].color, width: '300px', height: '295px', flexShrink: 0 }}
+        >
+          <Image src={steps[0].border} alt="" width={100} height={80} className="absolute -top-2 -right-2"/>
+          <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5">STEP : {steps[0].number}</div>
+          <h3 className="font-bold text-xl mb-3 text-black">{steps[0].title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{steps[0].desc}</p>
+        </div>
+
+        {/* Connector 1 */}
+        <div style={{ width: '181px', height: '124px', flexShrink: 0 }}>
+          <img src="/images/creativeprocess1.svg" alt="connector" className="w-full h-full mt-5"/>
+        </div>
+
+        {/* Card 2 — middle */}
+        <div
+          className="rounded-2xl p-8 relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 -mt-20"
+          style={{ background: steps[1].color, width: '300px', height: '295px', flexShrink: 0 }}
+        >
+          <Image src={steps[1].border} alt="" width={100} height={80} className="absolute -top-2 -right-2"/>
+          <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5">STEP : {steps[1].number}</div>
+          <h3 className="font-bold text-xl mb-3 text-black">{steps[1].title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{steps[1].desc}</p>
+        </div>
+
+        {/* Connector 2 */}
+        <div style={{ width: '181px', height: '124px', flexShrink: 0 }}>
+          <img src="/images/creativeprocess2.svg" alt="connector" className="w-full h-full mt-5"/>
+        </div>
+
+        {/* Card 3 */}
+        <div
+          className="rounded-2xl p-8 relative overflow-hidden group transition-all duration-300 hover:-translate-y-1"
+          style={{ background: steps[2].color, width: '300px', height: '295px', flexShrink: 0 }}
+        >
+          <Image src={steps[2].border} alt="" width={100} height={80} className="absolute -top-2 -right-2"/>
+          <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5">STEP : {steps[2].number}</div>
+          <h3 className="font-bold text-xl mb-3 text-black">{steps[2].title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{steps[2].desc}</p>
+        </div>
+
         </div>
       </div>
     </section>

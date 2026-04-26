@@ -65,13 +65,13 @@ const industries = [
 ]
 
 const teamAvatars = [
-  { top: '8%',  left: '12%' },
-  { top: '8%',  left: '58%' },
-  { top: '35%', left: '2%'  },
-  { top: '35%', left: '70%' },
-  { top: '65%', left: '8%'  },
-  { top: '65%', left: '52%' },
-  { top: '78%', left: '30%' },
+  { top: '8%',  left: '12%', src: '/images/avater.png' },
+  { top: '8%',  left: '58%', src: '/images/avater1.png' },
+  { top: '35%', left: '2%',  src: '/images/avater2.png' },
+  { top: '35%', left: '70%', src: '/images/avater3.png' },
+  { top: '65%', left: '8%',  src: '/images/avater4.png' },
+  { top: '65%', left: '52%', src: '/images/avater5.png' },
+  { top: '78%', left: '30%', src: '/images/avater6.png' },
 ]
 
 const avatarColors = [
@@ -401,7 +401,7 @@ export default function Navbar() {
                       <div
                         className="w-[35%] relative flex flex-col items-center justify-center text-white py-20 bg-[url(/images/topareabg.png)]"
                       >
-                        {teamAvatars.map((_, i) => {
+                        {teamAvatars.map((avatar, i) => {
                           const count = teamAvatars.length
                           const radius = 38
                           const angle = (i / count) * 2 * Math.PI
@@ -417,23 +417,37 @@ export default function Navbar() {
                                 top: `${y}%`,
                                 left: `${x}%`,
                                 transform: "translate(-50%, -50%)",
-                                background: avatarColors[i],
                               }}
-                            />
+                            >
+                              <img
+                                src={avatar.src}
+                                alt="team member"
+                                className="w-full h-full object-cover rounded-full"
+                              />
+                            </div>
                           )
                         })}
+
                         <div className="relative z-10 text-center">
                           <h3 className="text-2xl font-medium leading-snug mb-4">
                             Always Here to<br />Support You
                           </h3>
+
                           <a
                             href="/about"
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-lg font-medium"
-                            style={{ background: '#c5e87a', color: '#1a2e25' }}
+                            style={{ background: "#c5e87a", color: "#1a2e25" }}
                           >
                             Let's Talk
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.5"
+                            >
+                              <path d="M7 17L17 7M17 7H7M17 7v10" />
                             </svg>
                           </a>
                         </div>

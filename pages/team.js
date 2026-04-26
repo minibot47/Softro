@@ -94,10 +94,7 @@ export default function Team() {
 
                 {/* Stats Card */}
                 <div
-                    className="absolute bottom-0 right-[15%] w-fit h-fit rounded-t-[24px] bg-white text-black p-10 grid grid-cols-2 grid-rows-2"
-                    style={{
-                        transform: `translateY(${offset * -0.05}px)` // subtle opposite movement
-                    }}
+                    className="absolute bottom-0 right-[15%] w-fit h-fit rounded-t-[24px] bg-white text-black p-10  grid grid-cols-2 grid-rows-2"
                 >
                     <div className="flex flex-col items-start border-b border-gray-200 gap-4 p-2 2xl:p-5">
                         <h2 className='text-sm 2xl:text-lg'>Years of <br/> expertise</h2>

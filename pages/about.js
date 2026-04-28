@@ -19,15 +19,15 @@ export default function About() {
                     {/* Connector */}
                     <div className="flex items-center ">
                         {/* Left diamond */}
-                        <svg width="8" height="8" viewBox="0 0 10 10">
+                        <svg width="6" height="6" viewBox="0 0 10 10">
                         <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
                         </svg>
 
                         {/* Line */}
-                        <div className="w-6 h-[1px] bg-black"></div>
+                        <div className="w-4 h-[1px] bg-black"></div>
 
                         {/* Right diamond */}
-                        <svg width="8" height="8" viewBox="0 0 10 10">
+                        <svg width="6" height="6" viewBox="0 0 10 10">
                         <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
                         </svg>
                     </div>
@@ -37,23 +37,17 @@ export default function About() {
                     <h2 className="text-6xl ">Your Trusted Partner In<br/> Creative Digital Success</h2>
                     <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
                     <li className="flex gap-4">
-                        
-                        {/* Left vertical indicator */}
-                        <div className="flex flex-col items-center">
-                        {/* Top diamond */}
-                        <svg width="8" height="8" viewBox="0 0 10 10">
-                            <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
-                        </svg>
+                        <div className="flex flex-col items-center ">
+                            <svg width="6" height="6" viewBox="0 0 10 10">
+                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                            </svg>
 
-                        {/* Vertical line */}
-                        <div className="w-[2px] h-full bg-gray-300"></div>
+                            <div className="w-[1px] flex-1 bg-black"></div>
 
-                        {/* Bottom diamond */}
-                        <svg width="8" height="8" viewBox="0 0 10 10">
-                            <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
-                        </svg>
+                            <svg width="6" height="6"viewBox="0 0 10 10">
+                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                            </svg>
                         </div>
-
                         {/* Text */}
                         <p className="leading-relaxed text-lg">
                         We empower startups and enterprises through creative <br/> strategies and cutting-edge digital solutions.

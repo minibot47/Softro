@@ -20,7 +20,7 @@ const dropdowns = {
 // Maps each dropdown label to its URL path
 const dropdownRoutes = {
   // Home
-  'Startup': '/startup',
+  'Startup': '/page2',
   'Software': '/software',
   'Digital marketing': '/digital-marketing',
   'Design Agency': '/design-agency',
@@ -340,7 +340,7 @@ export default function Navbar() {
                 {/* Services mega dropdown */}
                 {link === 'Services' && openDropdown === 'Services' && (
                   <div
-                    className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white dark:bg-[#151a16] rounded-2xl shadow-xl py-0 border border-gray-100 dark:border-gray-800 z-50 overflow-hidden w-[80vw]"
+                    className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white dark:bg-[#151a16] rounded-2xl shadow-xl py-0  z-50 overflow-hidden w-[80vw]"
                     style={{ left: '50%', transform: 'translateX(-50%)', width: '90vw' }}
                     onMouseEnter={() => clearTimeout(closeTimer.current)}
                     onMouseLeave={handleMouseLeave}
@@ -488,7 +488,7 @@ export default function Navbar() {
             </button>
 
             <a
-              href="/page2"
+              href="/contact"
               className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[14px] px-5 py-3 transition-colors duration-300"
             >
               <h2>Say Hi</h2>

@@ -6,7 +6,7 @@ const navLinks = ['Home', 'Services', 'Work', 'Company', 'Insights']
 const dropdowns = {
   Home: ['Startup', 'Software', 'Digital marketing', 'Design Agency', 'Saas'],
   Work: ['All Projects', 'Branding', 'Web Design', 'Mobile Apps'],
-  Company: ['About Us', 'Our Team', 'Services', 'FAQ', 'Careers', 'Contact'],
+  Company: ['About Us', 'Our Team', 'Services', 'FAQ', 'Pricing', 'Contact'],
   Insights: [
     'News & Article 01',
     'News & Article 02',
@@ -35,7 +35,7 @@ const dropdownRoutes = {
   'Our Team': '/team',
   'Services': '/services',
   'FAQ': '/faq',
-  'Careers': '/careers',
+  'Pricing': '/pricing',
   'Contact': '/contact',
   // Insights
   'News & Article 01': '/news-article-01',

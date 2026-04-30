@@ -24,7 +24,7 @@ export default function Footer2() {
           {/* Dark-mode style control on left edge (visual match) */}
           <button
         onClick={toggleTheme}
-        className="fixed left-0 top-[30%] z-10 flex items-center justify-center w-10 h-10 rounded-r-full bg-[#1a1a1a] border border-white/10 text-white"
+        className="fixed left-0 top-[30%] z-10 flex items-center justify-center w-11 h-9 rounded-r-full bg-[#1a1a1a] border border-white/10 text-white"
       >
         <svg
           width="18"

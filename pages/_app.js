@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import localFont from 'next/font/local'
 import { ThemeProvider } from '../components/themecontext'
+import CustomCursor from '../components/customcursor'
 
 export const funnel = localFont({
   src: [
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <main className={funnel.className}>
+        <CustomCursor />
         <Component {...pageProps} />
       </main>
     </ThemeProvider>

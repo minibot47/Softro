@@ -26,7 +26,7 @@ const dropdownRoutes = {
   'Design Agency': '/design-agency',
   'Saas': '/saas',
   // Work
-  'All Projects': '/all-projects',
+  'All Projects': '/projects',
   'Branding': '/branding',
   'Web Design': '/web-design',
   'Mobile Apps': '/mobile-apps',

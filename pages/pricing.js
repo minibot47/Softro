@@ -63,15 +63,15 @@ export default function Pricing() {
                     <div className="flex items-center ">
                         {/* Left diamond */}
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                        <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
 
                         {/* Line */}
-                        <div className="w-4 h-[1px] bg-black"></div>
+                        <div className="w-4 h-[1px] bg-black dark:bg-white"></div>
 
                         {/* Right diamond */}
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                        <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
                     </div>
 
@@ -82,13 +82,13 @@ export default function Pricing() {
                     <li className="flex gap-4 mt-1">
                         <div className="flex flex-col items-center ">
                             <svg width="6" height="6" viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
 
-                            <div className="w-[1px] flex-1 bg-black"></div>
+                            <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
 
-                            <svg width="6" height="6"viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                            <svg width="6" height="6" viewBox="0 0 10 10">
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
                         </div>
                         {/* Text */}
@@ -104,8 +104,8 @@ export default function Pricing() {
             
             {/* Toggle */}
             <div className="flex justify-center">
-            <div className="flex items-center gap-4 bg-gray-100 rounded-full px-6 py-3">
-                <span className={`text-base font-medium ${!yearly ? 'text-gray-900' : 'text-gray-400'}`}>Monthly</span>
+            <div className="flex items-center gap-4 bg-gray-100 dark:bg-black rounded-full px-6 py-3">
+                <span className={`text-base font-medium ${!yearly ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-800'}`}>Monthly</span>
                 <button
                 onClick={() => setYearly(!yearly)}
                 className="relative w-12 h-6 rounded-full transition-colors duration-300 flex-shrink-0"
@@ -131,31 +131,31 @@ export default function Pricing() {
                 style={{ background: plan.color }}
                 >
                 {/* Name */}
-                <h3 className="text-2xl font-bold text-gray-900">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-black">{plan.name}</h3>
 
                 {/* Price */}
                 <div className="flex items-baseline gap-1">
-                    <span className="text-5xl font-bold text-gray-900">
+                    <span className="text-5xl font-bold text-gray-900 dark:text-black">
                     ${yearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
-                    <span className="text-sm text-gray-500">/per month</span>
+                    <span className="text-sm text-gray-500 dark:text-black">/per month</span>
                 </div>
 
                 {/* Description */}
-                <p className="text-base text-black leading-relaxed">{plan.description}</p>
+                <p className="text-base text-black leading-relaxed dark:text-black">{plan.description}</p>
 
                 {/* CTA */}
-                <button className="w-full bg-white rounded-full py-4 text-base font-bold text-gray-900 hover:bg-gray-50 transition-colors duration-200">
+                <button className="w-full dark:text-white bg-white rounded-full py-4 text-base font-bold text-gray-900 hover:bg-gray-50 dark:hover:bg-green-500 transition-colors duration-200">
                     Choose {plan.name} Plan
                 </button>
 
                 {/* Features */}
                 <div className="flex flex-col gap-3">
-                    <p className="text-lg font-bold text-gray-900 mb-4">What's Included of {plan.name} :</p>
+                    <p className="text-lg font-bold dark:text-black text-gray-900 mb-4">What's Included of {plan.name} :</p>
                     <ul className="flex flex-col gap-3">
                     {plan.features.map((f, i) => (
-                        <li key={i} className="flex items-center gap-2 text-base text-gray-700">
-                        <span className="text-gray-700 font-medium">✓</span>
+                        <li key={i} className="flex items-center gap-2 text-base text-gray-700 dark:text-black">
+                        <span className="text-gray-700 font-medium dark:text-black">✓</span>
                         {f}
                         </li>
                     ))}

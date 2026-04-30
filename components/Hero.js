@@ -1,45 +1,11 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import ExpandingVideo from './Expandingvideo'
 
 export default function Hero() {
-  const [progress, setProgress] = useState(0)
-  const [isScrolling, setIsScrolling] = useState(false)
-  const scrollTimerRef = useRef(null)
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    let ticking = false
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY
-          const windowHeight = window.innerHeight
-          const docH = document.body.scrollHeight - windowHeight
-          setProgress(Math.round((scrollY / docH) * 100))
-
-          setIsScrolling(true)
-          clearTimeout(scrollTimerRef.current)
-          scrollTimerRef.current = setTimeout(() => setIsScrolling(false), 1500)
-
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      clearTimeout(scrollTimerRef.current)
-    }
-  }, [])
 
   return (
     <section
-      ref={sectionRef}
       className="relative pt-32 pb-16 flex flex-col bg-[url(/images/banner-bg.png)] dark:bg-none dark:bg-[#111411]"
     >
       {/* Creative pill */}
@@ -65,7 +31,7 @@ export default function Hero() {
         <div className="flex items-center justify-center gap-4 mb-10 mt-8">
           <a
             href="#"
-            className="inline-flex bg-[#C8F8A9] text-black items-center gap-2 px-6 py-3 rounded-xl text-lg font-light hover:opacity-90"
+            className="inline-flex bg-[#C8F8A9] text-black items-center gap-2 px-6 py-3 rounded-xl text-lg font-light hover:opacity-90 dark:text-black"
           >
             Start Your Project
             <Image src="/images/arrow.svg" alt="arrow" width={20} height={20}/>
@@ -122,30 +88,6 @@ export default function Hero() {
       {/* Expanding video */}
       <ExpandingVideo />
 
-      {/* Progress pie */}
-      {progress > 2 && (
-        <div className="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center">
-          <svg width="56" height="56">
-            <circle cx="28" cy="28" r="28" fill="white" className="dark:fill-[#1b1f1b]"/>
-            {progress < 100 && (() => {
-              const angle = (progress / 100) * 360
-              const rad = (angle - 90) * (Math.PI / 180)
-              const x = 28 + 28 * Math.cos(rad)
-              const y = 28 + 28 * Math.sin(rad)
-              const largeArc = angle > 180 ? 1 : 0
-              return (
-                <path
-                  d={`M28,28 L28,0 A28,28 0 ${largeArc},1 ${x},${y} Z`}
-                  fill="#a8d87c"
-                />
-              )
-            })()}
-            {progress >= 100 && <circle cx="28" cy="28" r="28" fill="#a8d87c"/>}
-            <circle cx="28" cy="28" r="18" fill="white" className="dark:fill-[#0f1210]"/>
-          </svg>
-          <span className="absolute text-xs font-bold text-black dark:text-white">{progress}%</span>
-        </div>
-      )}
     </section>
   )
 }

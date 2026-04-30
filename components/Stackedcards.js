@@ -39,24 +39,24 @@ function StickyProjectCard({ work }) {
       <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-[#1b1f1b]">
         <div className="flex flex-col md:flex-row min-h-[500px]">
           <div
-            className="w-full md:w-1/2 p-10 flex flex-col justify-between"
+            className="w-full md:w-1/2 p-10 flex flex-col justify-between "
             style={{ backgroundColor: work.bg }}
           >
             <div>
-              <h3 className="text-3xl font-medium text-black">{work.title}</h3>
-              <p className="mt-4 text-black/70">{work.description}</p>
+              <h3 className="text-3xl font-medium text-black dark:text-black">{work.title}</h3>
+              <p className="mt-4 text-black/70 dark:text-black">{work.description}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {work.tags.map(tag => (
                   <span
                     key={tag}
-                    className="text-xs border border-black/20 text-black px-3 py-1 rounded-full"
+                    className="text-xs border border-black/20 text-black px-3 py-1 rounded-full dark:text-black"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
-            <span className="mt-6 text-sm font-semibold text-black">View Details →</span>
+            <span className="mt-6 text-sm font-semibold text-black dark:text-black">View Details →</span>
           </div>
 
           <div className="w-full md:w-1/2 h-[260px] md:h-auto">

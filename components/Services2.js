@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { useState } from "react"
 
-
 const services = [
   {
     title: 'Social Media Marketing',
@@ -45,20 +44,20 @@ export default function Services2() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section className="py-24 px-10  bg-white dark:bg-[#151a16] mt-5 rounded-[16px]">
+    <section className="py-24 px-10 bg-white dark:bg-[#151a16] mt-5 rounded-[16px]">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
         <div className="flex items-start justify-between mb-14">
-          <div className="flex items-start justify-between gap-[170px] w-[55%] ">
-              <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Services</span>
-              <div className="flex flex-col gap-5">
-                <h2
-                  className="text-4xl md:text-5xl font-medium text-black dark:text-white"
-                >
-                  Your Growth With Digital Innovation
-                </h2>
-              </div>
+          <div className="flex items-start justify-between gap-[170px] w-[55%]">
+            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">
+              Services
+            </span>
+            <div className="flex flex-col gap-5">
+              <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white">
+                Your Growth With Digital Innovation
+              </h2>
+            </div>
           </div>
 
           <a
@@ -73,72 +72,90 @@ export default function Services2() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[1440px] ">
-        {services.map((svc, i) => {
-            const isRightCol = (i % 3) === 2
-            const isMiddleCol = (i % 3) === 1
-            const isBottomRow = i >= services.length - 3
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[1440px]">
+          {services.map((svc, i) => {
+            const isHovered = hoveredIndex === i
 
             return (
-
               <div
                 key={i}
-                className="relative px-10 py-14 cursor-pointer transition-all duration-300 border-[1px] border-gray-400/20 dark:border-gray-800 rounded-[10px]"
-                style={{ background: hoveredIndex === i ? 'rgb(243, 255, 239)' : svc.bg }}
+                className="relative px-10 py-14 flex flex-col justify-between gap-5 cursor-pointer transition-all duration-300 border-[1px] border-gray-400/20 dark:border-gray-800 rounded-[10px]"
+                style={{ background: isHovered ? 'rgb(243, 255, 239)' : svc.bg }}
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 {/* Icon */}
                 <div className="absolute top-8 right-8">
-                  <div />
                   <Image
                     src={svc.icon}
                     alt={svc.title}
                     width={48}
                     height={48}
                     className="w-14 h-14 object-contain transition-all duration-300"
-                    style={{ opacity: hoveredIndex === i ? 0.8 : 0.3, filter: hoveredIndex === i ? 'brightness(0)' : 'none' }}
+                    style={{
+                      opacity: isHovered ? 0.8 : 0.3,
+                      filter: isHovered ? 'brightness(0)' : 'none',
+                    }}
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-medium text-3xl w-[70%] mb-5 leading-tight text-black dark:text-white">
+                <h3 className="font-medium text-3xl w-[70%] mb-5 leading-tight text-black dark:text-black">
                   {svc.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-lg leading-relaxed mb-10 transition-colors duration-300"
-                  style={{ color: hoveredIndex === i ? 'rgb(80,80,80)' : 'rgb(107,114,128)' }}
+                <p
+                  className="text-lg leading-relaxed mb-10 transition-colors duration-300"
+                  style={{ color: isHovered ? 'rgb(80,80,80)' : 'rgb(107,114,128)' }}
                 >
                   {svc.desc}
                 </p>
 
-                {/* View Details pill + arrow */}
-                <div className="flex items-center">
+                {/*
+                  The container clips overflow so nothing spills outside.
+                  Only the arrow moves — it slides left by its own full width
+                  plus the pill width, jumping in front with no gap.
+                  The pill stays completely still; the arrow does all the work.
+                */}
+                <div className="flex items-center w-fit">
+                  {/* Pill — does not move at all */}
                   <a
                     href="#"
-                    className="inline-flex items-center px-5 py-2 rounded-full text-sm font-medium transition-colors"
+                    className="inline-flex items-center px-5 py-2 rounded-full text-sm font-medium flex-shrink-0"
                     style={{
-                      border: hoveredIndex === i ? '1px solid black' : '1px solid rgb(209,213,219)',
-                      background: hoveredIndex === i ? '#C8F8A9' : 'transparent',
-                      color: hoveredIndex === i ? 'black' : 'rgb(31,41,55)',
+                      border: isHovered ? '1px solid black' : '1px solid rgb(209,213,219)',
+                      background: isHovered ? '#C8F8A9' : 'transparent',
+                      color: isHovered ? 'black' : 'rgb(31,41,55)',
+                      transition: 'background 300ms, border 300ms, color 300ms',
+                      transform: isHovered ? 'translateX(calc(32px))' : 'translateX(0)',
+                      position: 'relative',
+                      zIndex: 1,
                     }}
                   >
                     View Details
                   </a>
+
+                  {/* Arrow — slides left by (its width + pill width) so it lands flush at the start */}
                   <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center -ml-px transition-colors cursor-pointer"
+                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
                     style={{
-                      border: hoveredIndex === i ? '1px solid black' : '1px solid rgb(209,213,219)',
-                      background: hoveredIndex === i ? '#C8F8A9' : 'transparent',
+                      border: isHovered ? '1px solid black' : '1px solid rgb(209,213,219)',
+                      background: isHovered ? '#C8F8A9' : 'transparent',
+                      transition: 'transform 400ms cubic-bezier(0.34,1.4,0.64,1), background 300ms, border 300ms',
+                      transform: isHovered ? 'translateX(calc(-100% - 90px))' : 'translateX(0)',
+                      position: 'relative',
+                      zIndex: 2,
+                      marginLeft: '-1px',
                     }}
                   >
-                    <img src="/icons/arrow.svg" alt="icon"/>
+                    <img src="/icons/arrow.svg" alt="icon" />
                   </div>
                 </div>
+
               </div>
             )
-        })}
+          })}
         </div>
 
       </div>

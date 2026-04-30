@@ -72,15 +72,15 @@ export default function Services() {
                     <div className="flex items-center ">
                         {/* Left diamond */}
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                        <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
 
                         {/* Line */}
-                        <div className="w-4 h-[1px] bg-black"></div>
+                        <div className="w-4 h-[1px] bg-black dark:bg-white"></div>
 
                         {/* Right diamond */}
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                        <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
                     </div>
 
@@ -93,13 +93,13 @@ export default function Services() {
                         {/* Left vertical indicator */}
                         <div className="flex flex-col items-center ">
                             <svg width="6" height="6" viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
 
-                            <div className="w-[1px] flex-1 bg-black"></div>
+                            <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
 
-                            <svg width="6" height="6"viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                            <svg width="6" height="6" viewBox="0 0 10 10">
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
                         </div>
 
@@ -168,7 +168,7 @@ export default function Services() {
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-medium text-2xl w-[70%] mb-5 leading-tight text-black dark:text-white z-10">
+                        <h3 className="font-medium text-2xl w-[70%] mb-5 leading-tight text-black dark:text-black z-10">
                         {svc.title}
                         </h3>
 
@@ -183,7 +183,7 @@ export default function Services() {
                         <div className="flex items-center z-10 ">
                         <a
                             href="#"
-                            className="inline-flex items-center  py-2  text-base font-medium transition-colors"
+                            className="inline-flex items-center dark:text-black py-2  text-base font-medium transition-colors"
                         >
                             View Details
                         </a>
@@ -205,7 +205,7 @@ export default function Services() {
             <div className="max-w-[1440px] m-auto mb-10">
                 <div className="relative flex items-center justify-center">
                 <div className="absolute inset-x-0 top-1/2 h-px bg-gray-200" />
-                <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
+                <span className="relative bg-[#F8FDF4] dark:text-black px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
                     Trusted By 2,000+ Clients Worldwide
                 </span>
                 </div>

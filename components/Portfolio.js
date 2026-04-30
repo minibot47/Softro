@@ -38,7 +38,7 @@ export default function Portfolio() {
 
         <Link
           href="#"
-          className="flex items-center gap-2 px-5 py-3 rounded-[10px] bg-[#C8F8A9]"
+          className="flex items-center gap-2 px-5 py-3 rounded-[10px] bg-[#C8F8A9] dark:text-black"
         >
           Contact us
           <img src='/images/arrow.svg' alt='icon' className='w-7 h-7'/>

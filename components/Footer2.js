@@ -21,22 +21,6 @@ export default function Footer2() {
 
   return (
     <>
-          {/* Dark-mode style control on left edge (visual match) */}
-          <button
-        onClick={toggleTheme}
-        className="fixed left-0 top-[30%] z-10 flex items-center justify-center w-11 h-9 rounded-r-full bg-[#1a1a1a] border border-white/10 text-white"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-        </svg>
-      </button>
       <div className='bg-black rounded-[24px] '>
         <footer className="relative text-white max-w-[1440px] m-auto  w-full rounded-[16px] overflow-hidden ">
           {/* TOP SECTION — Big headline + arrow */}

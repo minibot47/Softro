@@ -30,10 +30,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── Scrollbar ───────────────────────────────────────────── */
-::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #b2d9a8; border-radius: 3px; }
 
 /* ─── Dark Mode ───────────────────────────────────────────── */
 html.dark body            { background: #0f1210; color: #ffffff; }
@@ -44,21 +40,15 @@ html.dark section,
 html.dark nav,
 html.dark header          { color: #ffffff; }
 
-/* All text elements go white */
+/* Base text elements go white in dark mode —
+   but Tailwind utility classes like text-black on individual
+   components will override this naturally since they're more specific.
+   Use dark:text-* variants in your components for full control. */
 html.dark p,
 html.dark h1, html.dark h2, html.dark h3,
 html.dark h4, html.dark h5, html.dark h6,
 html.dark span, html.dark li,
-html.dark a, html.dark label { color: #ffffff; }
-
-/* All Tailwind gray/black classes go white */
-html.dark .text-black,
-html.dark .text-gray-900,
-html.dark .text-gray-800,
-html.dark .text-gray-700,
-html.dark .text-gray-600,
-html.dark .text-gray-500,
-html.dark .text-gray-400  { color: #ffffff !important; }
+html.dark label { color: #ffffff; }
 
 /* ─── Animations ─────────────────────────────────────────── */
 @keyframes spin-slow {

@@ -62,9 +62,9 @@ export default function Process3() {
             style={{ background: steps[0].color, width: '300px', height: '295px', flexShrink: 0 }}
           >
             <Image src={steps[0].border} alt="" width={100} height={80} className="absolute -top-2 -right-2"/>
-            <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5">STEP : {steps[0].number}</div>
-            <h3 className="font-medium text-xl mb-3 text-black w-[70%]">{steps[0].title}</h3>
-            <p className="text-gray-600 text-base leading-relaxed">{steps[0].desc}</p>
+            <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5 dark:text-white">STEP : {steps[0].number}</div>
+            <h3 className="font-medium text-xl mb-3 text-black w-[70%] dark:text-black">{steps[0].title}</h3>
+            <p className="text-gray-600 text-base leading-relaxed dark:text-black">{steps[0].desc}</p>
           </div>
 
           {/* Connector 1 */}
@@ -78,9 +78,9 @@ export default function Process3() {
             style={{ background: steps[1].color, width: '300px', height: '295px', flexShrink: 0 }}
           >
             <Image src={steps[1].border} alt="" width={100} height={80} className="absolute -top-2 -right-2"/>
-            <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5">STEP : {steps[1].number}</div>
-            <h3 className="font-medium text-xl mb-3 text-black w-[70%]">{steps[1].title}</h3>
-            <p className="text-gray-600 text-base leading-relaxed">{steps[1].desc}</p>
+            <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5 dark:text-white">STEP : {steps[1].number}</div>
+            <h3 className="font-medium text-xl mb-3 text-black w-[70%] dark:text-black">{steps[1].title}</h3>
+            <p className="text-gray-600 text-base leading-relaxed dark:text-black">{steps[1].desc}</p>
           </div>
 
           {/* Connector 2 */}
@@ -94,9 +94,9 @@ export default function Process3() {
             style={{ background: steps[2].color, width: '300px', height: '295px', flexShrink: 0 }}
           >
             <Image src={steps[2].border} alt="" width={100} height={80} className="absolute -top-2 -right-2"/>
-            <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5">STEP : {steps[2].number}</div>
-            <h3 className="font-medium text-xl mb-3 text-black w-[70%]">{steps[2].title}</h3>
-            <p className="text-gray-600 text-base leading-relaxed">{steps[2].desc}</p>
+            <div className="w-fit px-4 py-1 rounded-full text-sm bg-white text-black mb-5 dark:text-white">STEP : {steps[2].number}</div>
+            <h3 className="font-medium text-xl mb-3 text-black w-[70%] dark:text-black">{steps[2].title}</h3>
+            <p className="text-gray-600 text-base leading-relaxed dark:text-black">{steps[2].desc}</p>
           </div>
 
         </div>

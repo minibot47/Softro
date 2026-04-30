@@ -139,7 +139,7 @@ export default function Services3() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-medium text-2xl w-[70%] mb-5 leading-tight text-black dark:text-white z-10">
+                <h3 className="font-medium dark:text-black text-2xl w-[70%] mb-5 leading-tight text-black z-10">
                   {svc.title}
                 </h3>
 
@@ -154,7 +154,7 @@ export default function Services3() {
                 <div className="flex items-center z-10 ">
                   <a
                     href="#"
-                    className="inline-flex items-center  py-2  text-base font-medium transition-colors"
+                    className="inline-flex items-center  py-2  text-base font-medium transition-colors dark:text-black"
                   >
                     View Details
                   </a>

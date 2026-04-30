@@ -64,11 +64,11 @@ export default function Contact() {
 
                     <div className="flex items-center">
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                            <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
-                        <div className="w-4 h-[1px] bg-black"></div>
+                        <div className="w-4 h-[1px] bg-black dark:bg-white"></div>
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                            <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
                     </div>
 
@@ -84,13 +84,13 @@ export default function Contact() {
                     <li className="flex gap-4">
                         <div className="flex flex-col items-center ">
                             <svg width="6" height="6" viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
 
-                            <div className="w-[1px] flex-1 bg-black"></div>
+                            <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
 
-                            <svg width="6" height="6"viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                            <svg width="6" height="6" viewBox="0 0 10 10">
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
                         </div>
 
@@ -107,16 +107,16 @@ export default function Contact() {
             <div className="border border-gray-200 rounded-2xl bg-gray-50 p-10">
                 <div className="grid grid-cols-3 divide-x divide-gray-200">
                 {offices.map((office, i) => (
-                    <div key={i} className={`flex flex-col gap-7 ${i === 0 ? 'pr-12' : i === 1 ? 'px-12' : 'pl-12'}`}>
+                    <div key={i} className={`flex flex-col dark:text-black gap-7 ${i === 0 ? 'pr-12' : i === 1 ? 'px-12' : 'pl-12'}`}>
         
                     {/* City + view map */}
                     <div className="flex items-center gap-3">
-                        <h3 className="text-xl font-bold text-gray-900">{office.city}</h3>
+                        <h3 className="text-xl font-bold dark:text-black text-gray-900">{office.city}</h3>
                         <a
                         href={office.mapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-medium underline underline-offset-2 text-gray-700 hover:text-black transition-colors"
+                        className="text-sm font-medium dark:text-black underline underline-offset-2 text-gray-700 hover:text-black transition-colors"
                         style={{ color: '#1a3a30' }}
                         >
                         view map
@@ -128,7 +128,7 @@ export default function Contact() {
                         <div className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <img src='/icons/mapicon.svg' alt='mapicon'/>
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">{office.address}</p>
+                        <p className="text-gray-600 text-sm leading-relaxed dark:text-black">{office.address}</p>
                     </div>
         
                     {/* Phones */}
@@ -173,7 +173,7 @@ export default function Contact() {
                 {/* Row 1 */}
                 <div className="grid grid-cols-2 gap-6">
                     <div className="flex flex-col gap-3">
-                    <label className="text-lg font-medium text-gray-900">Full name</label>
+                    <label className="text-lg font-medium dark:text-black text-gray-900">Full name</label>
                     <input
                         name="name"
                         value={form.name}
@@ -182,7 +182,7 @@ export default function Contact() {
                     />
                     </div>
                     <div className="flex flex-col gap-3">
-                    <label className="text-lg font-medium text-gray-900">Company</label>
+                    <label className="text-lg dark:text-black font-medium text-gray-900">Company</label>
                     <input
                         name="company"
                         value={form.company}
@@ -195,7 +195,7 @@ export default function Contact() {
                 {/* Row 2 */}
                 <div className="grid grid-cols-2 gap-6">
                     <div className="flex flex-col gap-3">
-                    <label className="text-lg font-medium text-gray-900">Company Email</label>
+                    <label className="text-lg dark:text-black font-medium text-gray-900">Company Email</label>
                     <input
                         name="email"
                         type="email"
@@ -205,7 +205,7 @@ export default function Contact() {
                     />
                     </div>
                     <div className="flex flex-col gap-3">
-                    <label className="text-lg font-medium text-gray-900">Phone</label>
+                    <label className="text-lg dark:text-black font-medium text-gray-900">Phone</label>
                     <input
                         name="phone"
                         type="tel"
@@ -218,7 +218,7 @@ export default function Contact() {
         
                 {/* Checkboxes */}
                 <div className="flex flex-col gap-4">
-                    <label className="text-lg font-medium text-gray-900">How can We Assist You?</label>
+                    <label className="text-lg font-medium dark:text-black text-gray-900">How can We Assist You?</label>
                     <div className="flex flex-col gap-3">
                         <div className="flex items-center gap-10">
                             {services.slice(0, 3).map((s) => (
@@ -229,7 +229,7 @@ export default function Contact() {
                                     className="flex items-center gap-3 text-left"
                                 >
                                     <span
-                                        className="w-4 h-4 rounded-[5px] flex-shrink-0 transition-all duration-200 flex items-center justify-center"
+                                        className="w-4 h-4 dark:text-black rounded-[5px] flex-shrink-0 transition-all duration-200 flex items-center justify-center"
                                         style={{
                                             background: selected.includes(s) ? '#111' : 'white',
                                         }}
@@ -240,7 +240,7 @@ export default function Contact() {
                                             </svg>
                                         )}
                                     </span>
-                                    <span className={`text-base font-medium ${selected.includes(s) ? 'text-gray-900' : 'text-gray-500'}`}>
+                                    <span className={`text-base font-medium dark:text-black ${selected.includes(s) ? 'text-gray-900' : 'text-gray-500'}`}>
                                         {s}
                                     </span>
                                 </button>
@@ -266,7 +266,7 @@ export default function Contact() {
                                             </svg>
                                         )}
                                     </span>
-                                    <span className={`text-base font-medium ${selected.includes(s) ? 'text-gray-900' : 'text-gray-500'}`}>
+                                    <span className={`text-base dark:text-black font-medium ${selected.includes(s) ? 'text-gray-900' : 'text-gray-500'}`}>
                                         {s}
                                     </span>
                                 </button>
@@ -277,13 +277,13 @@ export default function Contact() {
         
                 {/* Message */}
                 <div className="flex flex-col gap-3 flex-1">
-                    <label className="text-lg font-medium text-gray-900">Message</label>
+                    <label className="text-lg font-medium text-gray-900 dark:text-black">Message</label>
                     <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Write your message"
-                    className="w-full flex-1 bg-white rounded-2xl px-6 py-5 text-base outline-none border-none resize-none placeholder-gray-400"
+                    className="w-full flex-1 bg-white rounded-2xl px-6 py-5 text-base outline-none border-none resize-none placeholder-black dark:placeholder-white"
                     style={{ minHeight: 180 }}
                     />
                 </div>

@@ -40,11 +40,11 @@ export default function Team() {
 
                     <div className="flex items-center">
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                            <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
-                        <div className="w-4 h-[1px] bg-black"></div>
+                        <div className="w-4 h-[1px] bg-black dark:bg-white"></div>
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                            <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
                     </div>
 
@@ -60,13 +60,13 @@ export default function Team() {
                     <li className="flex gap-4">
                         <div className="flex flex-col items-center ">
                             <svg width="6" height="6" viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
 
-                            <div className="w-[1px] flex-1 bg-black"></div>
+                            <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
 
                             <svg width="6" height="6"viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
+                                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                             </svg>
                         </div>
 
@@ -94,26 +94,26 @@ export default function Team() {
 
                 {/* Stats Card */}
                 <div
-                    className="absolute bottom-0 right-[15%] w-fit h-fit rounded-t-[24px] bg-white text-black p-10  grid grid-cols-2 grid-rows-2"
+                    className="absolute bottom-0 right-[15%] w-[386px] h-[365px] rounded-t-[12px] bg-white text-black p-7  grid grid-cols-2 grid-rows-2"
                 >
-                    <div className="flex flex-col items-start border-b border-gray-200 gap-4 p-2 2xl:p-5">
-                        <h2 className='text-sm 2xl:text-lg'>Years of <br/> expertise</h2>
-                        <h2 className="text-3xl 2xl:text-5xl font-semibold">12+</h2>
+                    <div className="flex flex-col items-start border-b border-gray-200/40 gap-4 p-2 2xl:p-5">
+                        <h2 className='text-lg 2xl:text-lg'>Years of <br/> expertise</h2>
+                        <h2 className="text-5xl 2xl:text-5xl font-medium">12+</h2>
                     </div>
 
-                    <div className="flex flex-col items-end border-b border-l border-gray-200 gap-4 p-2 2xl:p-5">
-                        <h2 className='text-sm 2xl:text-lg'>Industry <br/> Awards</h2>
-                        <h2 className="text-3xl 2xl:text-5xl font-semibold">05</h2>
+                    <div className="flex flex-col items-start pl-10 border-b border-l border-gray-200/40 gap-4 p-2 2xl:p-5">
+                        <h2 className='text-lg 2xl:text-lg'>Industry <br/> Awards</h2>
+                        <h2 className="text-5xl 2xl:text-5xl font-semibold">05</h2>
                     </div>
 
                     <div className="flex flex-col items-start gap-4 p-2 2xl:p-5">
-                        <h2 className='text-sm 2xl:text-lg'>Creative <br/> Minds</h2>
-                        <h2 className="text-3xl 2xl:text-5xl font-semibold">25+</h2>
+                        <h2 className='text-lg 2xl:text-lg'>Creative <br/> Minds</h2>
+                        <h2 className="text-5xl 2xl:text-5xl font-semibold">25+</h2>
                     </div>
 
-                    <div className="flex flex-col items-end border-l border-gray-200 gap-4 p-2 2xl:p-5">
-                        <h2 className='text-sm 2xl:text-lg'>Project <br/> Completed</h2>
-                        <h2 className="text-3xl 2xl:text-5xl font-semibold">1k+</h2>
+                    <div className="flex flex-col items-start pl-10 border-l border-gray-200/40 gap-4 p-2 2xl:p-5">
+                        <h2 className='text-lg 2xl:text-lg'>Project <br/> Completed</h2>
+                        <h2 className="text-5xl 2xl:text-5xl font-semibold">1k+</h2>
                     </div>
                 </div>
             </div>
@@ -149,8 +149,8 @@ export default function Team() {
                     </div>
 
                     <div className="relative z-10 text-center px-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Join Our Team!</h2>
-                        <p className="text-gray-500 text-base leading-relaxed mb-8">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4 dark:text-black">Join Our Team!</h2>
+                        <p className="text-gray-500 text-base leading-relaxed mb-8 dark:text-black">
                             We're always on the lookout for passionate,<br/>
                             creative, and talented individuals to join our<br/>
                             dynamic team.

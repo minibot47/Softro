@@ -97,11 +97,11 @@ export default function Services() {
                   />
 
                   <div>
-                    <h3 className="font-semibold text-xl mb-2 leading-tight text-black dark:text-white">
+                    <h3 className="font-semibold text-xl mb-2 leading-tight text-black dark:text-black">
                       {svc.title}
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+                    <p className="text-gray-600 dark:text-black text-sm leading-relaxed mb-5">
                       {svc.desc}
                     </p>
 

@@ -34,15 +34,15 @@ export default function Page2Content() {
           {/* LEFT */}
           <div className="flex  flex-col justify-center px-4 py-24 relative items-center">
             <div className='w-full h-fit pl-10'>
-                <h1 className="text-6xl 2xl:text-8xl font-light  mb-5 text-gray-900 tracking-tight">
+                <h1 className="text-6xl 2xl:text-8xl font-light dark:text-black mb-5 text-gray-900 tracking-tight">
                 Strategic<br />
                 Marketing{' '}
-                <span className="font-bold">for<br />the Digital Age</span>
+                <span className="font-bold dark:text-black">for<br />the Digital Age</span>
                 </h1>
 
                 <div className="flex items-start gap-3 mb-10 w-full  ">
                 <div className="w-px bg-gray-400 mt-1 flex-shrink-0" style={{ height: '48px' }} />
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <p className="text-gray-600 text-lg leading-relaxed dark:text-black">
                     We help <strong className="text-gray-900 font-semibold">businesses</strong> reach the right audience,<br/>
                     boost engagement, and skyrocket conversions.
                 </p>
@@ -71,7 +71,7 @@ export default function Page2Content() {
                 <div className="flex items-center justify-between w-[90%] border-t-[0.1px] border-black/30 ">
                 <div className='border-r-[0.1px] border-black/30 w-[40%] py-3'>
                     <div className="flex items-center gap-1.5 mb-1">
-                    <span className="text-lg text-gray-500">Review on</span>
+                    <span className="text-lg text-gray-500 dark:text-black">Review on</span>
                     <div className="flex gap-0.5">
                         {[...Array(5)].map((_, i) => (
                         <svg key={i} width="11" height="11" viewBox="0 0 24 24" fill="#ff3d2e">
@@ -81,8 +81,8 @@ export default function Page2Content() {
                     </div>
                     </div>
                     <div className="flex items-center gap-2">
-                    <span className="font-bold text-xl leading-none">Clutch</span>
-                    <span className="text-sm text-gray-400">(20 Reviews)</span>
+                    <span className="font-bold text-xl leading-none dark:text-black">Clutch</span>
+                    <span className="text-sm text-gray-400 dark:text-black">(20 Reviews)</span>
                     </div>
                 </div>
 
@@ -102,8 +102,8 @@ export default function Page2Content() {
                         ))}
                     </div>
                     <div>
-                    <p className="text-sm text-gray-500">we've already</p>
-                    <p className="text- font-bold">20k+ <span className="font-normal text-gray-500">active users</span></p>
+                    <p className="text-sm text-gray-500 dark:text-black">we've already</p>
+                    <p className="text- font-bold dark:text-black">20k+ <span className="font-normal text-gray-500 dark:text-black">active users</span></p>
                     </div>
                 </div>
                 </div>

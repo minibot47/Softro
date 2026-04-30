@@ -184,7 +184,7 @@ export default function Testimonials() {
         {/* Trusted by banner */}
         <div className="relative flex items-center justify-center mt-24">
           <div className="absolute inset-x-0 top-1/2 h-px bg-gray-200" />
-          <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
+          <span className="relative bg-[#F8FDF4] dark:text-black px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
             Trusted By 2,000+ Clients Worldwide
           </span>
         </div>

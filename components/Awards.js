@@ -7,7 +7,7 @@ const awards = [
   { title: 'Best Emerging Digital Marketing Agency', year: '2026', img: '/images/awardimg.png' },
   { title: 'Excellence In Social Media Strategy', year: '2025', img: '/images/awardimg2.png' },
   { title: 'Top 10 SEO Agencies In Asia', year: '2024', img: '/images/awardimg3.png' },
-  { title: 'Innovation In Performance Marketing', year: '2023', img: '/images/awardimg4.png' },
+  { title: 'Innovation In Performance Marketing', year: '2023', img: '/images/awardimg6.png' },
   { title: 'Fastest Growing Startup', year: '2022', img: '/images/awardimg5.png' },
 ]
 
@@ -58,7 +58,7 @@ export default function Awards() {
             >
               <span
                 className="text-xl font-medium transition-colors duration-300"
-                style={{ color: hoveredIndex === i ? '#1a2e10' : '#6b7280' }}
+                style={{ color: hoveredIndex === i ? '#1a2e10' : 'white' }}
               >
                 {award.title}
               </span>

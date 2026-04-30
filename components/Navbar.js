@@ -149,9 +149,9 @@ function Sidebar({ open, onClose }) {
 
       {/* Sidebar panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-[520px] max-w-full bg-white dark:bg-[#151a16] z-[70] shadow-2xl transition-transform duration-500 ease-in-out overflow-y-auto ${open ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-screen w-[520px] max-w-full bg-white dark:bg-[#151a16] z-[70] shadow-2xl transition-transform duration-500 ease-in-out overflow-y-auto ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        <div className="p-10">
+        <div className="p-8">
 
           {/* Close button */}
           <button
@@ -309,7 +309,7 @@ export default function Navbar() {
           opacity: hidden ? 0 : 1,
         }}
       >
-        <div className="w-full px-20 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
+        <div className="w-full px-12 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 font-light text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
@@ -482,16 +482,16 @@ export default function Navbar() {
           <div className="flex items-center gap-7">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="hidden md:flex w-9 h-9 items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+              className="hidden md:flex w-10 h-10 items-center justify-center rounded-[5px] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
             >
               <img src='/images/navicon.svg' alt='logo'/>
             </button>
 
             <a
               href="/contact"
-              className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[14px] px-5 py-3 transition-colors duration-300"
+              className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[12px] px-5 py-3 transition-colors duration-300"
             >
-              <h2>Say Hi</h2>
+              <h2 className='dark:text-black text-base font-medium'>Say Hi</h2>
               <img
                 src="/icons/arrowup.svg"
                 alt="icon"

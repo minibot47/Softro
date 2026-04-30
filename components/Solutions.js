@@ -67,10 +67,10 @@ const cards = [
                 className="absolute -top-1 -right-1  w-[87px] h-[87px] "
                 />
               <div className=" h-ful flex flex-col  justify-between">
-                <h3 className="text-[28px] font-base text-gray-900 mb-6 leading-snug w-full">
+                <h3 className="text-[28px] font-base text-gray-900 mb-6 leading-snug w-full dark:text-black">
                   {card.title}
                 </h3>
-                <p className="text-[16px] text-gray-600 leading-relaxed">
+                <p className="text-[16px] text-gray-600 leading-relaxed dark:text-black">
                   {card.desc}
                 </p>
               </div>
@@ -81,7 +81,7 @@ const cards = [
         {/* Trusted by banner */}
         <div className="relative flex items-center justify-center">
           <div className="absolute inset-x-0 top-1/2 h-px bg-gray-200" />
-          <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
+          <span className="relative bg-[#F8FDF4] px-3 dark:text-black py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
             Trusted By 2,000+ Clients Worldwide
           </span>
         </div>

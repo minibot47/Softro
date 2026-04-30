@@ -180,15 +180,15 @@ export default function Faq() {
                     <div className="flex items-center ">
                         {/* Left diamond */}
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                        <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
 
                         {/* Line */}
-                        <div className="w-4 h-[1px] bg-black"></div>
+                        <div className="w-4 h-[1px] bg-black dark:bg-white"></div>
 
                         {/* Right diamond */}
                         <svg width="6" height="6" viewBox="0 0 10 10">
-                        <path d="M5 0L10 5L5 10L0 5Z" fill="black" />
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
                         </svg>
                     </div>
 
@@ -200,15 +200,15 @@ export default function Faq() {
                         
                         {/* Left vertical indicator */}
                         <div className="flex flex-col items-center ">
-                            <svg width="6" height="6" viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
-                            </svg>
+                          <svg width="6" height="6" viewBox="0 0 10 10">
+                              <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+                          </svg>
 
-                            <div className="w-[1px] flex-1 bg-black"></div>
+                            <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
 
-                            <svg width="6" height="6"viewBox="0 0 10 10">
-                                <path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" />
-                            </svg>
+                          <svg width="6" height="6" viewBox="0 0 10 10">
+                              <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+                          </svg>
                         </div>
 
                         {/* Text */}
@@ -231,7 +231,7 @@ export default function Faq() {
                     onClick={() => { setActiveCategory(cat); setOpenIndex(0) }}
                     className={`text-left text-lg py-3 transition-all duration-200 ${
                     activeCategory === cat
-                        ? 'text-black font-semibold'
+                        ? 'text-black dark:text-white font-semibold'
                         : 'text-gray-400 hover:text-gray-700 font-normal'
                     }`}
                 >

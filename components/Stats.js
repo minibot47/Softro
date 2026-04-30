@@ -57,16 +57,16 @@ export default function Stats() {
 
               {/* Stats */}
               <div className="p-6 flex flex-col gap-3  w-full text-black">
-                <h3 className="font-medium text-2xl mb-4">{s.label}</h3>
-                <h3 className="font-normal text-xl mb-4">{s.client}</h3>
-                <div className="flex gap-6 ">
+                <h3 className="font-medium text-2xl mb-4 dark:text-black">{s.label}</h3>
+                <h3 className="font-normal text-xl mb-4 dark:text-black">{s.client}</h3>
+                <div className="flex gap-6  ">
                   <div className=" border-r  border-gray-400/30 w-1/2 flex flex-col items-start">
-                    <p className="text-2xl font-semibold" style={{ color: s.img }}>{s.metric1}</p>
-                    <p className="text-lg text-gray-500">{s.m1label}</p>
+                    <p className="text-2xl font-semibold dark:text-black" style={{ color: s.img }}>{s.metric1}</p>
+                    <p className="text-lg text-gray-500 dark:text-black">{s.m1label}</p>
                   </div>
-                  <div className=" border-gray-400/30 w-1/2 flex flex-col items-start pl-10">
-                    <p className="text-2xl font-semibold " style={{ color: s.img }}>{s.metric2}</p>
-                    <p className="text-lg text-gray-500">{s.m2label}</p>
+                  <div className=" border-gray-400/30 w-1/2 flex flex-col items-start pl-8">
+                    <p className="text-2xl font-semibold dark:text-black" style={{ color: s.img }}>{s.metric2}</p>
+                    <p className="text-lg text-gray-500 dark:text-black">{s.m2label}</p>
                   </div>
                 </div>
 
@@ -86,7 +86,7 @@ export default function Stats() {
         {/* Trusted by banner */}
         <div className="relative flex items-center justify-center mt-24">
           <div className="absolute inset-x-0 top-1/2 h-px bg-gray-200" />
-          <span className="relative bg-[#F8FDF4] px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
+          <span className="relative bg-[#F8FDF4] dark:text-black px-3 py-1.5 rounded-full border-[0.1px] border-gray-400/40 text-BASE font-semibold text-gray-800 z-10">
             Trusted By 2,000+ Clients Worldwide
           </span>
         </div>

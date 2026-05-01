@@ -158,9 +158,13 @@ export default function Projects() {
         <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
           <span>Home</span>
           <div className="flex items-center">
-            <svg width="6" height="6" viewBox="0 0 10 10"><path d="M5 0L10 5L5 10L0 5Z" fill="black" /></svg>
-            <div className="w-4 h-[1px] bg-black"></div>
-            <svg width="6" height="6" viewBox="0 0 10 10"><path d="M5 0L10 5L5 10L0 5Z" fill="black" /></svg>
+            <svg width="6" height="6" viewBox="0 0 10 10">
+                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+            </svg>
+            <div className="w-4 h-[1px] bg-black dark:bg-white"></div>
+            <svg width="6" height="6" viewBox="0 0 10 10">
+                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+            </svg>
           </div>
           <span>{project.title}</span>
         </div>
@@ -168,9 +172,13 @@ export default function Projects() {
         <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
           <li className="flex gap-4">
             <div className="flex flex-col items-center">
-              <svg width="6" height="6" viewBox="0 0 10 10"><path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" /></svg>
-              <div className="w-[1px] flex-1 bg-black"></div>
-              <svg width="6" height="6" viewBox="0 0 10 10"><path d="M5 0L10 5L5 10L0 5Z" fill="#1F3D3A" /></svg>
+                <svg width="6" height="6" viewBox="0 0 10 10">
+                    <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+                </svg>
+              <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
+              <svg width="6" height="6" viewBox="0 0 10 10">
+                <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+                </svg>
             </div>
             <p className="leading-relaxed text-lg">
               Where imagination meets execution, and <br /> concepts turn into powerful experiences.

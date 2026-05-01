@@ -6,7 +6,7 @@ const navLinks = ['Home', 'Services', 'Work', 'Company', 'Insights']
 const dropdowns = {
   Home: ['Startup', 'Software', 'Digital marketing', 'Design Agency', 'Saas'],
   Work: ['All Projects', 'Branding', 'Web Design', 'Mobile Apps'],
-  Company: ['About Us', 'Our Team', 'Services', 'FAQ', 'Pricing', 'Contact'],
+  Company: ['About Us', 'Our Team', 'Services', 'FAQ', 'Pricing', 'Industries', 'Contact'],
   Insights: [
     'News & Article 01',
     'News & Article 02',
@@ -17,33 +17,45 @@ const dropdowns = {
   ],
 }
 
-// Maps each dropdown label to its URL path
 const dropdownRoutes = {
-  // Home
   'Startup': '/page2',
   'Software': '/software',
   'Digital marketing': '/digital-marketing',
   'Design Agency': '/design-agency',
   'Saas': '/saas',
-  // Work
   'All Projects': '/projects',
   'Branding': '/branding',
   'Web Design': '/web-design',
   'Mobile Apps': '/mobile-apps',
-  // Company
   'About Us': '/about',
   'Our Team': '/team',
   'Services': '/services',
   'FAQ': '/faq',
   'Pricing': '/pricing',
+  'Industries': '/industries',
   'Contact': '/contact',
-  // Insights
   'News & Article 01': '/news-article-01',
   'News & Article 02': '/news-article-02',
   'News & Article 03': '/news-article-03',
   'News & Article 04': '/news-article-04',
   'News & Article 05': '/news-article-05',
   'News & Article Details': '/news-article-details',
+}
+
+// Given the current pathname, figure out which top-level nav item should be active
+function getActiveFromPath(pathname) {
+  // Check each nav link's dropdown items first
+  for (const [navItem, items] of Object.entries(dropdowns)) {
+    for (const item of items) {
+      const route = dropdownRoutes[item]
+      if (route && pathname === route) return navItem
+    }
+  }
+  // Services mega dropdown direct match
+  if (pathname === '/services') return 'Services'
+  // Home is the fallback for '/'
+  if (pathname === '/') return 'Home'
+  return null
 }
 
 const services = [
@@ -72,16 +84,6 @@ const teamAvatars = [
   { top: '65%', left: '8%',  src: '/images/avater4.png' },
   { top: '65%', left: '52%', src: '/images/avater5.png' },
   { top: '78%', left: '30%', src: '/images/avater6.png' },
-]
-
-const avatarColors = [
-  'linear-gradient(135deg, #c060a0, #6030c0)',
-  'linear-gradient(135deg, #e06020, #c03030)',
-  'linear-gradient(135deg, #4060e0, #2030a0)',
-  'linear-gradient(135deg, #30a0c0, #2060e0)',
-  'linear-gradient(135deg, #a030c0, #6020a0)',
-  'linear-gradient(135deg, #c08020, #e05010)',
-  'linear-gradient(135deg, #8040c0, #c020a0)',
 ]
 
 const serviceIcons = {
@@ -130,9 +132,7 @@ const serviceIcons = {
   ),
 }
 
-// Sidebar component
 function Sidebar({ open, onClose }) {
-  // Prevent body scroll when sidebar is open
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden'
     else document.body.style.overflow = ''
@@ -141,39 +141,25 @@ function Sidebar({ open, onClose }) {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[60] bg-black/30 transition-opacity duration-300 ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={onClose}
       />
-
-      {/* Sidebar panel */}
       <div
         className={`fixed top-0 right-0 h-screen w-[520px] max-w-full bg-white dark:bg-[#151a16] z-[70] shadow-2xl transition-transform duration-500 ease-in-out overflow-y-auto ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="p-8">
-
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="absolute top-8 right-8 w-11 h-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:border-gray-500 dark:hover:border-gray-500 transition-colors"
-          >
+          <button onClick={onClose} className="absolute top-8 right-8 w-11 h-11 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center hover:border-gray-500 dark:hover:border-gray-500 transition-colors">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2">
               <path d="M18 6L6 18M6 6l12 12"/>
             </svg>
           </button>
-
-          {/* Logo */}
           <div className="flex items-center gap-2 mb-6">
             <img src="/images/header-logo.svg" alt="Softro" className="h-8" />
           </div>
-
-          {/* Tagline */}
           <p className="text-gray-500 dark:text-gray-300 text-lg leading-relaxed mb-12 max-w-sm">
             We develop innovative digital solutions that enhance Software Development, Cloud & DevOps etc.
           </p>
-
-          {/* Divider line with arrow */}
           <div className="relative mb-8">
             <div className="absolute left-0 top-0 bottom-0 flex flex-col items-center" style={{ width: '1px' }}>
               <div className="flex-1 w-px bg-gray-200" />
@@ -181,10 +167,7 @@ function Sidebar({ open, onClose }) {
                 <path d="M5 0v8M1 4l4 4 4-4" stroke="#aaa" strokeWidth="1.5"/>
               </svg>
             </div>
-
             <div className="pl-8 space-y-10">
-
-              {/* Chat With Us */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Chat With Us</h3>
                 <div className="flex items-center gap-4">
@@ -200,8 +183,6 @@ function Sidebar({ open, onClose }) {
                   </div>
                 </div>
               </div>
-
-              {/* Call Us */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Call Us</h3>
                 <div className="flex items-center gap-4">
@@ -216,8 +197,6 @@ function Sidebar({ open, onClose }) {
                   </div>
                 </div>
               </div>
-
-              {/* Visit Office */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Visit Office</h3>
                 <div className="flex items-start gap-4">
@@ -234,26 +213,18 @@ function Sidebar({ open, onClose }) {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
-          {/* Follow Us */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Follow Us</h3>
             <div className="flex items-center gap-3">
               {[
-                { label: 'f', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
-                { label: 'x', path: 'M4 4l16 16M20 4L4 20' },
-                { label: 'in', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
-                { label: '◻', path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z' },
+                { path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
+                { path: 'M4 4l16 16M20 4L4 20' },
+                { path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
+                { path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z' },
               ].map((social, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-white text-sm font-bold transition-opacity hover:opacity-80"
-                  style={{ background: '#1a2e25' }}
-                >
+                <a key={i} href="#" className="w-11 h-11 rounded-full flex items-center justify-center text-white text-sm font-bold transition-opacity hover:opacity-80" style={{ background: '#1a2e25' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                     <path d={social.path}/>
                   </svg>
@@ -261,7 +232,6 @@ function Sidebar({ open, onClose }) {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </>
@@ -271,18 +241,23 @@ function Sidebar({ open, onClose }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
-  const [active, setActive] = useState('Home')
+  const [active, setActive] = useState(null)
   const [openDropdown, setOpenDropdown] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const closeTimer = useRef(null)
-  
+
+  // Set active based on current URL on mount
+  useEffect(() => {
+    const pathname = window.location.pathname
+    const matched = getActiveFromPath(pathname)
+    setActive(matched ?? 'Home')
+  }, [])
+
   useEffect(() => {
     const onScroll = () => {
       const scrollY = window.scrollY
       const windowH = window.innerHeight
       setScrolled(scrollY > 40)
-  
-      // Hide during video expansion zone
       const expansionStart = windowH * 0.7
       const expansionEnd = windowH * 2
       setHidden(scrollY > expansionStart && scrollY < expansionEnd)
@@ -310,13 +285,10 @@ export default function Navbar() {
         }}
       >
         <div className="w-full px-12 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
-
-          {/* Logo */}
           <a href="/" className="flex items-center gap-2 font-light text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
             <img src='/images/header-logo.svg' alt='Mainicon'/>
           </a>
 
-          {/* Nav links */}
           <nav className="hidden md:flex items-center gap-5">
             {navLinks.map(link => (
               <div
@@ -340,7 +312,7 @@ export default function Navbar() {
                 {/* Services mega dropdown */}
                 {link === 'Services' && openDropdown === 'Services' && (
                   <div
-                    className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white dark:bg-[#151a16] rounded-2xl shadow-xl py-0  z-50 overflow-hidden w-[80vw]"
+                    className="fixed left-1/2 top-[70px] -translate-x-1/2 mt-3 bg-white dark:bg-[#151a16] rounded-2xl shadow-xl py-0 z-50 overflow-hidden w-[80vw]"
                     style={{ left: '50%', transform: 'translateX(-50%)', width: '90vw' }}
                     onMouseEnter={() => clearTimeout(closeTimer.current)}
                     onMouseLeave={handleMouseLeave}
@@ -350,11 +322,7 @@ export default function Navbar() {
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">Company Services</h3>
                         <div className="grid grid-cols-2 gap-4 mb-8">
                           {services.map((svc) => (
-                            <a
-                              key={svc.title}
-                              href="#"
-                              className="flex items-center gap-3 px-2 py-4 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-[#1d241f] transition-all group"
-                            >
+                            <a key={svc.title} href="#" className="flex items-center gap-3 px-2 py-4 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-[#1d241f] transition-all group">
                               <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
                                 {serviceIcons[svc.title]}
                               </div>
@@ -365,14 +333,10 @@ export default function Navbar() {
                           ))}
                         </div>
                         <div className="pt-5 flex flex-col gap-2">
-                          <p className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
-                            Don't Hesitate to Collaborate with Us
-                          </p>
+                          <p className="text-xl font-semibold text-gray-900 dark:text-white mb-1">Don't Hesitate to Collaborate with Us</p>
                           <a href="#" className="inline-flex items-center gap-1.5 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white">
                             Contact us
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                            </svg>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                           </a>
                         </div>
                       </div>
@@ -383,72 +347,35 @@ export default function Navbar() {
                           <ul className="space-y-3">
                             {industries.map((ind) => (
                               <li key={ind}>
-                                <a href="#" className="text-sm text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-                                  {ind}
-                                </a>
+                                <a href="#" className="text-sm text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">{ind}</a>
                               </li>
                             ))}
                           </ul>
                           <a href="#" className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white mt-5 underline underline-offset-2">
                             View All Industries
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                            </svg>
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                           </a>
                         </div>
                       </div>
 
-                      <div
-                        className="w-[35%] relative flex flex-col items-center justify-center text-white py-20 bg-[url(/images/topareabg.png)]"
-                      >
+                      <div className="w-[35%] relative flex flex-col items-center justify-center text-white py-20 bg-[url(/images/topareabg.png)]">
                         {teamAvatars.map((avatar, i) => {
                           const count = teamAvatars.length
                           const radius = 38
                           const angle = (i / count) * 2 * Math.PI
-
                           const x = 50 + radius * Math.cos(angle)
                           const y = 50 + radius * Math.sin(angle)
-
                           return (
-                            <div
-                              key={i}
-                              className="absolute w-14 h-14 rounded-full border-2 border-white/20"
-                              style={{
-                                top: `${y}%`,
-                                left: `${x}%`,
-                                transform: "translate(-50%, -50%)",
-                              }}
-                            >
-                              <img
-                                src={avatar.src}
-                                alt="team member"
-                                className="w-full h-full object-cover rounded-full"
-                              />
+                            <div key={i} className="absolute w-14 h-14 rounded-full border-2 border-white/20" style={{ top: `${y}%`, left: `${x}%`, transform: "translate(-50%, -50%)" }}>
+                              <img src={avatar.src} alt="team member" className="w-full h-full object-cover rounded-full" />
                             </div>
                           )
                         })}
-
                         <div className="relative z-10 text-center">
-                          <h3 className="text-2xl font-medium leading-snug mb-4">
-                            Always Here to<br />Support You
-                          </h3>
-
-                          <a
-                            href="/about"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-lg font-medium"
-                            style={{ background: "#c5e87a", color: "#1a2e25" }}
-                          >
+                          <h3 className="text-2xl font-medium leading-snug mb-4">Always Here to<br />Support You</h3>
+                          <a href="/about" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-lg font-medium" style={{ background: "#c5e87a", color: "#1a2e25" }}>
                             Let's Talk
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.5"
-                            >
-                              <path d="M7 17L17 7M17 7H7M17 7v10" />
-                            </svg>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
                           </a>
                         </div>
                       </div>
@@ -478,31 +405,18 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="flex items-center gap-7">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="hidden md:flex w-10 h-10 items-center justify-center rounded-[5px] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
-            >
+            <button onClick={() => setSidebarOpen(true)} className="hidden md:flex w-10 h-10 items-center justify-center rounded-[5px] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
               <img src='/images/navicon.svg' alt='logo'/>
             </button>
-
-            <a
-              href="/contact"
-              className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[12px] px-5 py-3 transition-colors duration-300"
-            >
+            <a href="/contact" className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[12px] px-5 py-3 transition-colors duration-300">
               <h2 className='dark:text-black text-base font-medium'>Say Hi</h2>
-              <img
-                src="/icons/arrowup.svg"
-                alt="icon"
-                className="w-5 h-5 transition-all duration-300"
-              />
+              <img src="/icons/arrowup.svg" alt="icon" className="w-5 h-5 transition-all duration-300" />
             </a>
           </div>
         </div>
       </header>
 
-      {/* Sidebar */}
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
     </>
   )

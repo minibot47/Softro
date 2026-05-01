@@ -19,10 +19,8 @@ export function ThemeProvider({ children }) {
     setManualOverride(savedManual)
 
     if (savedManual && savedTheme) {
-      // User has manually chosen before — respect it
       setDark(savedTheme === 'dark')
     } else {
-      // No manual choice — use time, fall back to system preference
       setDark(shouldBeDark() || prefersDark)
     }
   }, [])
@@ -32,11 +30,22 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
-  // Check every minute if we've crossed 6pm or 6am
+  // Check every minute — time-based rules ALWAYS win at 6pm/6am
+  // regardless of manual preference
   useEffect(() => {
     const interval = setInterval(() => {
-      if (manualOverride) return // user chose manually — leave it alone
-      setDark(shouldBeDark())
+      const forceDark = shouldBeDark()
+
+      // If we've crossed into 6pm or 6am, override everything
+      // and clear the manual flag so daytime is user-controlled again
+      if (forceDark) {
+        setDark(true)
+        setManualOverride(false)
+        localStorage.removeItem('theme-manual')
+      } else if (!manualOverride) {
+        // Outside forced hours, only auto-switch if no manual choice
+        setDark(false)
+      }
     }, 60 * 1000)
 
     return () => clearInterval(interval)

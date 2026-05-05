@@ -4,7 +4,7 @@ const ThemeContext = createContext()
 
 function shouldBeDark() {
   const hour = new Date().getHours()
-  return hour >= 18 || hour < 6 // dark from 6pm to 6am
+  return hour >= 18 || hour < 6
 }
 
 export function ThemeProvider({ children }) {
@@ -30,21 +30,18 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
-  // Check every minute — time-based rules ALWAYS win at 6pm/6am
-  // regardless of manual preference
   useEffect(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
     const interval = setInterval(() => {
       const forceDark = shouldBeDark()
 
-      // If we've crossed into 6pm or 6am, override everything
-      // and clear the manual flag so daytime is user-controlled again
       if (forceDark) {
         setDark(true)
         setManualOverride(false)
         localStorage.removeItem('theme-manual')
       } else if (!manualOverride) {
-        // Outside forced hours, only auto-switch if no manual choice
-        setDark(false)
+        setDark(prefersDark) // ✅ was hardcoded to false before
       }
     }, 60 * 1000)
 

@@ -4,10 +4,14 @@ import { useEffect, useRef, useState } from 'react'
 export default function ExpandingVideo() {
   const [imageScale, setImageScale] = useState(0)
   const [windowH, setWindowH] = useState(800)
+  const [isMobile, setIsMobile] = useState(false)
   const scrollTimerRef = useRef(null)
 
   useEffect(() => {
-    const handleResize = () => setWindowH(window.innerHeight)
+    const handleResize = () => {
+      setWindowH(window.innerHeight)
+      setIsMobile(window.innerWidth < 768)
+    }
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -40,11 +44,13 @@ export default function ExpandingVideo() {
     <div style={{ height: '200vh' }} className="relative w-full">
       <div className="sticky top-0 w-full flex justify-center pt-5 overflow-hidden">
         <div
-          className="relative overflow-hidden shadow-2xl"
+          className="relative overflow-hidden shadow-2xl max-w-[100vw]"
           style={{
-            width: `calc(40% + ${imageScale * 60}vw)`,
+            width: isMobile
+              ? `calc(88vw + ${imageScale * 12}vw)`
+              : `calc(40% + ${imageScale * 60}vw)`,
             borderRadius: `${20 - imageScale * 20}px`,
-            height: `${400 + imageScale * (windowH - 400)}px`,
+            height: `${(isMobile ? 240 : 400) + imageScale * (windowH - (isMobile ? 240 : 400))}px`,
           }}
         >
           <div

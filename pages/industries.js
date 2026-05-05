@@ -95,7 +95,7 @@ export default function Industries() {
       <Navbar />
 
       {/* Hero */}
-      <div className="flex flex-col px-20 mt-24 py-10 max-w-[1440px] m-auto items-start justify-start">
+      <div className="flex flex-col px-4 sm:px-8 md:px-16 lg:px-20 mt-20 md:mt-24 py-8 md:py-10 max-w-[1440px] m-auto items-start justify-start">
         <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
           <span>Home</span>
           <div className="flex items-center">
@@ -109,8 +109,8 @@ export default function Industries() {
           </div>
           <span>Industries</span>
         </div>
-        <h2 className="text-6xl">Delivering Results Across<br /> Industries We Serve</h2>
-        <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Delivering Results Across<br /> Industries We Serve</h2>
+        <ul className="space-y-6 text-gray-700 ml-0 md:ml-14 md:pl-16 mt-5 max-w-full">
           <li className="flex gap-4">
             <div className="flex flex-col items-center">
                 <svg width="6" height="6" viewBox="0 0 10 10">
@@ -129,7 +129,7 @@ export default function Industries() {
       </div>
 
       {/* IMAGE SECTION */}
-      <div className="relative w-[98%] m-auto rounded-[12px] h-[622px] mt-10 overflow-hidden">
+      <div className="relative w-[98%] m-auto rounded-[12px] min-h-[220px] h-[40vh] sm:h-[50vh] md:h-[622px] mt-8 md:mt-10 overflow-hidden">
 
           <img
             src='/images/industries-thumb-img.png'
@@ -140,10 +140,10 @@ export default function Industries() {
       </div>
 
       {/* About the project */}
-      <div className="w-full max-w-[1440px] mx-auto px-20 py-16 flex flex-col gap-12  my-10">
-        <h2 className="text-4xl font-bold text-gray-900">We Focus on Our Hard Work</h2>
-        <div className="flex justify-between">
-          <div className='flex flex-col gap-5  w-1/2'>
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16 flex flex-col gap-8 md:gap-12 my-8 md:my-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">We Focus on Our Hard Work</h2>
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-10">
+          <div className='flex flex-col gap-5 w-full lg:w-1/2'>
             <div className="flex flex-col gap-4">
                 <p className="text-gray-500 text-base leading-relaxed">{project.challenge}</p>
             </div>
@@ -151,7 +151,7 @@ export default function Industries() {
                 <p className="text-gray-500 text-base leading-relaxed">{project.solution}</p>
             </div>
             </div>  
-          <div className="flex flex-col gap-5 w-1/2 pl-24">
+          <div className="flex flex-col gap-5 w-full lg:w-1/2 lg:pl-12 xl:pl-24">
             <h3 className="text-xl font-bold text-gray-900">Our Speciality of Constructions :</h3>
             <ul className="flex flex-col gap-4">
               {project.processSteps.map((s, i) => (
@@ -166,14 +166,14 @@ export default function Industries() {
       </div>
 
       {/* Images */}
-      <div className="flex h-[390px]  mt-5 items-center justify-between gap-7 m-auto mb-20 max-w-[1440px] w-[90%]">
-        <img src={project.images[0]} alt="project" className="w-[50%] h-full rounded-[12px]" />
-        <img src={project.images[1]} alt="project" className="w-[25%] h-full rounded-[12px]" />
-        <img src={project.images[2]} alt="project" className="w-[25%] h-full rounded-[12px]" />
+      <div className="flex flex-col md:flex-row min-h-0 md:h-[390px] mt-5 items-stretch md:items-center justify-between gap-4 md:gap-7 m-auto mb-12 md:mb-20 max-w-[1440px] w-[90%]">
+        <img src={project.images[0]} alt="project" className="w-full md:w-[50%] h-48 md:h-full object-cover rounded-[12px]" />
+        <img src={project.images[1]} alt="project" className="w-full md:w-[25%] h-40 md:h-full object-cover rounded-[12px]" />
+        <img src={project.images[2]} alt="project" className="w-full md:w-[25%] h-40 md:h-full object-cover rounded-[12px]" />
       </div>
 
         {/* About the project */}
-        <div className="w-full max-w-[1440px] mx-auto px-20  flex flex-col gap-5  mb-16">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 flex flex-col gap-5 mb-12 md:mb-16">
         <h2 className="text-4xl font-bold text-gray-900">We Focus on Our Hard Work</h2>
         <div className="flex justify-between">
             <div className="flex flex-col gap-4">
@@ -184,10 +184,10 @@ export default function Industries() {
 
 
       {/* Project navigation + category slider */}
-      <div className="w-full max-w-[1440px] mx-auto px-20 py-10 flex flex-col gap-6 mb-16">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-8 md:py-10 flex flex-col gap-6 mb-12 md:mb-16">
 
         {/* Category tabs */}
-        <div className="flex justify-start gap-3">
+        <div className="flex flex-wrap justify-start gap-2 sm:gap-3">
           {categories.map((cat) => (
             <button key={cat} onClick={() => handleCategory(cat)}
               className="px-5 py-2.5 rounded-xl text-sm font-medium border transition-all duration-200"

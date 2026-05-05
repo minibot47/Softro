@@ -57,24 +57,24 @@ export default function Services3() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section className="py-24 px-10  bg-[url(/images/servicesbg.png)] dark:bg-[#151a16] mt-5 ">
+    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-[url(/images/servicesbg.png)] dark:bg-[#151a16] mt-5 ">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-14 px-10">
-          <div className="flex items-start justify-between gap-[170px] w-[60%] ">
-              <span className="text-base font-normal text-white dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Services</span>
-              <div className="flex flex-col gap-5">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-10 md:mb-14 px-2 sm:px-6 md:px-10">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-8 lg:gap-[170px] w-full lg:w-[60%]">
+              <span className="text-base font-normal text-white dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full shrink-0 w-fit">Services</span>
+              <div className="flex flex-col gap-4 sm:gap-5 min-w-0">
                 <h2
-                  className="text-4xl md:text-5xl font-medium text-white dark:text-white"
+                  className="text-3xl sm:text-4xl md:text-5xl font-medium text-white dark:text-white"
                 >
                   Services & Solutions For Modern World
                 </h2>
               </div>
           </div>
 
-          <div className="flex flex-col justify-center items-end gap-3">
-            <h2 className="text-gray-300 text-xl">Powerful solutions designed to grow your business</h2>
+          <div className="flex flex-col justify-center lg:items-end gap-3 w-full lg:w-auto">
+            <p className="text-gray-300 text-base sm:text-xl lg:text-right">Powerful solutions designed to grow your business</p>
             <a
             href="#"
             className="hidden md:flex items-center gap-2 text-sm font-medium text-white dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
@@ -88,7 +88,7 @@ export default function Services3() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1440px] px-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1440px] px-2 sm:px-6 md:px-10 ">
         {services.map((svc, i) => {
             const isRightCol = (i % 3) === 2
             const isMiddleCol = (i % 3) === 1

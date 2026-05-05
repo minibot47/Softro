@@ -31,13 +31,12 @@ export default function Process2() {
   useEffect(() => {
     const observers = stepRefs.current.map((el, i) => {
       if (!el) return null
-  
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setActiveUpTo(i)
           } else {
-            // only turn white when scrolling back above the very first step
             if (i === 0 && entry.boundingClientRect.top > 0) {
               setActiveUpTo(-1)
             }
@@ -45,34 +44,34 @@ export default function Process2() {
         },
         {
           threshold: 0,
-          rootMargin: '-70% 0px -30% 0px'
+          rootMargin: '-70% 0px -30% 0px',
         }
       )
-  
+
       observer.observe(el)
       return observer
     })
-  
-    return () => observers.forEach(obs => obs?.disconnect())
+
+    return () => observers.forEach((obs) => obs?.disconnect())
   }, [])
 
   return (
-    <section className="py-24 px-16 max-w-[1440px] m-auto">
+    <section className="py-12 md:py-24 px-4 sm:px-8 md:px-16 max-w-[1440px] m-auto">
 
       {/* Header row */}
-      <div className="flex gap-[200px] mb-16 w-[50%]">
-        <div className="flex-shrink-0 mt-1">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-[200px] mb-12 md:mb-16 w-full md:w-[50%]">
+        <div className="flex-shrink-0 sm:mt-1">
           <span className="px-2 py-1 rounded-full border border-gray-400 text-sm text-gray-700">
             Process
           </span>
         </div>
-        <h2 className="text-5xl font-base leading-tight tracking-tight text-gray-900">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-base leading-tight tracking-tight text-gray-900">
           How We Work<br />With You
         </h2>
       </div>
 
-      {/* Body — two columns */}
-      <div className="grid grid-cols-2 gap-16 items-start">
+      {/* Body — two columns on desktop, stacked on mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
 
         {/* LEFT */}
         <div className="flex flex-col gap-10">
@@ -99,13 +98,21 @@ export default function Process2() {
               Get a Free Consultation
             </a>
             <div className="flex flex-shrink-0 h-[45px] w-[45px] bg-[#ffffff] rounded-full items-center justify-center border-black border-[1px]">
-              <img src='/images/arrow.svg' alt='arrow'/>
+              <img src='/images/arrow.svg' alt='arrow' />
             </div>
           </div>
 
-          <div className='relative w-[574px] h-[300px]'>
-            <img src='/icons/process-progress-gif.gif' alt='globe' className='absolute bottom-12 z-10 w-[150px] h-[150px] right-10'/>
-            <img src='/icons/process-img.png' alt='arrow' className='absolute bottom-0 w-full h-[233px] mt-1 -ml-1' />
+          <div className="relative w-full max-w-[574px] h-[240px] sm:h-[300px]">
+            <img
+              src='/icons/process-progress-gif.gif'
+              alt='globe'
+              className='absolute bottom-12 z-10 w-[110px] h-[110px] sm:w-[150px] sm:h-[150px] right-4 sm:right-10'
+            />
+            <img
+              src='/icons/process-img.png'
+              alt='arrow'
+              className='absolute bottom-0 w-full h-[200px] sm:h-[233px] mt-1 -ml-1'
+            />
           </div>
         </div>
 
@@ -121,12 +128,12 @@ export default function Process2() {
               return (
                 <div
                   key={i}
-                  ref={el => stepRefs.current[i] = el}
-                  className="flex gap-6 relative z-10 w-[80%]"
+                  ref={(el) => (stepRefs.current[i] = el)}
+                  className="flex gap-4 sm:gap-6 relative z-10 w-full sm:w-[85%] lg:w-[80%]"
                 >
                   {/* Number bubble */}
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-medium flex-shrink-0 border border-black transition-all duration-700 ease-in-out"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-base sm:text-lg font-medium flex-shrink-0 border border-black transition-all duration-700 ease-in-out"
                     style={{
                       background: isGreen ? '#b8e04a' : '#fff',
                       color: isGreen ? '#1a2e10' : '#555',
@@ -136,8 +143,8 @@ export default function Process2() {
                   </div>
 
                   {/* Text */}
-                  <div className="pb-10 pt-3">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                  <div className="pb-8 sm:pb-10 pt-2 sm:pt-3">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed max-w-xs">{step.desc}</p>
                   </div>
                 </div>

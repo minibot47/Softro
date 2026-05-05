@@ -27,11 +27,11 @@ export default function Footer() {
   return (
     <footer className="relative text-white bg-black w-full rounded-[16px] overflow-hidden mb-5  py-12">
 
-      <div className="max-w-[1440px] mx-auto  sm:pl-14 lg:px-12 lg:pl-16 pb-8 pt-4  min-h-[80vh] flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-3 ">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 sm:pl-10 lg:px-12 lg:pl-16 pb-8 pt-4 min-h-[auto] md:min-h-[80vh] flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-10 lg:gap-0">
 
         {/* COLUMN 1 — unchanged */}
-        <div className="lg:pr-10 lg:border-r lg:border-white/[0.08] flex flex-col items-start justify-center border-r-[0.1px] border-gray-400/30">
+        <div className="lg:pr-10 lg:border-r lg:border-white/[0.08] flex flex-col items-start justify-center border-0 lg:border-r-[0.1px] lg:border-gray-400/30 pb-8 lg:pb-0 border-b border-white/10 lg:border-b-0">
 
           <a href="/" className="flex mb-3 items-center gap-2 font-light text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
             <img src='/images/footer-logo.svg' alt='Mainicon'/>
@@ -68,7 +68,7 @@ export default function Footer() {
         <div className=" lg:border-r lg:border-white/[0.08] flex flex-col">
 
           {/* TOP — SERVICES */}
-          <div className="pb-10 border-b border-gray-400/20  px-28">
+          <div className="pb-10 border-b border-gray-400/20 px-0 sm:px-6 md:px-16 lg:px-28">
             <h4 className="font-bold text-white text-3xl mb-4">Services</h4>
 
             <ul className="space-y-2.5">
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* BOTTOM — CONTACT */}
-          <div className="pt-10 px-28">
+          <div className="pt-10 px-0 sm:px-6 md:px-16 lg:px-28">
             <h4 className="font-bold text-white text-3xl mb-4">Contact</h4>
 
             <div className="space-y-5 mb-4">
@@ -119,7 +119,7 @@ export default function Footer() {
         <div className=" flex flex-col">
 
           {/* TOP — COMPANY */}
-          <div className="pb-10 border-b border-gray-400/20 px-28">
+          <div className="pb-10 border-b border-gray-400/20 px-0 sm:px-6 md:px-16 lg:px-28">
             <h4 className="font-bold text-white text-3xl mb-4">Company</h4>
 
             <ul className="space-y-2.5">
@@ -139,7 +139,7 @@ export default function Footer() {
           </div>
 
           {/* BOTTOM — SOCIAL */}
-          <div className="pt-10 px-28">
+          <div className="pt-10 px-0 sm:px-6 md:px-16 lg:px-28">
             <h4 className="font-bold text-white text-2xl mb-4">
               Social media link
             </h4>

@@ -64,7 +64,7 @@ export default function Services() {
         <div>
             <Navbar/>
             {/* Hero */}
-            <div className="flex flex-col px-20  mt-24 py-10 max-w-[1440px]  m-auto items-start justify-start">
+            <div className="flex flex-col px-4 sm:px-8 md:px-16 lg:px-20 mt-20 md:mt-24 py-8 md:py-10 max-w-[1440px] m-auto items-start justify-start">
                     <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
                     <span>Home</span>
 
@@ -86,8 +86,8 @@ export default function Services() {
 
                     <span>Service 01</span>
                     </div>
-                    <h2 className="text-6xl ">Solutions That Drive<br/> Real Business Growth</h2>
-                    <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Solutions That Drive<br/> Real Business Growth</h2>
+                    <ul className="space-y-6 text-gray-700 ml-0 md:ml-14 md:pl-16 mt-5 max-w-full">
                     <li className="flex gap-4">
                         
                         {/* Left vertical indicator */}
@@ -112,12 +112,12 @@ export default function Services() {
             </div>
 
             {/* SERVICES */}
-            <section className="py-24 px-10  bgwhite dark:bg-[#151a16] mt-5 ">
+            <section className="py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-white dark:bg-[#151a16] mt-5 ">
             <div className="max-w-[1440px] mx-auto">
 
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1440px] px-10 ">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1440px] px-2 sm:px-6 md:px-10 ">
                 {services.map((svc, i) => {
                     const isRightCol = (i % 3) === 2
                     const isMiddleCol = (i % 3) === 1
@@ -127,7 +127,7 @@ export default function Services() {
 
                         <div
                         key={i}
-                        className="relative px-8 py-14 flex flex-col justify-between cursor-pointer border-[1px] border-gray-400/20 dark:border-gray-800 rounded-[10px] overflow-hidden"
+                        className="relative px-5 sm:px-8 py-10 sm:py-14 flex flex-col justify-between cursor-pointer border-[1px] border-gray-400/20 dark:border-gray-800 rounded-[10px] overflow-hidden"
                         onMouseEnter={() => setHoveredIndex(i)}
                         onMouseLeave={() => setHoveredIndex(null)}
                         >

@@ -1,10 +1,20 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function CustomCursor() {
   const trailRef = useRef(null)
+  const [showCursor, setShowCursor] = useState(false)
 
   useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)')
+    const sync = () => setShowCursor(mq.matches)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+
+  useEffect(() => {
+    if (!showCursor) return
     let mouseX = 0
     let mouseY = 0
     let trailX = 0
@@ -33,7 +43,9 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', onMouseMove)
       cancelAnimationFrame(animFrame)
     }
-  }, [])
+  }, [showCursor])
+
+  if (!showCursor) return null
 
   return (
     <div

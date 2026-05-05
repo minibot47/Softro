@@ -24,15 +24,15 @@ export default function Footer2() {
       <div className='bg-black rounded-[24px] '>
         <footer className="relative text-white max-w-[1440px] m-auto  w-full rounded-[16px] overflow-hidden ">
           {/* TOP SECTION — Big headline + arrow */}
-          <div className="px-16 pt-16 pb-10 border-b border-white/10 flex items-start justify-between">
-            <div>
+          <div className="px-4 sm:px-8 md:px-16 pt-12 md:pt-16 pb-8 md:pb-10 border-b border-white/10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+            <div className="min-w-0">
               {/* Logo */}
-              <a href="/" className="flex items-center gap-2 mb-8">
+              <a href="/" className="flex items-center gap-2 mb-6 md:mb-8">
                 <img src='/images/footer-logo.svg' alt='Softro'/>
               </a>
 
               {/* Big headline */}
-              <h2 className="text-6xl xl:text-8xl font-light leading-tight text-white/30 tracking-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-light leading-tight text-white/30 tracking-tight">
                 Shape The<br />Future With Us
               </h2>
             </div>
@@ -40,7 +40,7 @@ export default function Footer2() {
             {/* Arrow button — top right */}
             <a
               href="#"
-              className="group relative flex-shrink-0 w-36 h-36 rounded-full border-2 border-white flex items-center justify-center mt-4 overflow-hidden"
+              className="group relative flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-2 border-white flex items-center justify-center mt-0 sm:mt-4 overflow-hidden mx-auto sm:mx-0"
             >
               {/* OUTSIDE-IN FILL */}
               <span className="absolute inset-0 rounded-full">
@@ -60,7 +60,7 @@ export default function Footer2() {
           </div>
 
           {/* BOTTOM SECTION — 4 columns */}
-          <div className="px-16 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="px-4 sm:px-8 md:px-16 py-10 md:py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
 
             {/* COL 1 — Contact */}
             <div>
@@ -179,12 +179,12 @@ export default function Footer2() {
       </div>
       {/* Bottom bar */}
       <div className=" bg-white text-black  max-w-[1440px] m-auto">
-        <div className="px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-black">
+        <div className="px-4 sm:px-8 md:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-black text-center sm:text-left">
           <p>©Copyright 2026 <strong className="text-white">Egens Lab</strong> | All Right Reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Support Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white dark:text-white  transition-colors">Support Policy</a>
+            <a href="#" className="hover:text-white dark:text-white transition-colors">Terms &amp; Conditions</a>
+            <a href="#" className="hover:text-white dark:text-white transition-colors">Privacy Policy</a>
           </div>
         </div>
       </div>

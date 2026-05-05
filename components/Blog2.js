@@ -53,21 +53,21 @@ export default function Blog2() {
   }, [])
 
   return (
-    <section className="py-24 px-6 bg-white dark:bg-[#0f1210] max-w-[1440px] m-auto">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-white dark:bg-[#0f1210] max-w-[1440px] m-auto">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-14">
-          <div className="flex items-start justify-between gap-5 w-[55%]">
-            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-3 py-0.5 rounded-full">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-10 md:mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-5 w-full md:w-[55%]">
+            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-3 py-0.5 rounded-full shrink-0 w-fit">
               Article
             </span>
-            <div className="flex flex-col gap-5">
-              <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white">
+            <div className="flex flex-col gap-4 sm:gap-5 min-w-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black dark:text-white">
                 Agency Journal
               </h2>
-              <p className="text-gray-500 dark:text-gray-300 text-lg">
-                A one-liner about what visitors will find latest <br/>design talks
+              <p className="text-gray-500 dark:text-gray-300 text-base sm:text-lg">
+                A one-liner about what visitors will find latest <br className="hidden sm:block"/>design talks
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function Blog2() {
               }}
             >
               {/* Image */}
-              <div className="relative w-full h-[358px] overflow-hidden">
+              <div className="relative w-full h-[240px] sm:h-[300px] md:h-[358px] overflow-hidden">
 
                 {/* Per-card SVG filter */}
                 <svg className="absolute w-0 h-0 pointer-events-none">

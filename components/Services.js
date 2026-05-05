@@ -41,26 +41,26 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 px-6 mb-24 bg-[#EFF6FF] dark:bg-[#151a16] mt-5 rounded-[16px]">
+    <section className="py-16 md:py-24 px-4 sm:px-6 mb-16 md:mb-24 bg-[#EFF6FF] dark:bg-[#151a16] mt-5 rounded-[16px]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-14">
-          <div className="flex items-start justify-between gap-5 w-[55%] ">
-              <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Services</span>
-              <div className="flex flex-col gap-5">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-10 md:mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-5 w-full md:w-[55%]">
+              <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full shrink-0 w-fit">Services</span>
+              <div className="flex flex-col gap-4 sm:gap-5 min-w-0">
                 <h2
-                  className="text-4xl md:text-5xl font-medium text-black dark:text-white"
+                  className="text-3xl sm:text-4xl md:text-5xl font-medium text-black dark:text-white"
                 >
                   Our Creative Services
                 </h2>
-                <h2 className="text-gray-500 dark:text-gray-300 text-lg">Transforming ideas into impactful design solutions tailored for<br/> your brand.</h2>
+                <p className="text-gray-500 dark:text-gray-300 text-base sm:text-lg">Transforming ideas into impactful design solutions tailored for<br className="hidden sm:block"/> your brand.</p>
               </div>
           </div>
 
           <a
             href="#"
-            className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+            className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors shrink-0"
           >
             View All
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

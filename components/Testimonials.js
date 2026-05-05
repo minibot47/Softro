@@ -75,7 +75,7 @@ function TestimonialCard({ t }) {
         />
       </div>
 
-      <p className="text-gray-700 dark:text-gray-200 text-xl leading-relaxed">
+      <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed">
         "{t.text}"
       </p>
 
@@ -89,26 +89,38 @@ function TestimonialCard({ t }) {
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0)
-  const visibleCount = 2
+  const [slidesPerView, setSlidesPerView] = useState(2)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const sync = () => setSlidesPerView(mq.matches ? 2 : 1)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+
+  const maxIndex = Math.max(0, testimonials.length - slidesPerView)
+
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex))
+  }, [maxIndex])
 
   // 🔥 AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
-      const maxIndex = testimonials.length - 1
-
-      setIndex(prev => (prev + 1) % maxIndex)
+      setIndex((prev) => (maxIndex <= 0 ? 0 : (prev >= maxIndex ? 0 : prev + 1)))
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [maxIndex])
 
   return (
-    <section className="py-24 px-6 bg-white dark:bg-[#0f1210]">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-white dark:bg-[#0f1210]">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER (unchanged) */}
-        <div className="mb-14">
-          <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white">
+        <div className="mb-10 md:mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black dark:text-white">
             What Our Clients Say
           </h2>
         </div>
@@ -118,11 +130,15 @@ export default function Testimonials() {
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{
-              transform: `translateX(-${index * 50}%)`,
+              transform: `translateX(-${index * (100 / slidesPerView)}%)`,
             }}
           >
             {testimonials.map((t, i) => (
-              <div key={i} className="w-1/2 flex-shrink-0 px-3">
+              <div
+                key={i}
+                className="flex-shrink-0 px-2 sm:px-3"
+                style={{ flex: `0 0 ${100 / slidesPerView}%` }}
+              >
                 <TestimonialCard t={t} />
               </div>
             ))}
@@ -130,10 +146,12 @@ export default function Testimonials() {
         </div>
 
         {/* 🔥 DOTS */}
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, i) => (
+        <div className="flex justify-center gap-2 mt-8 flex-wrap">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}
+              type="button"
+              aria-label={`Go to slide ${i + 1}`}
               onClick={() => setIndex(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 i === index ? "w-6 bg-black dark:bg-[#c5e87a]" : "w-2 bg-gray-300 dark:bg-gray-700"

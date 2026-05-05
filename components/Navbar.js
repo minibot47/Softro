@@ -133,12 +133,6 @@ const serviceIcons = {
 }
 
 function Sidebar({ open, onClose }) {
-  useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden'
-    else document.body.style.overflow = ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
-
   return (
     <>
       <div
@@ -244,7 +238,17 @@ export default function Navbar() {
   const [active, setActive] = useState(null)
   const [openDropdown, setOpenDropdown] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileAccordion, setMobileAccordion] = useState(null)
   const closeTimer = useRef(null)
+
+  useEffect(() => {
+    if (mobileMenuOpen || sidebarOpen) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = ''
+    return () => {
+      if (!mobileMenuOpen && !sidebarOpen) document.body.style.overflow = ''
+    }
+  }, [mobileMenuOpen, sidebarOpen])
 
   // Set active based on current URL on mount
   useEffect(() => {
@@ -284,7 +288,7 @@ export default function Navbar() {
           opacity: hidden ? 0 : 1,
         }}
       >
-        <div className="w-full px-12 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
+        <div className="w-full px-4 sm:px-6 md:px-12 2xl:px-32 flex items-center justify-between h-20 bg-white dark:bg-[#111411] border-b border-gray-200 dark:border-gray-800">
           <a href="/" className="flex items-center gap-2 font-light text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
             <img src='/images/header-logo.svg' alt='Mainicon'/>
           </a>
@@ -405,19 +409,134 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-7">
-            <button onClick={() => setSidebarOpen(true)} className="hidden md:flex w-10 h-10 items-center justify-center rounded-[5px] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
-              <img src='/images/navicon.svg' alt='logo'/>
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-7">
+            <button
+              type="button"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => {
+                setSidebarOpen(false)
+                setMobileMenuOpen((o) => !o)
+                setMobileAccordion(null)
+              }}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-[5px] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+            >
+              {mobileMenuOpen ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-800 dark:text-white">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-800 dark:text-white">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
-            <a href="/contact" className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-2 items-center justify-center rounded-[12px] px-5 py-3 transition-colors duration-300">
-              <h2 className='dark:text-black text-base font-medium'>Say Hi</h2>
-              <img src="/icons/arrowup.svg" alt="icon" className="w-5 h-5 transition-all duration-300" />
+            <button
+              type="button"
+              aria-label="Open contact sidebar"
+              onClick={() => {
+                setMobileMenuOpen(false)
+                setSidebarOpen(true)
+              }}
+              className="flex w-10 h-10 items-center justify-center rounded-[5px] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+            >
+              <img src='/images/navicon.svg' alt=''/>
+            </button>
+            <a href="/contact" className="bg-black dark:bg-[#c5e87a] hover:bg-[#F4BC0F] text-white dark:text-black hover:text-black flex gap-1.5 sm:gap-2 items-center justify-center rounded-[12px] px-3 py-2.5 sm:px-5 sm:py-3 transition-colors duration-300 shrink-0">
+              <span className='dark:text-black text-sm sm:text-base font-medium'>Say Hi</span>
+              <img src="/icons/arrowup.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300" />
             </a>
           </div>
         </div>
       </header>
 
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {/* Mobile primary navigation */}
+      <div
+        className={`md:hidden fixed inset-0 z-[71] transition-opacity duration-300 ${
+          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="absolute inset-0 bg-black/40" onClick={() => setMobileMenuOpen(false)} />
+        <nav
+          className={`absolute top-0 right-0 h-full w-full max-w-md bg-white dark:bg-[#151a16] shadow-2xl overflow-y-auto transition-transform duration-300 ease-out ${
+            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          <div className="p-5 pt-24 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+            <img src="/images/header-logo.svg" alt="Softro" className="h-8" />
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-800 dark:text-white">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="px-4 pb-8">
+            {navLinks.map((link) => {
+              const items = link === 'Services' ? null : dropdowns[link]
+              const isServices = link === 'Services'
+              return (
+                <div key={link} className="border-b border-gray-100 dark:border-gray-800">
+                  <button
+                    type="button"
+                    className="w-full flex items-center justify-between py-4 text-left text-base font-semibold text-gray-900 dark:text-white"
+                    onClick={() => setMobileAccordion((prev) => (prev === link ? null : link))}
+                  >
+                    {link}
+                    <span className="text-gray-400 text-xl leading-none">{mobileAccordion === link ? '−' : '+'}</span>
+                  </button>
+                  {mobileAccordion === link && (
+                    <div className="pb-4 pl-1 space-y-1">
+                      {isServices && (
+                        <>
+                          {services.map((svc) => (
+                            <a
+                              key={svc.title}
+                              href="#"
+                              className="block py-2.5 text-sm text-gray-600 dark:text-gray-300 border-l-2 border-transparent hover:border-gray-400 pl-2"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {svc.title}
+                            </a>
+                          ))}
+                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-3 pb-1">Industries</p>
+                          {industries.map((ind) => (
+                            <a key={ind} href="#" className="block py-2 text-sm text-gray-600 dark:text-gray-300 pl-2" onClick={() => setMobileMenuOpen(false)}>
+                              {ind}
+                            </a>
+                          ))}
+                          <a href="/about" className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl text-sm font-medium" style={{ background: '#c5e87a', color: '#1a2e25' }} onClick={() => setMobileMenuOpen(false)}>
+                            Let&apos;s Talk
+                          </a>
+                        </>
+                      )}
+                      {!isServices && items?.map((item) => (
+                        <a
+                          key={item}
+                          href={dropdownRoutes[item] ?? '#'}
+                          className="block py-2.5 text-sm text-gray-600 dark:text-gray-300 pl-2"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+            <a href="/contact" className="mt-6 block text-center rounded-xl py-3 font-medium bg-black text-white dark:bg-[#c5e87a] dark:text-black" onClick={() => setMobileMenuOpen(false)}>
+              Contact
+            </a>
+          </div>
+        </nav>
+      </div>
     </>
   )
 }

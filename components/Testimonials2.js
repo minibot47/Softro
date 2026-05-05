@@ -54,22 +54,22 @@ export default function Testimonials() {
   const t = testimonials[index]
 
   return (
-    <section className="py-24 px-6 bg-white dark:bg-[#0f1210]">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-white dark:bg-[#0f1210]">
       <div className="max-w-[1440px] mx-auto">
 
         {/* HEADER */}
-        <div className="flex items-start justify-between mb-14">
-          <div className="flex items-start gap-[133px]">
-            <span className="px-3 py-0.5 rounded-full border border-green-400 text-base text-gray-700 dark:text-gray-300 flex-shrink-0 mt-2">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-10 md:mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8 lg:gap-[133px] min-w-0">
+            <span className="px-3 py-0.5 rounded-full border border-green-400 text-base text-gray-700 dark:text-gray-300 flex-shrink-0 sm:mt-2 w-fit">
               Testimonial
             </span>
-            <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black dark:text-white leading-tight">
               Growth Stories From<br />Those Who Trust Us
             </h2>
           </div>
 
           {/* Review badges */}
-          <div className="flex items-center gap-6 flex-shrink-0">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 flex-shrink-0">
             <div className="flex flex-col">
               <div className="flex items-center gap-1 mb-1">
                 <span className="text-base text-gray-500">Review on</span>
@@ -109,10 +109,10 @@ export default function Testimonials() {
         </div>
 
         {/* MAIN CARD */}
-        <div className="relative min-h-[440px] flex gap-5 justify-end ml-20 overflow-hidden border-none w-[90%]   dark:border-gray-800 ">
+        <div className="relative min-h-0 lg:min-h-[440px] flex flex-col lg:flex-row gap-5 lg:justify-end ml-0 lg:ml-20 overflow-visible lg:overflow-hidden border-none w-full max-w-full lg:w-[90%] dark:border-gray-800">
 
           {/* LEFT — text content */}
-          <div className="flex-1 bg-white dark:bg-[#151a16] p-12 relative rounded-[14px] border-[0.1px] border-black/20">
+          <div className="flex-1 bg-white dark:bg-[#151a16] p-6 sm:p-8 md:p-12 relative rounded-[14px] border-[0.1px] border-black/20 order-2 lg:order-1">
 
             {/* Google icon top right of card */}
             <div className="absolute top-0 right-0">
@@ -138,7 +138,7 @@ export default function Testimonials() {
 
             <p className="font-bold text-lg text-black dark:text-white mb-6">Out Standing Service</p>
 
-            <p className="text-gray-700 dark:text-gray-200 text-xl leading-relaxed mb-10">
+            <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed mb-8 md:mb-10">
               "{t.text}"
             </p>
 
@@ -154,7 +154,7 @@ export default function Testimonials() {
           </div>
 
           {/* RIGHT — big image */}
-          <div className="relative w-[420px] flex-shrink-0 ">
+          <div className="relative w-full h-64 sm:h-80 lg:w-[420px] lg:h-auto lg:min-h-[360px] flex-shrink-0 order-1 lg:order-2 rounded-[14px] overflow-hidden">
             <Image
               src={t.img}
               alt={t.name}
@@ -163,8 +163,8 @@ export default function Testimonials() {
             />
           </div>
 
-          {/* DOTS — right side vertical */}
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-50 ">
+          {/* DOTS — vertical on desktop, horizontal under card on mobile */}
+          <div className="flex flex-row lg:flex-col justify-center lg:justify-start gap-2 z-50 order-3 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2 py-4 lg:py-0">
             {testimonials.map((_, i) => (
               <button
                 key={i}
@@ -193,11 +193,11 @@ export default function Testimonials() {
         <div className="relative overflow-hidden w-full">
 
             {/* Left fade mask */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 z-10 pointer-events-none"
             style={{ background: 'linear-gradient(to right, white, transparent)' }}
             />
             {/* Right fade mask */}
-            <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 z-10 pointer-events-none"
             style={{ background: 'linear-gradient(to left, white, transparent)' }}
             />
 
@@ -223,10 +223,10 @@ export default function Testimonials() {
         </div>
 
         {/* Free Consultation */}
-        <div className="relative w-[80%] m-auto rounded-2xl overflow-hidden flex items-center mt-24 min-h-[250px] bg-[url(/images/project-completed.png)]" >
+        <div className="relative w-full max-w-5xl lg:w-[80%] m-auto rounded-2xl overflow-hidden flex flex-col md:flex-row md:items-center mt-16 md:mt-24 min-h-[220px] md:min-h-[250px] bg-[url(/images/project-completed.png)] bg-cover bg-center" >
         {/* Left — text content */}
-        <div className="relative z-10 px-16 py-12 w-[55%]">
-            <h2 className="text-white font-bold text-3xl leading-snug mb-8">
+        <div className="relative z-10 px-6 sm:px-10 md:px-16 py-8 md:py-12 w-full md:w-[55%]">
+            <h2 className="text-white font-bold text-2xl sm:text-3xl leading-snug mb-6 md:mb-8">
             Creating Partnerships That<br />
             Thrive Beyond Project<br />
             Completion
@@ -244,8 +244,8 @@ export default function Testimonials() {
         </div>
 
         {/* Right — image with curved left edge */}
-        <div className="absolute w-[53%] h-full right-0 bottom-0 ">
-          <img src="/images/banner-card-image.png" className="h-full"/>
+        <div className="relative md:absolute w-full md:w-[53%] h-48 md:h-full right-0 bottom-0 shrink-0">
+          <img src="/images/banner-card-image.png" alt="" className="h-full w-full object-cover md:object-right"/>
         </div>
         </div>
       </div>

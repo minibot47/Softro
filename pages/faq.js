@@ -172,7 +172,7 @@ export default function Faq() {
         <div>
             <Navbar/>
             {/* Hero */}
-            <div className="flex flex-col  px-20  mt-24 py-10 max-w-[1440px]  m-auto items-start justify-start">
+            <div className="flex flex-col px-4 sm:px-8 md:px-16 lg:px-20 mt-20 md:mt-24 py-8 md:py-10 max-w-[1440px] m-auto items-start justify-start">
                     <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
                     <span>Home</span>
 
@@ -194,8 +194,8 @@ export default function Faq() {
 
                     <span>FAQ</span>
                     </div>
-                    <h2 className="text-6xl ">Have Questions?<br/> We’ve Got Answers</h2>
-                    <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Have Questions?<br/> We’ve Got Answers</h2>
+                    <ul className="space-y-6 text-gray-700 ml-0 md:ml-14 md:pl-16 mt-5 max-w-full">
                     <li className="flex gap-4">
                         
                         {/* Left vertical indicator */}
@@ -220,10 +220,10 @@ export default function Faq() {
             </div>
 
             {/* FAQ */}
-            <div className="max-w-[1440px] mx-auto w-full flex gap-0 min-h-[80vh] px-20 py-16">
+            <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row gap-10 lg:gap-0 min-h-0 lg:min-h-[80vh] px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16">
             
             {/* Left sidebar */}
-            <div className="w-[30%] flex-shrink-0 flex flex-col justify-between pr-10">
+            <div className="w-full lg:w-[30%] flex-shrink-0 flex flex-col justify-between lg:pr-10">
             <nav className="flex flex-col gap-1">
                 {categories.map((cat) => (
                 <button
@@ -269,7 +269,7 @@ export default function Faq() {
             </div>
 
             {/* Right accordion */}
-            <div className=" w-[70%] flex-1 border-l border-gray-100 pl-14">
+            <div className="w-full lg:w-[70%] flex-1 border-0 lg:border-l border-gray-100 lg:pl-14 pt-6 lg:pt-0 border-t border-gray-100 lg:border-t-0">
             <div className="divide-y divide-gray-100">
                 {questions.map((item, i) => (
                 <div key={i} className="py-5">

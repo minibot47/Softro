@@ -26,12 +26,9 @@ const team = [
 const row1 = team.slice(0, Math.ceil(team.length / 2))
 const row2 = team.slice(Math.ceil(team.length / 2))
 
-const VISIBLE = 4
-const MAX_INDEX = row1.length - VISIBLE
-
-function MemberCard({ member }) {
+function MemberCard({ member, narrow }) {
   return (
-    <div className="w-1/4 flex-shrink-0 px-3">
+    <div className={`${narrow ? 'w-full' : 'w-1/4'} flex-shrink-0 px-3`}>
       <div className="group cursor-pointer">
         <div
           className="relative rounded-2xl w-full h-[340px] mb-4 overflow-hidden transition-transform duration-300 group-hover:scale-[1.03]"
@@ -65,21 +62,36 @@ function MemberCard({ member }) {
 
 export default function Team() {
   const [index, setIndex] = useState(0)
+  const [visible, setVisible] = useState(4)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const sync = () => setVisible(mq.matches ? 4 : 1)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+
+  const maxIndex = Math.max(0, row1.length - visible)
+
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex))
+  }, [maxIndex])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(prev => (prev >= MAX_INDEX ? 0 : prev + 1))
+      setIndex((prev) => (maxIndex <= 0 ? 0 : (prev >= maxIndex ? 0 : prev + 1)))
     }, 4000)
     return () => clearInterval(interval)
-  }, [])
+  }, [maxIndex])
 
   return (
     <section className="py-24 px-6 rounded-[16px] bg-white dark:bg-[#111411]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-14 ">
-          <div className="flex items-start justify-between gap-[33px] w-[50%]  ">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-10 md:mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-[33px] w-full md:w-[50%]">
               <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Team</span>
               <div className="flex flex-col gap-5">
                 <h2
@@ -90,8 +102,8 @@ export default function Team() {
               </div>
           </div>
 
-          <div className="flex flex-col justify-center w-[50%] items-end gap-3 ">
-            <h2 className="text-black text-lg">Smart solution to build a outstanding performance easily</h2>
+          <div className="flex flex-col justify-center w-full md:w-[50%] md:items-end gap-3">
+            <p className="text-black dark:text-gray-300 text-base sm:text-lg md:text-right">Smart solution to build a outstanding performance easily</p>
             <a
             href="#"
             className="hidden md:flex items-center gap-2 text-sm font-medium text-black dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
@@ -110,28 +122,28 @@ export default function Team() {
           {/* Row 1 */}
           <div
             className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${index * 25}%)`}}
+            style={{ transform: `translateX(-${index * (100 / visible)}%)` }}
           >
             {row1.map((member, i) => (
-              <MemberCard key={i} member={member}/>
+              <MemberCard key={i} member={member} narrow={visible === 1} />
             ))}
           </div>
 
           {/* Row 2 */}
           <div
             className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${index * 25}%)` }}
+            style={{ transform: `translateX(-${index * (100 / visible)}%)` }}
           >
             {row2.map((member, i) => (
-              <MemberCard key={i} member={member}/>
+              <MemberCard key={i} member={member} narrow={visible === 1} />
             ))}
           </div>
 
         </div>
 
         {/* DOTS */}
-        <div className="flex justify-center gap-2 mt-10">
-          {Array.from({ length: MAX_INDEX + 1 }).map((_, i) => (
+        <div className="flex justify-center gap-2 mt-10 flex-wrap">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}

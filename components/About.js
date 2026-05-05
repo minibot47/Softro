@@ -4,21 +4,21 @@ import GravityPills from "./Gravitypills"
 
 export default function About() {
   return (
-    <section className="py-24 px-6 bg-white dark:bg-[#0f1210]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-white dark:bg-[#0f1210]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
         {/* LEFT SIDE */}
-        <div>
-          <div className="flex items-start justify-end gap-20 mb-8 ">
-            <div className="spin-slow mt-2 flex-shrink-0">
-              <img src="/images/rolling about us.svg" />
+        <div className="w-full max-w-lg mx-auto lg:max-w-none lg:mx-0">
+          <div className="flex flex-col sm:flex-row items-start sm:justify-end gap-6 sm:gap-12 lg:gap-20 mb-8">
+            <div className="spin-slow mt-2 flex-shrink-0 mx-auto sm:mx-0">
+              <img src="/images/rolling about us.svg" alt="" className="max-w-[120px] sm:max-w-none" />
             </div>
 
-            <div className="rounded-[16px] flex-1 h-[200px] max-w-[308px] bg-[url(/images/about-us-img.png)] bg-cover bg-center" />
+            <div className="rounded-[16px] w-full sm:flex-1 h-[180px] sm:h-[200px] max-w-full sm:max-w-[308px] bg-[url(/images/about-us-img.png)] bg-cover bg-center mx-auto sm:mx-0" />
           </div>
 
           {/* CARD */}
-          <div className="bg-white dark:bg-[#151a16] rounded-2xl p-2 border-[0.1px] border-gray-200 dark:border-gray-800 shadow-sm w-[380px] h-[404px] flex flex-col justify-between overflow-hidden">
+          <div className="bg-white dark:bg-[#151a16] rounded-2xl p-2 border-[0.1px] border-gray-200 dark:border-gray-800 shadow-sm w-full max-w-[380px] min-h-[320px] sm:h-[404px] mx-auto sm:mx-0 flex flex-col justify-between overflow-hidden">
             <h3 className="font-normal text-2xl mt-8 mb-5 text-center text-gray-800 dark:text-white">
               What Makes Us Different:
             </h3>

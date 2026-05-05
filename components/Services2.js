@@ -44,17 +44,17 @@ export default function Services2() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section className="py-24 px-10 bg-white dark:bg-[#151a16] mt-5 rounded-[16px]">
+    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-white dark:bg-[#151a16] mt-5 rounded-[16px]">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-14">
-          <div className="flex items-start justify-between gap-[170px] w-[55%]">
-            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-10 md:mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-8 lg:gap-[170px] w-full md:w-[55%]">
+            <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full shrink-0 w-fit">
               Services
             </span>
-            <div className="flex flex-col gap-5">
-              <h2 className="text-4xl md:text-5xl font-medium text-black dark:text-white">
+            <div className="flex flex-col gap-4 sm:gap-5 min-w-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black dark:text-white">
                 Your Growth With Digital Innovation
               </h2>
             </div>
@@ -79,7 +79,7 @@ export default function Services2() {
             return (
               <div
                 key={i}
-                className="relative px-10 py-14 flex flex-col justify-between gap-5 cursor-pointer transition-all duration-300 border-[1px] border-gray-400/20 dark:border-gray-800 rounded-[10px]"
+                className="relative px-5 sm:px-8 md:px-10 py-10 sm:py-14 flex flex-col justify-between gap-5 cursor-pointer transition-all duration-300 border-[1px] border-gray-400/20 dark:border-gray-800 rounded-[10px]"
                 style={{ background: isHovered ? 'rgb(243, 255, 239)' : svc.bg }}
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}

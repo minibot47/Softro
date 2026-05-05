@@ -55,7 +55,7 @@ export default function Pricing() {
         <div>
             <Navbar/>
             {/* Hero */}
-            <div className="flex flex-col  px-16 mt-24 py-10 max-w-[1440px]  m-auto items-start justify-start">
+            <div className="flex flex-col px-4 sm:px-8 md:px-16 mt-20 md:mt-24 py-8 md:py-10 max-w-[1440px] m-auto items-start justify-start">
                     <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
                     <span>Home</span>
 
@@ -77,8 +77,8 @@ export default function Pricing() {
 
                     <span>Pricing plan</span>
                     </div>
-                    <h2 className="text-6xl font-medium ">Flexible Plans for Every<br/> Business</h2>
-                    <ul className="space-y-6 text-gray-700 ml-10 px-16 mt-5">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium">Flexible Plans for Every<br/> Business</h2>
+                    <ul className="space-y-6 text-gray-700 ml-0 md:ml-10 md:pl-16 mt-5 max-w-full">
                     <li className="flex gap-4 mt-1">
                         <div className="flex flex-col items-center ">
                             <svg width="6" height="6" viewBox="0 0 10 10">
@@ -100,7 +100,7 @@ export default function Pricing() {
             </div>
 
             {/* CARDS */}
-            <div className="w-full max-w-[1440px] mx-auto px-20 py-16 flex flex-col gap-10">
+            <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16 flex flex-col gap-10">
             
             {/* Toggle */}
             <div className="flex justify-center">
@@ -123,7 +123,7 @@ export default function Pricing() {
             </div>
 
             {/* Cards */}
-            <div className="grid grid-cols-3 gap-6 min-h-[697px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-0 md:min-h-[697px]">
             {plans.map((plan) => (
                 <div
                 key={plan.name}
@@ -166,13 +166,13 @@ export default function Pricing() {
             </div>
 
             {/* Bottom CTA banner */}
-            <div className="flex items-center m-auto mt-20 justify-between border border-gray-200 rounded-2xl px-10 py-3 w-[70%]">
-            <p className="text-lg font-medium text-gray-900 leading-snug">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center m-auto mt-12 md:mt-20 justify-between gap-4 border border-gray-200 rounded-2xl px-4 sm:px-8 py-4 w-full max-w-2xl md:max-w-none md:w-[70%]">
+            <p className="text-base sm:text-lg font-medium text-gray-900 leading-snug text-center sm:text-left">
                 Don't Hesitate to<br />Collaborate with Us
             </p>
             <a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-[10px] font-semibold text-base"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-[10px] font-semibold text-base shrink-0"
                 style={{ background: '#c5e87a', color: '#1a2e25' }}
             >
                 Get in Touch

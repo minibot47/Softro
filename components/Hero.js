@@ -16,19 +16,19 @@ export default function Hero() {
       </div>
 
       {/* Headline */}
-      <div className="text-center px-6 mb-5">
-        <h1 className="text-5xl md:text-[65px] font-normal leading-[78px] text-black dark:text-white">
+      <div className="text-center px-4 sm:px-6 mb-5">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[65px] font-normal leading-tight md:leading-[78px] text-black dark:text-white">
           Inspiring Creativity, Driving
           <br /> Real Business Growth
         </h1>
 
-        <p className="text-gray-600 dark:text-gray-300 max-w-full mx-auto text-lg leading-relaxed mt-5">
+        <p className="text-gray-600 dark:text-gray-300 max-w-full mx-auto text-base sm:text-lg leading-relaxed mt-5">
           We craft unique digital experiences that help brands stand out,
           connect with audiences,
-          <br /> and achieve measurable results.
+          <br className="hidden md:inline" /> and achieve measurable results.
         </p>
 
-        <div className="flex items-center justify-center gap-4 mb-10 mt-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-4 mb-10 mt-8">
           <a
             href="#"
             className="inline-flex bg-[#C8F8A9] text-black items-center gap-2 px-6 py-3 rounded-xl text-lg font-light hover:opacity-90 dark:text-black"
@@ -37,7 +37,7 @@ export default function Hero() {
             <Image src="/images/arrow.svg" alt="arrow" width={20} height={20}/>
           </a>
 
-          <div className="flex items-center gap-2">
+          <div className="flex sm:items-center w-full sm:w-auto gap-2">
             <div className="flex flex-col">
               <span className="text-lg text-gray-600 dark:text-gray-300">Review on</span>
               <img src="/images/clutchco-logo.svg" alt="clutch" className="w-20 h-5"/>
@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Stats */}
-      <div className="flex items-center justify-between max-w-[1440px] mx-auto mb-5 px-20 w-full">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 sm:gap-4 max-w-[1440px] mx-auto mb-5 px-4 sm:px-10 md:px-20 w-full">
         <div className="flex items-center gap-3">
           <div className="flex -space-x-4">
             {[
@@ -76,8 +76,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex items-start gap-1">
-          <span className="text-7xl font-normal text-black dark:text-white">12</span>
+        <div className="flex items-start gap-1 shrink-0">
+          <span className="text-5xl sm:text-6xl md:text-7xl font-normal text-black dark:text-white">12</span>
           <div>
             <span className="text-2xl font-bold -ml-2">+</span>
             <p className="text-lg ml-4 -mt-5 text-black dark:text-gray-200">year of<br/>experiences</p>

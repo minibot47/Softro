@@ -29,12 +29,12 @@ export default function Page2Content() {
       <Navbar/>
       <section className="min-h-screen pt-20 2xl:px-10 px-3 bg-white dark:bg-[#0f1210]">
         {/* HERO */}
-        <div className="relative w-full grid bg-[#EEEEEE] min-h-[80vh] rounded-[24px]" style={{ gridTemplateColumns: '1fr 1.2fr' }}>
+        <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 bg-[#EEEEEE] min-h-[auto] lg:min-h-[80vh] rounded-[24px] lg:[grid-template-columns:1fr_1.2fr]">
 
           {/* LEFT */}
-          <div className="flex  flex-col justify-center px-4 py-24 relative items-center">
-            <div className='w-full h-fit pl-10'>
-                <h1 className="text-6xl 2xl:text-8xl font-light dark:text-black mb-5 text-gray-900 tracking-tight">
+          <div className="flex flex-col justify-center px-4 sm:px-6 py-12 md:py-24 relative items-center lg:items-stretch">
+            <div className='w-full h-fit pl-0 sm:pl-6 md:pl-10'>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl 2xl:text-8xl font-light dark:text-black mb-5 text-gray-900 tracking-tight">
                 Strategic<br />
                 Marketing{' '}
                 <span className="font-bold dark:text-black">for<br />the Digital Age</span>
@@ -48,8 +48,8 @@ export default function Page2Content() {
                 </p>
                 </div>
 
-                <div className="flex items-center justify-between pl-4 mb-14   ">
-                    <div className='flex'>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pl-0 sm:pl-4 mb-10 md:mb-14">
+                    <div className='flex flex-wrap items-center gap-3'>
                         <a
                         href="#"
                         className="inline-flex items-center px-[20px] py-[12px] rounded-full font-thin text-lg text-gray-900 transition-all hover:opacity-90"
@@ -62,14 +62,14 @@ export default function Page2Content() {
                         <img src='/images/arrow.svg' alt='arrow' className='px-5 py-5'/>
                     </div>
                     </div>
-                    <div className='relative w-[180px] h-[90px] '>
+                    <div className='relative w-[160px] h-[80px] sm:w-[180px] sm:h-[90px] shrink-0'>
                         <img src='/icons/banner-global-icon.gif ' alt='globe' className='absolute bottom-4 right-1 w-[83px] h-[83px]'/>
                         <img src='/icons/updownarrow.svg' alt='arrow' className='absolute top-0 w-[170px] h-[90px] mt-1 -ml-1' />
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between w-[90%] border-t-[0.1px] border-black/30 ">
-                <div className='border-r-[0.1px] border-black/30 w-[40%] py-3'>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 w-full max-w-xl sm:w-[90%] border-t-[0.1px] border-black/30 ">
+                <div className='border-0 sm:border-r-[0.1px] border-black/30 w-full sm:w-[40%] py-3'>
                     <div className="flex items-center gap-1.5 mb-1">
                     <span className="text-lg text-gray-500 dark:text-black">Review on</span>
                     <div className="flex gap-0.5">
@@ -111,7 +111,7 @@ export default function Page2Content() {
           </div>
 
           {/* RIGHT — Carousel */}
-          <div className="relative  rounded-r-[24px] overflow-hidden">
+          <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-0 h-[45vh] lg:h-auto rounded-b-[24px] lg:rounded-b-none lg:rounded-r-[24px] overflow-hidden">
             {images.map((src, i) => (
               <img
                 key={i}
@@ -127,7 +127,7 @@ export default function Page2Content() {
               style={{ background: 'linear-gradient(135deg, #1a3a2a 0%, #2d6e4a 40%, #1a4a3a 100%)' }}
             />
 
-            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex gap-2 z-10 rounded-r-[24px]">
+            <div className="absolute bottom-8 md:bottom-32 left-1/2 -translate-x-1/2 flex gap-2 z-10 rounded-r-[24px]">
               {images.map((_, i) => (
                 <button
                   key={i}
@@ -144,9 +144,9 @@ export default function Page2Content() {
           </div>
 
           {/* STATS */}
-          <div className="absolute bottom-0 left-[64%] flex items-end z-3" style={{ transform: 'translateX(-80%)' }}>
+          <div className="relative lg:absolute lg:bottom-0 lg:left-[64%] flex flex-row items-stretch justify-center gap-2 z-[3] lg:z-3 px-4 pb-6 lg:pb-0 lg:px-0 w-full lg:w-auto lg:-translate-x-[80%]">
             <div
-                className="rounded-t-2xl flex flex-col justify-between px-8 py-6 min-w-[180px]"
+                className="rounded-t-2xl flex flex-col justify-between px-4 sm:px-8 py-5 sm:py-6 flex-1 sm:min-w-[160px] lg:min-w-[180px]"
                 style={{
                 height: '190px',
                 backgroundImage: 'url(/images/project-completed.png)',
@@ -159,7 +159,7 @@ export default function Page2Content() {
             </div>
 
             <div
-                className="rounded-t-2xl flex flex-col justify-between -ml-3 px-8 py-6 min-w-[180px]"
+                className="rounded-t-2xl flex flex-col justify-between -ml-2 sm:-ml-3 px-4 sm:px-8 py-5 sm:py-6 flex-1 sm:min-w-[160px] lg:min-w-[180px]"
                 style={{
                 height: '220px',
                 backgroundImage: 'url(/images/customer-satisfaction.png)',

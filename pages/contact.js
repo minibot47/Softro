@@ -56,7 +56,7 @@ export default function Contact() {
             <Navbar/>
 
             {/* Hero */}
-            <div className="flex flex-col px-20 mt-24 py-10 max-w-[1440px] m-auto items-start justify-start">
+            <div className="flex flex-col px-4 sm:px-8 md:px-16 lg:px-20 mt-20 md:mt-24 py-8 md:py-10 max-w-[1440px] m-auto items-start justify-start">
                 
                 {/* Breadcrumb */}
                 <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
@@ -75,12 +75,12 @@ export default function Contact() {
                     <span>Contact</span>
                 </div>
 
-                <h2 className="text-6xl">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                     Start a Conversation<br/> With Our Expert Team
                 </h2>
 
                 {/* Vertical bullet */}
-                <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
+                <ul className="space-y-6 text-gray-700 ml-0 md:ml-14 md:pl-16 mt-5 max-w-full">
                     <li className="flex gap-4">
                         <div className="flex flex-col items-center ">
                             <svg width="6" height="6" viewBox="0 0 10 10">
@@ -103,11 +103,11 @@ export default function Contact() {
             </div>
 
             {/* CONTACT */}
-            <div className="w-full max-w-[1440px] mx-auto px-20 py-10">
-            <div className="border border-gray-200 rounded-2xl bg-gray-50 p-10">
-                <div className="grid grid-cols-3 divide-x divide-gray-200">
+            <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-8 md:py-10">
+            <div className="border border-gray-200 rounded-2xl bg-gray-50 p-4 sm:p-6 md:p-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x divide-y md:divide-y-0 divide-gray-200">
                 {offices.map((office, i) => (
-                    <div key={i} className={`flex flex-col dark:text-black gap-7 ${i === 0 ? 'pr-12' : i === 1 ? 'px-12' : 'pl-12'}`}>
+                    <div key={i} className={`flex flex-col dark:text-black gap-6 md:gap-7 py-6 md:py-0 first:pt-0 md:first:pt-0 ${i === 0 ? 'md:pr-8 lg:pr-12' : i === 1 ? 'md:px-8 lg:px-12' : 'md:pl-8 lg:pl-12'}`}>
         
                     {/* City + view map */}
                     <div className="flex items-center gap-3">
@@ -162,23 +162,24 @@ export default function Contact() {
             </div>
 
             {/* FORM */}
-            <div className="w-[760px] h-fit m-auto mt-[120px] flex items-center justify-center p-4">
+            <div className="w-full max-w-[760px] h-fit m-auto mt-16 md:mt-[120px] flex items-center justify-center px-4">
             <div
-                className="w-full h-full rounded-[20px] p-12 flex flex-col justify-between"
+                className="w-full h-full rounded-[20px] p-6 sm:p-8 md:p-12 flex flex-col justify-between"
                 style={{ background: '#e8f5e1' }}
             >
                 {/* Fields */}
                 <div className="flex flex-col gap-4 flex-1">
         
                 {/* Row 1 */}
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-3">
                     <label className="text-lg font-medium dark:text-black text-gray-900">Full name</label>
                     <input
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        className="w-full bg-white h-[56px]  rounded-2xl px-5 py-5 text-base outline-none border-none"
+                        placeholder='Enter your full name'
+                        className="w-full bg-white h-[56px] dark:placeholder:text-white placeholder:text-black  rounded-2xl px-5 py-5 text-base outline-none border-none"
                     />
                     </div>
                     <div className="flex flex-col gap-3">
@@ -187,21 +188,23 @@ export default function Contact() {
                         name="company"
                         value={form.company}
                         onChange={handleChange}
-                        className="w-full bg-white h-[56px] rounded-2xl px-5 py-5 text-base outline-none border-none"
+                        placeholder='Enter your company name'
+                        className="w-full bg-white h-[56px] dark:placeholder:text-white placeholder:text-black  rounded-2xl px-5 py-5 text-base outline-none border-none"
                     />
                     </div>
                 </div>
         
                 {/* Row 2 */}
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-3">
-                    <label className="text-lg dark:text-black font-medium text-gray-900">Company Email</label>
+                    <label className="text-lg dark:text-black  font-medium text-gray-900">Company Email</label>
                     <input
                         name="email"
                         type="email"
                         value={form.email}
                         onChange={handleChange}
-                        className="w-full bg-white h-[56px]  rounded-2xl px-5 py-5 text-base outline-none border-none"
+                        placeholder='Enter your email here'
+                        className="w-full bg-white h-[56px] dark:placeholder:text-white placeholder:text-black  rounded-2xl px-5 py-5 text-base outline-none border-none"
                     />
                     </div>
                     <div className="flex flex-col gap-3">
@@ -211,7 +214,8 @@ export default function Contact() {
                         type="tel"
                         value={form.phone}
                         onChange={handleChange}
-                        className="w-full bg-white h-[56px]  rounded-2xl px-5 py-5 text-base outline-none border-none"
+                        placeholder='Enter your phone number'
+                        className="w-full bg-white h-[56px] dark:placeholder:text-white placeholder:text-black  rounded-2xl px-5 py-5 text-base outline-none border-none"
                     />
                     </div>
                 </div>
@@ -220,7 +224,7 @@ export default function Contact() {
                 <div className="flex flex-col gap-4">
                     <label className="text-lg font-medium dark:text-black text-gray-900">How can We Assist You?</label>
                     <div className="flex flex-col gap-3">
-                        <div className="flex items-center gap-10">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-8 md:gap-10">
                             {services.slice(0, 3).map((s) => (
                                 <button
                                     key={s}
@@ -246,7 +250,7 @@ export default function Contact() {
                                 </button>
                             ))}
                         </div>
-                        <div className="flex items-center gap-10">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-8 md:gap-10">
                             {services.slice(3, 6).map((s) => (
                                 <button
                                     key={s}

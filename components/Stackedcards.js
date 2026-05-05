@@ -72,7 +72,15 @@ export default function StackedPortfolio() {
   const [styles, setStyles] = useState(
     works.map(() => ({ scale: 1, opacity: 1 }))
   )
+  const [stackCardHeight, setStackCardHeight] = useState(520)
   const containerRef = useRef(null)
+
+  useEffect(() => {
+    const update = () => setStackCardHeight(window.innerWidth < 768 ? 440 : 520)
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
 
   useEffect(() => {
     let raf = null
@@ -114,7 +122,7 @@ export default function StackedPortfolio() {
     <div
       ref={containerRef}
       className="relative"
-      style={{ height: `${works.length * 520}px` }}
+      style={{ height: `${works.length * stackCardHeight}px` }}
     >
       {works.map((work, i) => (
         <div

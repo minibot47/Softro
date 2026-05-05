@@ -154,7 +154,7 @@ export default function Projects() {
       <Navbar />
 
       {/* Hero */}
-      <div className="flex flex-col px-20 mt-24 py-10 max-w-[1440px] m-auto items-start justify-start">
+      <div className="flex flex-col px-4 sm:px-8 md:px-16 lg:px-20 mt-20 md:mt-24 py-8 md:py-10 max-w-[1440px] m-auto items-start justify-start">
         <div className="flex items-center gap-3 mb-10 text-base text-gray-700">
           <span>Home</span>
           <div className="flex items-center">
@@ -168,8 +168,8 @@ export default function Projects() {
           </div>
           <span>{project.title}</span>
         </div>
-        <h2 className="text-6xl">Explore Our Work Across<br /> Industries and Mediums</h2>
-        <ul className="space-y-6 text-gray-700 ml-14 px-16 mt-5">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Explore Our Work Across<br /> Industries and Mediums</h2>
+        <ul className="space-y-6 text-gray-700 ml-0 md:ml-14 md:pl-16 mt-5 max-w-full">
           <li className="flex gap-4">
             <div className="flex flex-col items-center">
                 <svg width="6" height="6" viewBox="0 0 10 10">
@@ -188,7 +188,7 @@ export default function Projects() {
       </div>
 
       {/* IMAGE SECTION */}
-      <div className="relative w-[98%] m-auto rounded-[12px] h-[622px] mt-10 overflow-hidden">
+      <div className="relative w-[98%] m-auto rounded-[12px] min-h-[280px] h-[45vh] sm:h-[55vh] md:h-[622px] mt-8 md:mt-10 overflow-hidden">
         {project.slides.map((s, i) => (
           <img
             key={i}
@@ -204,7 +204,7 @@ export default function Projects() {
         <button onClick={next1} className="absolute right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full border-[0.1px] border-white hover:bg-white flex items-center justify-center shadow transition-all duration-200">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
         </button>
-        <div className="absolute bottom-0 right-[5%] gap-5 w-[346px] h-fit rounded-t-[12px] bg-white text-black p-8 flex flex-col z-10 transition-all duration-500">
+        <div className="absolute bottom-0 left-0 right-0 md:left-auto md:right-[5%] gap-5 w-full md:w-[346px] max-w-full md:max-w-[346px] h-fit rounded-t-[12px] bg-white text-black p-5 sm:p-8 flex flex-col z-10 transition-all duration-500 mx-auto md:mx-0">
           {[['Industry', slide1.industry], ['Duration', slide1.duration], ['Services', slide1.services], ['Client', slide1.client]].map(([label, value]) => (
             <div key={label} className="flex text-base w-full">
               <h2 className="text-gray-600 w-[40%]">{label}</h2>
@@ -215,9 +215,9 @@ export default function Projects() {
       </div>
 
       {/* About the project */}
-      <div className="w-full max-w-[1440px] mx-auto px-20 py-16 flex flex-col gap-12">
-        <h2 className="text-4xl font-bold text-gray-900">About the Project</h2>
-        <div className="grid grid-cols-2 gap-x-20 gap-y-14">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16 flex flex-col gap-10 md:gap-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">About the Project</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-20 gap-y-10 md:gap-y-14">
           <div className="flex flex-col gap-4">
             <h3 className="text-xl font-bold text-gray-900">Challenge:</h3>
             <p className="text-gray-500 text-base leading-relaxed">{project.challenge}</p>
@@ -252,16 +252,16 @@ export default function Projects() {
       </div>
 
       {/* Images */}
-      <div className="w-full flex px-20 h-[510px] mt-5 gap-8 m-auto">
-        <img src={project.images[0]} alt="project" className="w-1/2 h-full rounded-[12px]" />
-        <img src={project.images[1]} alt="project" className="w-1/2 h-full rounded-[12px]" />
+      <div className="w-full flex flex-col md:flex-row px-4 sm:px-8 md:px-16 lg:px-20 min-h-0 md:h-[510px] mt-5 gap-4 md:gap-8 m-auto max-w-[1440px]">
+        <img src={project.images[0]} alt="project" className="w-full md:w-1/2 h-56 sm:h-64 md:h-full object-cover rounded-[12px]" />
+        <img src={project.images[1]} alt="project" className="w-full md:w-1/2 h-56 sm:h-64 md:h-full object-cover rounded-[12px]" />
       </div>
 
       {/* Results */}
-      <div className="w-full max-w-[1440px] mx-auto px-20 py-16 flex flex-col gap-12 mb-5">
-        <div className="flex items-center gap-16">
-          <div className="flex-1 flex flex-col gap-4">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Results & Impact</h2>
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16 flex flex-col gap-10 md:gap-12 mb-5">
+        <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16">
+          <div className="flex-1 flex flex-col gap-4 min-w-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Results & Impact</h2>
             <ul className="flex flex-col gap-6">
               {project.results.map((r, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-600 text-lg leading-relaxed">
@@ -276,8 +276,8 @@ export default function Projects() {
               ))}
             </ul>
           </div>
-          <div className="w-[480px] flex-shrink-0 rounded-3xl flex flex-col items-center justify-center gap-8 py-20 px-12 text-center" style={{ background: '#0d2b22' }}>
-            <h3 className="text-3xl font-bold text-white leading-snug">
+          <div className="w-full lg:w-[480px] flex-shrink-0 rounded-3xl flex flex-col items-center justify-center gap-6 md:gap-8 py-12 md:py-20 px-6 sm:px-12 text-center" style={{ background: '#0d2b22' }}>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white leading-snug">
               Partnerships That Grow<br />Stronger After Every<br />Project
             </h3>
             <a href="/contact" className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl font-semibold text-base transition-opacity hover:opacity-90" style={{ background: '#c5e87a', color: '#0d2b22' }}>
@@ -289,10 +289,10 @@ export default function Projects() {
       </div>
 
       {/* Project navigation + category slider */}
-      <div className="w-full max-w-[1440px] mx-auto px-20 py-10 flex flex-col gap-6 mb-10">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-8 md:py-10 flex flex-col gap-6 mb-10">
 
         {/* Category tabs */}
-        <div className="flex justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
           {categories.map((cat) => (
             <button key={cat} onClick={() => handleCategory(cat)}
               className="px-5 py-2.5 rounded-xl text-sm font-medium border transition-all duration-200"

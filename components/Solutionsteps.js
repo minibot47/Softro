@@ -121,17 +121,17 @@ export default function SolutionSteps() {
   }
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto px-20 py-24">
+    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-24">
 
       {/* Header */}
-      <div className="flex flex-col items-center text-center mb-20">
+      <div className="flex flex-col items-center text-center mb-12 md:mb-20">
         <span className="border border-gray-300 rounded-full px-5 py-1.5 text-sm font-medium text-gray-700 mb-6">
           Solutions Steps
         </span>
-        <h2 className="text-6xl font-bold text-gray-900 leading-tight mb-5">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 px-2">
           How We Transform<br />Challenges Solutions
         </h2>
-        <p className="text-gray-400 text-lg">How we craft innovative solutions step by step</p>
+        <p className="text-gray-400 text-base sm:text-lg px-2">How we craft innovative solutions step by step</p>
       </div>
 
       {/* Slider viewport — clips overflow */}
@@ -148,7 +148,7 @@ export default function SolutionSteps() {
 
         {/* Sliding track */}
         <div
-          className="flex gap-2  px-8"
+          className="flex gap-2 px-2 sm:px-8"
           style={{
             transform: `translateX(${offset}px)`,
             transition: isResetting ? 'none' : 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',

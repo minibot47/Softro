@@ -121,25 +121,25 @@ export default function About() {
                 <div className="w-full h-fit grid grid-cols-2 md:grid-cols-4 border-t-[0.1px] border-gray-400/30">
                     <div className="border-r-[0.1px] border-b md:border-b-0 border-gray-400/30 gap-4 flex items-center justify-center py-8 md:py-10 px-2">
                         <div className="flex items-end gap-5 justify-end ">
-                            <h2 className="text-4xl md:text-6xl">12</h2>
+                            <h2 className="text-6xl md:text-6xl">12</h2>
                             <h2>Years<br/> of Experience</h2>
                         </div>
                     </div>
                     <div className="border-r-[0.1px] border-b md:border-b-0 border-gray-400/30 gap-4 flex items-center justify-center py-8 md:py-10 px-2">
                         <div className="flex items-end gap-5 justify-end ">
-                            <h2 className="text-4xl md:text-6xl">5</h2>
+                            <h2 className="text-6xl md:text-6xl">5</h2>
                             <h2>Industry <br/>Awards</h2>
                         </div>
                     </div>
                     <div className="border-r-[0.1px] border-gray-400/30 gap-4 flex items-center justify-center py-8 md:py-10 px-2">
                         <div className="flex items-end gap-5 justify-end ">
-                            <h2 className="text-4xl md:text-6xl">2K</h2>
+                            <h2 className="text-6xl md:text-6xl">2K</h2>
                             <h2>Global Clients<br/>Served</h2>
                         </div>
                     </div>
                     <div className="gap-4 flex items-center justify-center py-8 md:py-10 px-2">
                         <div className="flex items-end gap-5 justify-end ">
-                            <h2 className="text-4xl md:text-6xl">3K</h2>
+                            <h2 className="text-6xl md:text-6xl">3K</h2>
                             <h2>Users<br/> Engaged</h2>
                         </div>
                     </div>

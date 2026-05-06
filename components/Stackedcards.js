@@ -121,8 +121,8 @@ export default function StackedPortfolio() {
   return (
     <div
       ref={containerRef}
-      className="relative"
-      style={{ height: `${works.length * stackCardHeight}px` }}
+      className="relative h-fit"
+      
     >
       {works.map((work, i) => (
         <div

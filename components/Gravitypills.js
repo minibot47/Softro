@@ -23,7 +23,7 @@ function pillSize(label) {
 function createWalls(W, H) {
   const thick = 80
   return [
-    // Ground — sits exactly at the bottom of the container
+    // Ground
     Bodies.rectangle(W / 2, H + thick / 2, W + thick * 2, thick, {
       isStatic: true,
       render: { visible: false },
@@ -38,11 +38,7 @@ function createWalls(W, H) {
       isStatic: true,
       render: { visible: false },
     }),
-    // Roof — pills spawn just above this
-    Bodies.rectangle(W / 2, -thick / 2, W + thick * 2, thick, {
-      isStatic: true,
-      render: { visible: false },
-    }),
+    // ← roof removed
   ]
 }
 
@@ -50,7 +46,7 @@ function createPillBodies(W, pillDefs) {
   return pillDefs.map((pill, i) => {
     const { w, h } = pillSize(pill.label)
     const x = w / 2 + Math.random() * Math.max(8, W - w - 16)
-    const y = -h - i * 60 // stagger drop timing via vertical offset
+    const y = -h - i * (h + 8)
     return Bodies.rectangle(x, y, w, h, {
       chamfer: { radius: h / 2 },
       restitution: 0.25,
@@ -123,7 +119,7 @@ export default function GravityPills() {
       const { W, H } = getSize()
       if (W < 80 || H < 80) return
 
-      engine = Engine.create({ enableSleeping: true })
+      engine = Engine.create({ enableSleeping: false })
 
       const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1
 
@@ -200,12 +196,6 @@ export default function GravityPills() {
       runner = Runner.create()
       Render.run(render)
       Runner.run(runner, engine)
-
-      // Drop pills only when the section scrolls into view.
-      // We use W from the outer setupMatter scope — NOT a fresh getSize() call —
-      // because IntersectionObserver can fire after layout shifts when
-      // getBoundingClientRect() may briefly return 0, causing all pills to
-      // spawn at the same x position and appear as a single pill.
       const addPills = () => {
         if (pillsAdded || !engine) return
         pillsAdded = true

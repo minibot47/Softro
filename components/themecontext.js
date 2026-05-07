@@ -7,22 +7,29 @@ function shouldBeDark() {
   return hour >= 18 || hour < 6
 }
 
+function getInitialTheme() {
+  if (typeof window === 'undefined') return false
+
+  const savedTheme = localStorage.getItem('theme')
+  const savedManual = localStorage.getItem('theme-manual') === 'true'
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  if (savedManual && savedTheme) {
+    return savedTheme === 'dark'
+  }
+
+  return shouldBeDark() || prefersDark
+}
+
 export function ThemeProvider({ children }) {
-  const [dark, setDark] = useState(false)
-  const [manualOverride, setManualOverride] = useState(false)
+  const [dark, setDark] = useState(getInitialTheme)
+  const [manualOverride, setManualOverride] = useState(
+    () => typeof window !== 'undefined' && localStorage.getItem('theme-manual') === 'true'
+  )
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme')
-    const savedManual = localStorage.getItem('theme-manual') === 'true'
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-    setManualOverride(savedManual)
-
-    if (savedManual && savedTheme) {
-      setDark(savedTheme === 'dark')
-    } else {
-      setDark(shouldBeDark() || prefersDark)
-    }
+    setMounted(true)
   }, [])
 
   useEffect(() => {
@@ -41,7 +48,7 @@ export function ThemeProvider({ children }) {
         setManualOverride(false)
         localStorage.removeItem('theme-manual')
       } else if (!manualOverride) {
-        setDark(prefersDark) // ✅ was hardcoded to false before
+        setDark(prefersDark)
       }
     }, 60 * 1000)
 
@@ -55,7 +62,7 @@ export function ThemeProvider({ children }) {
   }
 
   return (
-    <ThemeContext.Provider value={{ dark, toggleTheme }}>
+    <ThemeContext.Provider value={{ dark: mounted ? dark : false, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )

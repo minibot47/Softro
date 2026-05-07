@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
       <main className={funnel.className}>
         <CustomCursor />
         <ThemeToggle />
-        <ScrollProgress /> 
+        <ScrollProgress />
         <Component {...pageProps} />
       </main>
     </ThemeProvider>

@@ -162,7 +162,7 @@ export default function Contact() {
             </div>
 
             {/* FORM */}
-            <div className="w-full max-w-[760px] h-fit m-auto mt-16 md:mt-[120px] flex items-center justify-center px-4">
+            <div className="w-full max-w-[760px] h-fit m-auto mb-10 md:mb-0 mt-16 md:mt-[120px] flex items-center justify-center px-4">
             <div
                 className="w-full h-full rounded-[20px] p-6 sm:p-8 md:p-12 flex flex-col justify-between"
                 style={{ background: '#e8f5e1' }}

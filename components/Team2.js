@@ -92,7 +92,7 @@ export default function Team() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-10 md:mb-14">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-[33px] w-full md:w-[50%]">
-              <span className="text-base font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Team</span>
+              <span className="text-base w-fit font-normal text-black dark:text-white border border-green-500 dark:border-green-700 px-2 py-0.5 rounded-full">Team</span>
               <div className="flex flex-col gap-5">
                 <h2
                   className="text-4xl md:text-5xl font-medium text-black dark:text-white"

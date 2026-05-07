@@ -223,7 +223,7 @@ export default function Faq() {
             <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row gap-10 lg:gap-0 min-h-0 lg:min-h-[80vh] px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16">
             
             {/* Left sidebar */}
-            <div className="w-full lg:w-[30%] flex-shrink-0 flex flex-col justify-between lg:pr-10">
+            <div className="w-full lg:w-[30%] flex-shrink-0 flex flex-col-reverse lg:flex-col justify-between lg:pr-10">
             <nav className="flex flex-col gap-1">
                 {categories.map((cat) => (
                 <button
@@ -241,7 +241,7 @@ export default function Faq() {
             </nav>
 
             {/* Image card */}
-            <div className="mt-10 rounded-2xl overflow-hidden relative h-[320px]">
+            <div className="mt-10 rounded-2xl overflow-hidden relative h-[320px] mb-10 lg:mb-0">
                 <img
                 src="/images/faqimg.png"
                 alt="Collaborate"
@@ -269,7 +269,7 @@ export default function Faq() {
             </div>
 
             {/* Right accordion */}
-            <div className="w-full lg:w-[70%] flex-1 border-0 lg:border-l border-gray-100 lg:pl-14 pt-6 lg:pt-0 border-t border-gray-100 lg:border-t-0">
+            <div className="w-full lg:w-[70%] flex-1 border-0 lg:border-l  lg:pl-14 pt-6 lg:pt-0 border-t border-gray-100 lg:border-t-0">
             <div className="divide-y divide-gray-100">
                 {questions.map((item, i) => (
                 <div key={i} className="py-5">

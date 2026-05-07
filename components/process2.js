@@ -121,7 +121,7 @@ export default function Process2() {
           <div className="flex flex-col gap-0 items-end relative">
 
             {/* Vertical line */}
-            <div className="absolute right-[calc(80%-24px)] top-10 bottom-10 w-px bg-gray-200 z-0" />
+            <div className="absolute sm:right-[calc(80%-24px)] right-[calc(100%-20px)] top-10 bottom-10 w-px bg-gray-200 z-0" />
 
             {steps.map((step, i) => {
               const isGreen = i <= activeUpTo

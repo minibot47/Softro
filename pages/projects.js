@@ -198,15 +198,15 @@ export default function Projects() {
             style={{ opacity: i === current ? 1 : 0 }}
           />
         ))}
-        <button onClick={prev1} className="absolute left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full border-[0.1px] border-white hover:bg-white flex items-center justify-center shadow transition-all duration-200">
+        <button onClick={prev1} className="hidden md:flex absolute left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full border-[0.1px] border-white hover:bg-white  items-center justify-center shadow transition-all duration-200">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M15 18l-6-6 6-6" /></svg>
         </button>
-        <button onClick={next1} className="absolute right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full border-[0.1px] border-white hover:bg-white flex items-center justify-center shadow transition-all duration-200">
+        <button onClick={next1} className="hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full border-[0.1px] border-white hover:bg-white  items-center justify-center shadow transition-all duration-200">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
         </button>
         <div className="absolute bottom-0 left-0 right-0 md:left-auto md:right-[5%] gap-5 w-full md:w-[346px] max-w-full md:max-w-[346px] h-fit rounded-t-[12px] bg-white text-black p-5 sm:p-8 flex flex-col z-10 transition-all duration-500 mx-auto md:mx-0">
           {[['Industry', slide1.industry], ['Duration', slide1.duration], ['Services', slide1.services], ['Client', slide1.client]].map(([label, value]) => (
-            <div key={label} className="flex text-base w-full">
+            <div key={label} className="flex text-sm sm:text-base w-full">
               <h2 className="text-gray-600 w-[40%]">{label}</h2>
               <h2 className="w-[60%]">{value}</h2>
             </div>
@@ -215,7 +215,7 @@ export default function Projects() {
       </div>
 
       {/* About the project */}
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16 flex flex-col gap-10 md:gap-12">
+      <div className="w-full max-w-[1440px] mx-auto px-2 sm:px-8 md:px-16 lg:px-20 py-12 md:py-16 flex flex-col gap-10 md:gap-12">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">About the Project</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-20 gap-y-10 md:gap-y-14">
           <div className="flex flex-col gap-4">

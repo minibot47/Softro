@@ -40,7 +40,7 @@ export default function Footer2() {
             {/* Arrow button — top right */}
             <a
               href="#"
-              className="group relative flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-2 border-white flex items-center justify-center mt-0 sm:mt-4 overflow-hidden mx-auto sm:mx-0"
+              className="group hidden md:flex relative flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-2 border-white items-center justify-center mt-0 sm:mt-4 overflow-hidden mx-auto sm:mx-0"
             >
               {/* OUTSIDE-IN FILL */}
               <span className="absolute inset-0 rounded-full">

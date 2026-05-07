@@ -94,26 +94,26 @@ export default function Team() {
 
                 {/* Stats Card */}
                 <div
-                    className="absolute bottom-0 left-0 right-0 md:left-auto md:right-[15%] w-full max-w-full md:w-[386px] md:max-w-[386px] min-h-[280px] md:h-[365px] rounded-t-[12px] bg-white text-black p-4 sm:p-7 grid grid-cols-2 grid-rows-2 mx-auto md:mx-0"
+                    className="hidden absolute bottom-0 left-0 right-0 md:left-auto md:right-[15%] sm:w-full w-fit max-w-full md:w-[386px] md:max-w-[386px] h-fit md:h-[365px] rounded-t-[12px] bg-white text-black p-4 sm:p-7 sm:grid grid-cols-2 grid-rows-2 mx-auto md:mx-0"
                 >
-                    <div className="flex flex-col items-start border-b border-gray-200/40 gap-4 p-2 2xl:p-5">
-                        <h2 className='text-lg 2xl:text-lg'>Years of <br/> expertise</h2>
-                        <h2 className="text-5xl 2xl:text-5xl font-medium">12+</h2>
+                    <div className="flex flex-col items-start border-b border-gray-200/40 gap-4 p-1 2xl:p-5">
+                        <h2 className='text-sm lg:text-lg'>Years of <br/> expertise</h2>
+                        <h2 className="text-2xl lg:text-5xl font-medium">12+</h2>
                     </div>
 
-                    <div className="flex flex-col items-start pl-10 border-b border-l border-gray-200/40 gap-4 p-2 2xl:p-5">
-                        <h2 className='text-lg 2xl:text-lg'>Industry <br/> Awards</h2>
-                        <h2 className="text-5xl 2xl:text-5xl font-semibold">05</h2>
+                    <div className="flex flex-col items-start pl-10 border-b border-l border-gray-200/40 gap-4 p-1 2xl:p-5">
+                        <h2 className='text-sm lg:text-lg'>Industry <br/> Awards</h2>
+                        <h2 className="text-2xl lg:text-5xl font-semibold">05</h2>
                     </div>
 
-                    <div className="flex flex-col items-start gap-4 p-2 2xl:p-5">
-                        <h2 className='text-lg 2xl:text-lg'>Creative <br/> Minds</h2>
-                        <h2 className="text-5xl 2xl:text-5xl font-semibold">25+</h2>
+                    <div className="flex flex-col items-start gap-4 p-1 2xl:p-5">
+                        <h2 className='text-sm lg:text-lg'>Creative <br/> Minds</h2>
+                        <h2 className="text-2xl lg:text-5xl font-semibold">25+</h2>
                     </div>
 
-                    <div className="flex flex-col items-start pl-10 border-l border-gray-200/40 gap-4 p-2 2xl:p-5">
-                        <h2 className='text-lg 2xl:text-lg'>Project <br/> Completed</h2>
-                        <h2 className="text-5xl 2xl:text-5xl font-semibold">1k+</h2>
+                    <div className="flex flex-col items-start pl-10 border-l border-gray-200/40 gap-4 p-1 2xl:p-5">
+                        <h2 className='text-sm lg:text-lg'>Project <br/> Completed</h2>
+                        <h2 className="text-2xl lg:text-5xl font-semibold">1k+</h2>
                     </div>
                 </div>
             </div>

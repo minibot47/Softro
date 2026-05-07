@@ -29,7 +29,7 @@ export default function Page2Content() {
       <Navbar/>
       <section className="min-h-screen pt-20 2xl:px-10 px-3 bg-white dark:bg-[#0f1210]">
         {/* HERO */}
-        <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 bg-[#EEEEEE] min-h-[auto] lg:min-h-[80vh] rounded-[24px] lg:[grid-template-columns:1fr_1.2fr]">
+        <div className="relative w-full grid grid-cols-1  bg-[#EEEEEE] min-h-[auto] lg:min-h-[80vh] rounded-[24px] lg:[grid-template-columns:1fr_1.2fr]">
 
           {/* LEFT */}
           <div className="flex flex-col justify-center px-4 sm:px-6 py-12 md:py-24 relative items-center lg:items-stretch">
@@ -41,11 +41,25 @@ export default function Page2Content() {
                 </h1>
 
                 <div className="flex items-start gap-3 mb-10 w-full  ">
-                <div className="w-px bg-gray-400 mt-1 flex-shrink-0" style={{ height: '48px' }} />
-                <p className="text-gray-600 text-lg leading-relaxed dark:text-black">
-                    We help <strong className="text-gray-900 font-semibold">businesses</strong> reach the right audience,<br/>
-                    boost engagement, and skyrocket conversions.
-                </p>
+                <ul className="space-y-6 text-gray-700  mt-5 max-w-full">
+                    <li className="flex gap-4">
+                        <div className="flex flex-col items-center ">
+                            <svg width="6" height="6" viewBox="0 0 10 10">
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+                            </svg>
+
+                            <div className="w-[1px] flex-1 bg-black dark:bg-white"></div>
+
+                            <svg width="6" height="6"viewBox="0 0 10 10">
+                            <path d="M5 0L10 5L5 10L0 5Z" className="fill-black dark:fill-white" />
+                            </svg>
+                        </div>
+                        {/* Text */}
+                        <p className="leading-relaxed text-lg">
+                        We help <strong className="text-gray-900 font-semibold">businesses</strong> reach the right audience,<br/> boost engagement, and skyrocket conversions.
+                        </p>
+                    </li>
+                    </ul>
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pl-0 sm:pl-4 mb-10 md:mb-14">
@@ -144,9 +158,9 @@ export default function Page2Content() {
           </div>
 
           {/* STATS */}
-          <div className="relative lg:absolute lg:bottom-0 lg:left-[64%] flex flex-row items-stretch justify-center gap-2 z-[3] lg:z-3 px-4 pb-6 lg:pb-0 lg:px-0 w-full lg:w-auto lg:-translate-x-[80%]">
+          <div className="hidden lg:flex lg:absolute lg:bottom-0 lg:left-[64%] flex-row items-end justify-center gap-2 z-[3] lg:z-3 px-4 pb-6 lg:pb-0 lg:px-0 w-full lg:w-auto lg:-translate-x-[80%]">
             <div
-                className="rounded-t-2xl flex flex-col justify-between px-4 sm:px-8 py-5 sm:py-6 flex-1 sm:min-w-[160px] lg:min-w-[180px]"
+                className="rounded-t-2xl  flex flex-col justify-between px-4 sm:px-8 py-5 sm:py-6 flex-1 sm:min-w-[160px] lg:min-w-[180px]"
                 style={{
                 height: '190px',
                 backgroundImage: 'url(/images/project-completed.png)',
@@ -159,7 +173,7 @@ export default function Page2Content() {
             </div>
 
             <div
-                className="rounded-t-2xl flex flex-col justify-between -ml-2 sm:-ml-3 px-4 sm:px-8 py-5 sm:py-6 flex-1 sm:min-w-[160px] lg:min-w-[180px]"
+                className="rounded-t-2xl flex flex-col justify-between -ml-2 sm:-ml-5 px-4 sm:px-8 py-5 sm:py-6 flex-1 sm:min-w-[160px] lg:min-w-[180px]"
                 style={{
                 height: '220px',
                 backgroundImage: 'url(/images/customer-satisfaction.png)',

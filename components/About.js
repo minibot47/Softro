@@ -18,12 +18,13 @@ export default function About() {
           </div>
 
           {/* CARD */}
-          <div className="bg-white dark:bg-[#151a16] rounded-2xl p-2 border-[0.1px] border-gray-200 dark:border-gray-800 shadow-sm w-full max-w-[380px] min-h-[320px] sm:h-[404px] mx-auto sm:mx-0 flex flex-col justify-between overflow-hidden">
-            <h3 className="font-normal text-2xl mt-8 mb-5 text-center text-gray-800 dark:text-white">
+          <div className="bg-white relative dark:bg-[#151a16] rounded-2xl  border-[0.1px] border-gray-200 dark:border-gray-800 shadow-sm w-full max-w-[380px] min-h-[320px] sm:h-[404px] mx-auto sm:mx-0 flex flex-col justify-between overflow-hidden">
+            <h3 className="font-normal absolute top-0 left-[10%] text-2xl mt-8 mb-5 text-center text-gray-800 dark:text-white">
               What Makes Us Different:
             </h3>
-
-            <GravityPills/>
+            <div className="h-full p-1">
+              <GravityPills/>
+            </div>
           </div>
         </div>
 

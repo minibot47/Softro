@@ -232,7 +232,7 @@ export default function GravityPills() {
   return (
     <div
       ref={matterRef}
-      className="w-full h-[220px] sm:h-[240px] md:h-[260px] rounded-b-[10px] overflow-hidden touch-none"
+      className="w-full h-[398px] rounded-b-[10px] overflow-hidden touch-none"
       style={{ cursor: 'grab' }}
     />
   )

@@ -178,7 +178,7 @@ export default function Footer2() {
         </footer>
       </div>
       {/* Bottom bar */}
-      <div className=" bg-white text-black  max-w-[1440px] m-auto">
+      <div className=" bg-transparent text-black  max-w-[1440px] m-auto">
         <div className="px-4 sm:px-8 md:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-black text-center sm:text-left">
           <p>©Copyright 2026 <strong className="text-white">Egens Lab</strong> | All Right Reserved.</p>
           <div className="flex items-center gap-6">
